@@ -1,0 +1,5 @@
+def addNewMemberDB(username):
+    '''
+    ? 
+    '''
+    return
