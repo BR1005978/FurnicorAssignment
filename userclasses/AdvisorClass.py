@@ -8,7 +8,7 @@ class Advisor:
 
 
     def updateOwnPassword(_password):
-        '''update own password'''
+        '''Update own password'''
         password = _password
 
     def addNewMember(firstname, lastname):
