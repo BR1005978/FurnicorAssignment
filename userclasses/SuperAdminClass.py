@@ -5,11 +5,26 @@ class SuperAdmin(SysAdmin):
     username = "superadmin"
     password = "Admin321!"
 
+    ###########################################
+    ### list of functions from superclasses ###
 
-    #def updateOwnPassword(_password):
-    #def addNewMember():
-    #def modifyMember():
-    #def queryMember():
+    # from Advisor
+    #updateOwnPassword():
+    #addNewMember():
+    #modifyMember():
+    #queryMember():
+
+    # from SysAdmin
+    #queryUsers():
+    #newAdvisor():
+    #modifyAdvisor():
+    #deleteAdvisor():
+    #resetAdvisorPassword():
+    #backupSystem():
+    #showLogs():
+    #deleteMember():
+    
+    ###########################################
 
     def addAdmin():
         '''add a new admin to the system'''

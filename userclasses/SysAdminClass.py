@@ -2,15 +2,22 @@ from userclasses.AdvisorClass import Advisor
 
 
 class SysAdmin(Advisor):
-    #def updateOwnPassword(_password):
-    #def addNewMember():
-    #def modifyMember():
-    #def queryMember():
-    #def addAdmin():
-    #def modifyAdmin():
-    #def deleteAdmin():
-    #def resetAdminPassword():
 
+    '''
+    System Administrators (to be defined by the Super Administrator only) 
+    An admin who can manage advisors (register new advisor, modify or delete
+    an advisor, etc.)
+
+    > this class inherits from the Advisor class due to shared functionality
+    '''
+
+    ###########################################
+    ### functions inherited from advisor    ###
+    #updateOwnPassword():
+    #addNewMember():
+    #modifyMember():
+    #queryMember():
+    ###########################################
 
     def queryUsers():
         '''check the list of users and their roles'''
@@ -40,19 +47,8 @@ class SysAdmin(Advisor):
         '''show the logs file of the system'''
         return
 
-    def addMember():
-        '''add a new member to the system'''
-        return 
-    
-    def modifyMember():
-        '''modify or update the information of a member in the system'''
-        return
-
     def deleteMember():
         '''delete a member's record from the database'''
         return
-    
-    def searchMember():
-        '''search and retrieve the information of a member'''
-        return 
+
 
