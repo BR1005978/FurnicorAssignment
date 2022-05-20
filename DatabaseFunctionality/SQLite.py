@@ -1,6 +1,7 @@
 '''
 this file is deprecated. this no longer has any use in the program itself , but illustrates 
-some useful functions to be used in the rest of the program
+some useful functions to be used in the rest of the program.
+also to be used for fiddling with the database
 
 Important functions: 
 dbConn = sqlite3.connect('<filename>.db')
@@ -28,16 +29,25 @@ from Member import MemberClass
 
 
 databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
-
 DBcursor = databaseConnection.cursor()
 
 #create table
+DBcursor.execute("DROP TABLE Advisors")
 
 DBcursor.execute("""
-    CREATE TABLE Members (
-        firstname text, 
-        lastname text
+    CREATE TABLE Advisors (
+        username text, 
+        password text
         )""")
+
+
+DBcursor.execute("""
+    INSERT INTO Advisors
+    VALUES(
+        'dummyAdvisor',
+        'advisorpassword'
+    )
+    """)
 
 
 #insert
