@@ -8,10 +8,10 @@ Link naar assignment PDF: https://hrnl-my.sharepoint.com/:w:/g/personal/bashb_hr
 
 Link naar students guide AN8: https://hrnl-my.sharepoint.com/:w:/g/personal/bashb_hr_nl/EQ5pf7dY2N9KkZwaCVp8qSABZ7WwIgZWkD8z7K7PUXulTg?rtime=R14yJfc42kg
 
-Deelnemers:
-Bruno
-Hendrik 
-schaduwprogrammeur1 
-schaduwprogrammeur2
+Deelnemers:  
+Bruno  
+Hendrik   
+schaduwprogrammeur1   
+schaduwprogrammeur2  
 
 
