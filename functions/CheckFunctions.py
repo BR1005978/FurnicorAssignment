@@ -119,12 +119,12 @@ def usernameCheck(username):
 
 
 
-while True:
-    usernayme = input("enter username: ")
+# while True:
+#     usernayme = input("enter username: ")
 
-    outcomeUsername = usernameCheck(usernayme)
+#     outcomeUsername = usernameCheck(usernayme)
 
-    if isinstance(outcomeUsername, ValueError):
-        print("this is a value error: ", outcomeUsername)
-    else:
-        print("username probably correct", usernayme)
+#     if isinstance(outcomeUsername, ValueError):
+#         print("this is a value error: ", outcomeUsername)
+#     else:
+#         print("username probably correct", usernayme)

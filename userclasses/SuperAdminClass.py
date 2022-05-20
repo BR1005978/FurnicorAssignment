@@ -1,4 +1,4 @@
-from userclasses.SysAdminClass import SysAdmin
+from Userclasses.SysAdminClass import SysAdmin
 
 
 class SuperAdmin(SysAdmin):

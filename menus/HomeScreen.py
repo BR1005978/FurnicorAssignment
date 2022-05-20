@@ -1,4 +1,4 @@
-import Login as Login
+from menus.Login import loginScreen
 
 def homeScreen():
     '''intro screen '''
@@ -21,7 +21,7 @@ def homeScreen():
         answer = input("input: ")
 
         if answer =="1":
-            Login.loginScreen()
+            loginScreen()
         elif answer =="2":
             break
         else:

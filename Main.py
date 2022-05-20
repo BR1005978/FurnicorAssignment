@@ -1,9 +1,4 @@
-import sqlite3
-import functions.CheckFunctions as CheckFunctions
-from userclasses.SuperAdminClass import SuperAdmin
-import functions.HomeScreen as hs
-
-
+import Menus.HomeScreen as hs
 
 
 def Main():

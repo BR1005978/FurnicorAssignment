@@ -1,4 +1,4 @@
-from userclasses.AdvisorClass import Advisor
+from Userclasses.AdvisorClass import Advisor
 
 
 class SysAdmin(Advisor):
