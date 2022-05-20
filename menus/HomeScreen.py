@@ -1,4 +1,4 @@
-from menus.Login import loginScreen
+from Menus.Login import loginScreen
 
 def homeScreen():
     '''intro screen '''
@@ -22,7 +22,7 @@ def homeScreen():
 
         if answer =="1":
             loginScreen()
-        elif answer =="2":
+        elif answer =="9":
             break
         else:
             print("Input nog recognized")
