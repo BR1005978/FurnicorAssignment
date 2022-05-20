@@ -27,7 +27,7 @@ import sqlite3
 from Member import MemberClass
 
 
-databaseConnection = sqlite3.connect('member.db')
+databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
 
 DBcursor = databaseConnection.cursor()
 

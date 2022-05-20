@@ -1,4 +1,5 @@
 from Menus.Login import loginScreen
+from Menus.InfoScreen import displayInfo
 
 def homeScreen():
     '''intro screen '''
@@ -15,15 +16,18 @@ def homeScreen():
         print(
             """
 1. Login\n
-2. Exit
+2. Display program info\n
+3. Exit
             """)
 
-        answer = input("input: ")
+        answer = input("Select the number of an option and press enter : ")
 
         if answer =="1":
             loginScreen()
-        elif answer =="9":
-            break
+        if answer =="2":
+            displayInfo()
+        elif answer =="3":
+            exit()
         else:
             print("Input nog recognized")
 
