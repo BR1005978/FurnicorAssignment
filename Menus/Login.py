@@ -11,6 +11,9 @@ def searchDB(username, password):
     databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
     DBcursor = databaseConnection.cursor()
 
+    tables = ['Advisors', 'SysAdmins']
+    
+    # for table in tables:
     DBcursor.execute(f"""
                     SELECT * 
                     FROM Advisors

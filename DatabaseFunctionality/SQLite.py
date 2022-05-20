@@ -32,22 +32,22 @@ databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
 DBcursor = databaseConnection.cursor()
 
 #create table
-DBcursor.execute("DROP TABLE Advisors")
 
 DBcursor.execute("""
-    CREATE TABLE Advisors (
+    CREATE TABLE SysAdmins (
         username text, 
         password text
         )""")
 
+DBcursor.execute("DROP TABLE SysAdmin")
 
-DBcursor.execute("""
-    INSERT INTO Advisors
-    VALUES(
-        'dummyAdvisor',
-        'advisorpassword'
-    )
-    """)
+# DBcursor.execute("""
+#     INSERT INTO Advisors
+#     VALUES(
+#         'dummyAdvisor',
+#         'advisorpassword'
+#     )
+#     """)
 
 
 #insert
