@@ -1,7 +1,8 @@
 '''
-This is the file which ties the database to the rest of the software
+this file is deprecated. this no longer has any use in the program itself , but illustrates 
+some useful functions to be used in the rest of the program
 
-Noteworthy handlings: 
+Important functions: 
 dbConn = sqlite3.connect('<filename>.db')
     this is for linking to the database, and making a database writ if it does not stand as of yet
 
@@ -45,7 +46,7 @@ DBcursor.execute("""
 #     INSERT INTO Members
 #     VALUES(
 #         'Truus',
-#         'Hendrik',
+#         'Jacobs',
 #         3500
 #     )
 #     """)
@@ -56,7 +57,7 @@ DBcursor.execute("""
 #     SELECT *
 #     FROM members
 #     WHERE
-#     lastname = 'Hendrik'
+#     lastname = 'Jacobs'
 
 #     """)
 
