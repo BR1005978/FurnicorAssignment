@@ -19,7 +19,9 @@ class MemberClass:
     which must be equal to the remainder of the sum of the first 9 digits by 10.
     '''
 
-    def __init__(self, _firstname, _lastname, _email):
+    def __init__(self, _firstname, _lastname, _address, _email, _phonenumber):
         self.firstname = _firstname
         self.lastname = _lastname
-        self.doekoe = _email
+        self.address = _address
+        self.email = _email
+        self.phonenumber = _phonenumber
