@@ -24,7 +24,7 @@ def homeScreen():
 
         if answer =="1":
             loginScreen()
-        if answer =="2":
+        elif answer =="2":
             displayInfo()
         elif answer =="3":
             exit()
