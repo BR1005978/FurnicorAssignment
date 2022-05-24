@@ -25,3 +25,5 @@ class MemberClass:
         self.address = _address
         self.email = _email
         self.phonenumber = _phonenumber
+
+        

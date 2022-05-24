@@ -1,6 +1,11 @@
 import sqlite3;
 
 class Advisor:
+
+    '''
+    Advisors (to be defined by a system administrator or a super administrator) – An advisor can manage members in the system (register new members, modify, search or retrieve their information.)
+    this class serves as the base class for SysAdmin and SuperAdmin due to shared functionality.
+    '''
     def __init__(self, _username, _password):
         self.username = _username
         self.password = _password
