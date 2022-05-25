@@ -16,7 +16,7 @@ class Advisor:
         '''Update own password'''
         password = _password
 
-    def addNewMember(firstname, lastname):
+    def addNewMember(firstname, lastname, address, email, phonenumber):
         '''add a new member to the system'''
 
 
@@ -27,7 +27,10 @@ class Advisor:
             INSERT INTO Members
             VALUES(
                 '{firstname}',
-                '{lastname}'
+                '{lastname}',
+                '{address},
+                '{email}',
+                '31-6-{phonenumber}
             )
             """)
 

@@ -77,12 +77,5 @@ def initializer():
     databaseConnection.close()
 
 
-
-
-def createDummyData():
-    '''
-    This function fills the database with dummy data. insert random members and advisors etc into all 3 tables
-    '''
-
     
 

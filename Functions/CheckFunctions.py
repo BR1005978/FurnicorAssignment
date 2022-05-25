@@ -13,7 +13,7 @@ numbers = [str(i) for i in numbers1]
 
 def passwordCheck(password):
     '''
-    this haft oversees the entered password, ensuring that the input adheres to the following needs:
+    checks the password for a valid format:
 
     - Password must have a length of at least 8 characters
     - Cannot be longer than 30 characters

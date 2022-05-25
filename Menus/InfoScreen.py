@@ -1,5 +1,8 @@
 
 def displayInfo():
+    '''
+    display information about this program
+    '''
     extractedInfo = open("Menus/Infofiles/inf.txt")
 
     # with open ("inf.txt", "r") as readableFile:
