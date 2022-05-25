@@ -1,4 +1,7 @@
-import sqlite3;
+from datetime import date
+import sqlite3
+
+from Functions.Auxfunctions import generateUserID;
 
 class Advisor:
 
@@ -20,17 +23,19 @@ class Advisor:
         '''add a new member to the system'''
 
 
-        databaseConnection = sqlite3.connect('member.db')
+        databaseConnection = sqlite3.connect('FurnicorDatabase.db')
         DBcursor = databaseConnection.cursor()
 
         DBcursor.execute(f"""
             INSERT INTO Members
             VALUES(
+                '{generateUserID()}',
                 '{firstname}',
                 '{lastname}',
                 '{address},
                 '{email}',
-                '31-6-{phonenumber}
+                '31-6-{phonenumber},
+                '{date.today()}'
             )
             """)
 
@@ -66,5 +71,3 @@ class Advisor:
         return queryresult
 
 
-
-print(Advisor.queryMember("firstname", "Jan"))

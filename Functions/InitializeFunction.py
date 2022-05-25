@@ -58,11 +58,13 @@ def initializer():
     try:
         DBcursor.execute("""
             CREATE TABLE Members (
+                membershipID integer,
                 firstname text, 
                 lastname text,
                 address text,
                 email text,
-                phonenumber integer
+                phonenumber integer,
+                registrationdate text
                 )""")
     except sqlite3.OperationalError:
         print("Table Members already exists.")
@@ -77,5 +79,5 @@ def initializer():
     databaseConnection.close()
 
 
-    
+initializer()
 

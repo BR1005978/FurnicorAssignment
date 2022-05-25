@@ -1,3 +1,7 @@
+'''
+DEPRECATED
+'''
+
 class MemberClass:
     '''
     this member class has no functionality in this program and does not instantiate objects (as of 19-5-2022)

@@ -1,4 +1,11 @@
 import sqlite3
+from venv import create
+from Auxfunctions import generateUserID
+
+from datetime import date
+
+today = date.today()
+print(date.today())
 
 def wipeDatabase():
     '''
@@ -137,69 +144,81 @@ def createDummyData():
     """)
 
     ### insert members into database
-    DBcursor.execute("""
+    DBcursor.execute(f"""
     INSERT INTO Members
     VALUES(
+        '{generateUserID()}',
         'Knoert',
         'Klokiebril',
         'Stronkstraat 85, Otterdam',
         'k.klokerino@bonkmail.com',
-        '31-6-58785232'
+        '31-6-58785232',
+        '{date.today()}'
     )
     """)
 
-    DBcursor.execute("""
+    DBcursor.execute(f"""
     INSERT INTO Members
     VALUES(
+        '{generateUserID()}',
         'Sjaak',
         'Sjouwer',
         'Pronkstraat 88, Drollendam',
         'sappig_vleermuisje85@live.nl',
-        '31-6-55447895'
+        '31-6-55447895',
+        '{date.today()}'
     )
     """)    
 
-    DBcursor.execute("""
+    DBcursor.execute(f"""
     INSERT INTO Members
     VALUES(
+        '{generateUserID()}',
         'Jos',
         'Brulvink',
         'Pokémonstraat 103, Heerenvoorn',
         'brullerino@gmail.com',
-        '31-6-12969545'
+        '31-6-12969545',
+        '{date.today()}'
     )
     """)    
 
-    DBcursor.execute("""
+    DBcursor.execute(f"""
     INSERT INTO Members
     VALUES(
+        '{generateUserID()}',
         'Terry',
         'Tarrelbraft',
         'Snaakstraat 5, Hoogkerk',
         'tarreltjeknarreltje@outlook.com',
-        '31-6-17879325'
+        '31-6-17879325',
+        '{date.today()}'
     )
     """)
 
-    DBcursor.execute("""
+    DBcursor.execute(f"""
     INSERT INTO Members
     VALUES(
+        '{generateUserID()}',
         'Berend',
         'Baardhuis',
         'Plopstraat 953, Plopsaland',
         'plopperdeplopperdeplop@plopmail.plop',
-        '31-6-11223344'
+        '31-6-11223344',
+        '{date.today()}'
     )
     """)    
 
-    DBcursor.execute("""
+    DBcursor.execute(f"""
     INSERT INTO Members
     VALUES(
+        '{generateUserID()}',
         'Snoek',
         'van der Snor',
         'Zwemstraat 23, Vislandserdorp',
         'snorrrrr@snormail.org',
-        '31-6-77896534'
+        '31-6-77896534',
+        '{date.today()}'
     )
     """)    
 
@@ -208,4 +227,4 @@ def createDummyData():
     databaseConnection.close()
 
 
-
+createDummyData()
