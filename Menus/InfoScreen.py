@@ -1,12 +1,10 @@
 
 def displayInfo():
     '''
-    display information about this program
+    display information about this program.
+    in this case, it reads the text in Menus/Infofiles/inf.txt
     '''
     extractedInfo = open("Menus/Infofiles/inf.txt")
-
-    # with open ("inf.txt", "r") as readableFile:
-    #     extractedInfo = readableFile.read().splitlines()
 
     print(extractedInfo.read())
 

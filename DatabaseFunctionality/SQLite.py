@@ -25,29 +25,47 @@ dbConn.close()
 '''
 
 import sqlite3
-from Member import MemberClass
+#from Member import MemberClass
 
 
 databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
 DBcursor = databaseConnection.cursor()
 
+DBcursor.execute("""
+SELECT username 
+FROM Advisors
+
+
+""")
+queryresult = DBcursor.fetchall()
+
+
+print('query result =', queryresult)
+
+print(type(queryresult[0]))
+
+if ('lameAdvisor',) in queryresult:
+    print('found lameAdvisor username')
+
+
+
 #create table
 
-DBcursor.execute("""
-    CREATE TABLE SysAdmins (
-        username text, 
-        password text
-        )""")
+# DBcursor.execute("""
+#     CREATE TABLE SysAdmins (
+#         username text, 
+#         password text
+#         )""")
 
-DBcursor.execute("DROP TABLE SysAdmin")
+# DBcursor.execute("DROP TABLE SysAdmin")
 
-DBcursor.execute("""
-    INSERT INTO Advisors
-    VALUES(
-        'dummyAdvisor',
-        'advisorpassword'
-    )
-    """)
+# DBcursor.execute("""
+#     INSERT INTO Advisors
+#     VALUES(
+#         'dummyAdvisor',
+#         'advisorpassword'
+#     )
+#     """)
 
 
 #insert

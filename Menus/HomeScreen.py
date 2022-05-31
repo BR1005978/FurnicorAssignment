@@ -12,10 +12,23 @@ def homeScreen():
 """)
     print("Welcome to Furnicor Family System v0.01")
 
-    while True:
+    currentUser = "" 
+
+    # does this make any sense?
+    while currentUser == "":
+        currentUser = homeScreenNoUser()
+    
+
+    print("someone logged in! : ", currentUser)
+
+    homeScreenWithUser(currentUser)
+
+### losse functies voor de situatie waarin je als gebruiker bent ingelogd ? is dat handig
+### en nog een functie voor zonder gebruiker?
+def homeScreenNoUser():
         print(
             """
-1. Login\n
+1. Log in\n
 2. Display program info\n
 3. Exit
             """)
@@ -23,7 +36,8 @@ def homeScreen():
         answer = input("Select the number of an option and press enter : ")
 
         if answer =="1":
-            loginScreen()
+            # werkt dit? 
+            return loginScreen()
         elif answer =="2":
             displayInfo()
         elif answer =="3":
@@ -31,4 +45,23 @@ def homeScreen():
         else:
             print("Input nog recognized")
 
-homeScreen()
+def homeScreenWithUser(user):
+    print("Welcome user: ", user)
+    while True:
+        print(
+                """
+    1. Log out\n
+    2. Display program info\n
+    3. Exit
+                """)
+        answer = input("Select the number of an option and press enter : ")
+
+        if answer =="1":
+            print("Logout function: not yet implemented")
+            break
+        elif answer =="2":
+            displayInfo()
+        elif answer =="3":
+            exit()
+        else:
+            print("Input nog recognized")
