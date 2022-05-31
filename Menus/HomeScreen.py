@@ -1,10 +1,28 @@
 from Menus.Login import loginScreen
-from Menus.InfoScreen import displayInfo
-import Userclasses
+from Menus.Info.InfoScreen import displayInfo
+
 from Userclasses.AdvisorClass import Advisor
+from Userclasses.SysAdminClass import SysAdmin
+'''
+
+the main menus of this program.
+
+three functions: 
+
+1. homeScreen() which initiates the main menu
+2. homeScreenNoUser() for when there is no user logged in
+3. homeScreenWithUser() for when there is a user logged in 
+
+
+'''
+
 
 def homeScreen():
-    '''intro screen '''
+    '''
+    the main function that shows the homescreen and allows passage to the 
+    homescreenNoUser and homeScreenWithUser functions. 
+
+    '''
     print(
         """    ______                     _                   
    / ____/__  __ _____ ____   (_)_____ ____   _____
@@ -22,15 +40,21 @@ def homeScreen():
             currentUser = homeScreenNoUser()
         
 
-        print("Someone logged in! : ", currentUser)
+        print("Succesfully logged in as : ", currentUser)
+        input("Press any key to continue ... ")
 
-        while currentUser != "":
+        while currentUser != None:
             currentUser = homeScreenWithUser(currentUser)
+
+
 
 def homeScreenNoUser():
         '''
-        the screen that gets shown when no user is logged in
+        the screen that gets shown when NO user is logged in
+
+        returns: a user
         '''
+
         print(
             """
     Hello, anonymous user.\n
@@ -38,16 +62,19 @@ def homeScreenNoUser():
 
     2. Display program info
 
+    9. [DEV] Quick login as SysAdmin (sysadmin123, sysadminpassword)
+
     0. Exit
             """)
 
         answer = input("Select the number of an option and press enter : ")
 
         if answer =="1":
-            # werkt dit? 
             return loginScreen()
         elif answer =="2":
             displayInfo()
+        elif answer =="9":
+            return SysAdmin('sysadmin123', 'sysadminpassword')
         elif answer =="0":
             exit()
         else:
@@ -59,7 +86,9 @@ def homeScreenWithUser(user):
     '''
     the screen that is shown when a user is succesfully logged in
 
-    #to do : implement class-specific functions
+    returns: None
+
+    it only returns None when you want to log out 
     '''
 
     print("Welcome user: ", user)
@@ -74,32 +103,34 @@ def homeScreenWithUser(user):
 
     0. Exit
                 """)
+                
         answer = input("Select the number of an option and press enter : ")
         # answer 1 is for logging out. use y or n to decide whether to log out 
-        print("printin' ", user)
+
+
         if answer =="1":
             logoutanswer = "" 
             while logoutanswer.lower() not in ["y", "n"]:
                 logoutanswer = input(f"Log out user {user.username}? y/n : ")
                 if logoutanswer.lower() == "y":
                     print("Logging out ...")
-                    return ""
+                    input()
+                    return None
                 elif logoutanswer.lower() == "n":
                     input("Ok, not logging out.")
                 else: 
                     input("input not recognized. type 'y' or 'n' ")
-            # break
+            
+        
         elif answer =="2":
             displayInfo()
+
         elif answer == "9":
             print(type(user))
-            print("am i an advisor?")
-            if type(user) == Advisor:
-                print("yep, this is an advisor")
-            else:
-                print("this is probably not an advisor. or maybe it is, but python didn't understand it")
             input()
+
         elif answer =="0":
             exit()
+
         else:
             input("Input nog recognized")

@@ -19,6 +19,10 @@ class SysAdmin(Advisor):
     #queryMember():
     ###########################################
 
+    def __repr__(self):
+        return f"{self.username} (SysAdmin)" 
+
+
     def queryUsers():
         '''check the list of users and their roles'''
         return

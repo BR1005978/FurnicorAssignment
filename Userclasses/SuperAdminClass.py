@@ -6,8 +6,13 @@ class SuperAdmin(SysAdmin):
     '''
     Super Administrator (Hardcoded) - A super admin has full control of the system.
     '''
-    username = "superadmin"
-    password = "Admin321!"
+    
+    def __init__(self):
+        self.username = "superadmin"
+        self.password = "Admin321!"
+
+    def __repr__(self):
+        return f"{self.username} (SuperAdmin)"
 
     ###########################################
     ### list of functions from superclasses ###
@@ -29,7 +34,7 @@ class SuperAdmin(SysAdmin):
     #deleteMember():
     
     ###########################################
-
+    
     def addAdmin():
         '''add a new admin to the system'''
         return

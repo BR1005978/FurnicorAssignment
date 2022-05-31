@@ -1,11 +1,8 @@
 import sqlite3
 from venv import create
 from Auxfunctions import generateUserID
-
 from datetime import date
 
-today = date.today()
-print(date.today())
 
 def wipeDatabase():
     '''
@@ -92,6 +89,14 @@ def createDummyData():
     VALUES(
         'chillerino',
         'youllneverguessthis'
+    )
+    """)
+
+    DBcursor.execute("""
+    INSERT INTO SysAdmins
+    VALUES(
+        'sysadmin123',
+        'sysadminpassword'
     )
     """)
 
@@ -229,3 +234,4 @@ def createDummyData():
 
 ## testenv
 
+createDummyData()

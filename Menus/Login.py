@@ -1,6 +1,7 @@
 from hashlib import new
 import sqlite3
 from Userclasses.AdvisorClass import Advisor
+from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
 
 '''functions for logging in'''
@@ -32,7 +33,7 @@ def verifyCredentials(username, password):
 
     results = DBcursor.fetchone()
 
-    ### let's make an object of this retrieved user. merely a username is not enough
+    
     try:
         userobject = Advisor(username, password)
     except: 
@@ -48,13 +49,18 @@ def verifyCredentials(username, password):
                 AND password = '{password}'
                 
                 """)
-        ### maak een object aan van deze gast
+        
         results = DBcursor.fetchone()
         try:
             userobject = SysAdmin(username, password)
         except: 
             print("creating sysadmin failed")
 
+    if results == None and username == 'superadmin' and password == 'Admin321!':
+        print("super admin login succeeded")
+        return True, SuperAdmin()
+
+        
 
     # and if that didn't find any credentials, well, then the credentials
     # most likely do not exist.  
@@ -79,8 +85,12 @@ def verifyCredentials(username, password):
 def loginScreen():
 
     '''
+    returns: a user object (Advisor, SysAdmin, SuperAdmin)
+    
     asks the user for a username and password, and queries the database to see if 
     there is an overlap with information in the inputted values and the database
+
+
     '''
     # returnt deze functie een username? voor het definiëren van de huidige gebruiker?
     while True:
