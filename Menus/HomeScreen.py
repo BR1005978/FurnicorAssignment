@@ -1,6 +1,7 @@
 from Menus.Login import loginScreen
 from Menus.InfoScreen import displayInfo
 import Userclasses
+from Userclasses.AdvisorClass import Advisor
 
 def homeScreen():
     '''intro screen '''
@@ -32,12 +33,12 @@ def homeScreenNoUser():
         '''
         print(
             """
-Hello, anonymous user.\n
-1. Log in
+    Hello, anonymous user.\n
+    1. Log in
 
-2. Display program info
+    2. Display program info
 
-0. Exit
+    0. Exit
             """)
 
         answer = input("Select the number of an option and press enter : ")
@@ -65,13 +66,17 @@ def homeScreenWithUser(user):
     while True:
         print(
                 """
-    1. Log out\n
-    2. Display program info\n
+    1. Log out
+
+    2. Display program info
+
+    9. [DEV] print own type
+
     0. Exit
                 """)
         answer = input("Select the number of an option and press enter : ")
         # answer 1 is for logging out. use y or n to decide whether to log out 
-        
+        print("printin' ", user)
         if answer =="1":
             logoutanswer = "" 
             while logoutanswer.lower() not in ["y", "n"]:
@@ -86,6 +91,14 @@ def homeScreenWithUser(user):
             # break
         elif answer =="2":
             displayInfo()
+        elif answer == "9":
+            print(type(user))
+            print("am i an advisor?")
+            if type(user) == Advisor:
+                print("yep, this is an advisor")
+            else:
+                print("this is probably not an advisor. or maybe it is, but python didn't understand it")
+            input()
         elif answer =="0":
             exit()
         else:

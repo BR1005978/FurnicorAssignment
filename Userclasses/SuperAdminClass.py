@@ -4,7 +4,7 @@ from Userclasses.SysAdminClass import SysAdmin
 class SuperAdmin(SysAdmin):
 
     '''
-    Super Administrator (Hardcoded) – A super admin has full control of the system.
+    Super Administrator (Hardcoded) - A super admin has full control of the system.
     '''
     username = "superadmin"
     password = "Admin321!"

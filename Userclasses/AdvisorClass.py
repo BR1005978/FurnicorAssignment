@@ -15,6 +15,9 @@ class Advisor:
 
     def __repr__(self):
         return f"{self.username} (Advisor)"
+
+    def whoami():
+        return "Advisor"
     
 
 
