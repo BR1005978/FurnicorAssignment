@@ -1,4 +1,7 @@
+from hashlib import new
 import sqlite3
+from Userclasses.AdvisorClass import Advisor
+from Userclasses.SysAdminClass import SysAdmin
 
 '''functions for logging in'''
 
@@ -7,11 +10,16 @@ def verifyCredentials(username, password):
     this is the function which we query the 
     database for correct credentials
 
-    todo: check to see if correct credentials are returned from the database
+    if succesful, returns a tuple: (True, <userobject>)
+    userobject can be an advisor or a sysadmin
+
+    if unsuccesful, returns a tuple: (False, None) 
     '''
 
     databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
     DBcursor = databaseConnection.cursor()
+
+    usertype = ""
     
     # try to find the credentials in the Advisors table first ...
     DBcursor.execute(f"""
@@ -21,8 +29,14 @@ def verifyCredentials(username, password):
                     AND password = '{password}'
                     
                     """)
-    ### maak een object aan van dit type. alleen een username is niet genoeg
+
     results = DBcursor.fetchone()
+
+    ### let's make an object of this retrieved user. merely a username is not enough
+    try:
+        userobject = Advisor(username, password)
+    except: 
+        print("creating advisor failed")
 
     # if that didn't work, try to find the credentials in the 
     # SysAdmins table ...
@@ -36,25 +50,30 @@ def verifyCredentials(username, password):
                 """)
         ### maak een object aan van deze gast
         results = DBcursor.fetchone()
+        try:
+            userobject = SysAdmin(username, password)
+        except: 
+            print("creating sysadmin failed")
+
 
     # and if that didn't find any credentials, well, then the credentials
     # most likely do not exist.  
     if results == None: 
         print("verifyCredentials(): verifying credentials resulted in a nonetype. the credentials were probably incorrect")
-        return False
+        return False, None
 
     # if the credentials WERE correct ...
     elif results[0] == username and results[1] == password:
         print('verifyCredentials(): found correct credentials in database')
-        return True
+        return True, userobject
 
     # error handling for extremely weird errors which are likely not happening
     elif results == tuple(): 
         print('verifyCredentials(): returned an empty tuple, how did this happen?')
-        return False 
+        return False, None 
     else:
         print("verifyCredentials(): something really weird happened.")
-        return False
+        return False, None
 
 
 def loginScreen():
@@ -72,12 +91,13 @@ def loginScreen():
 
 
 
-        if verifyCredentials(username, password):
-            print("loginScreen() returning the username: ", username)
+        verificationResults = verifyCredentials(username, password)
 
-            ### zoals in de vorige functie vermeld, is alleen een username
-            ### niet genoeg. je moet een object maken ervan, zodat de functies ook kloppen
-            return username
+
+        if verificationResults[0]:
+            print("loginScreen() returning the username: ", username)
+            #print("attempting to print the object: ", verificationResults[1])
+            return verificationResults[1]
         else:
             cont = input("credentials not found. press enter to try again, or type q to cancel ... ")
             if cont.lower() == "q":

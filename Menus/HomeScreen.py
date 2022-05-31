@@ -1,5 +1,6 @@
 from Menus.Login import loginScreen
 from Menus.InfoScreen import displayInfo
+import Userclasses
 
 def homeScreen():
     '''intro screen '''
@@ -12,25 +13,31 @@ def homeScreen():
 """)
     print("Welcome to Furnicor Family System v0.01")
 
-    currentUser = "" 
+    while True:
+        currentUser = None 
 
-    # does this make any sense?
-    while currentUser == "":
-        currentUser = homeScreenNoUser()
-    
+        
+        while currentUser == None:
+            currentUser = homeScreenNoUser()
+        
 
-    print("someone logged in! : ", currentUser)
+        print("Someone logged in! : ", currentUser)
 
-    homeScreenWithUser(currentUser)
+        while currentUser != "":
+            currentUser = homeScreenWithUser(currentUser)
 
-### losse functies voor de situatie waarin je als gebruiker bent ingelogd ? is dat handig
-### en nog een functie voor zonder gebruiker?
 def homeScreenNoUser():
+        '''
+        the screen that gets shown when no user is logged in
+        '''
         print(
             """
-1. Log in\n
-2. Display program info\n
-3. Exit
+Hello, anonymous user.\n
+1. Log in
+
+2. Display program info
+
+0. Exit
             """)
 
         answer = input("Select the number of an option and press enter : ")
@@ -40,28 +47,46 @@ def homeScreenNoUser():
             return loginScreen()
         elif answer =="2":
             displayInfo()
-        elif answer =="3":
+        elif answer =="0":
             exit()
         else:
-            print("Input nog recognized")
+            input("Input nog recognized")
+
+
 
 def homeScreenWithUser(user):
+    '''
+    the screen that is shown when a user is succesfully logged in
+
+    #to do : implement class-specific functions
+    '''
+
     print("Welcome user: ", user)
     while True:
         print(
                 """
     1. Log out\n
     2. Display program info\n
-    3. Exit
+    0. Exit
                 """)
         answer = input("Select the number of an option and press enter : ")
-
+        # answer 1 is for logging out. use y or n to decide whether to log out 
+        
         if answer =="1":
-            print("Logout function: not yet implemented")
-            break
+            logoutanswer = "" 
+            while logoutanswer.lower() not in ["y", "n"]:
+                logoutanswer = input(f"Log out user {user.username}? y/n : ")
+                if logoutanswer.lower() == "y":
+                    print("Logging out ...")
+                    return ""
+                elif logoutanswer.lower() == "n":
+                    input("Ok, not logging out.")
+                else: 
+                    input("input not recognized. type 'y' or 'n' ")
+            # break
         elif answer =="2":
             displayInfo()
-        elif answer =="3":
+        elif answer =="0":
             exit()
         else:
-            print("Input nog recognized")
+            input("Input nog recognized")
