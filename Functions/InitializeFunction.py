@@ -9,7 +9,7 @@ def initializer():
     so the functions that get executed on the first time starting up this program
     '''
 
-    databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     #create SysAdmins table
@@ -63,7 +63,7 @@ def initializer():
                 lastname text,
                 address text,
                 email text,
-                phonenumber integer,
+                phonenumber text,
                 registrationdate text
                 )""")
     except sqlite3.OperationalError:
@@ -79,5 +79,5 @@ def initializer():
     databaseConnection.close()
 
 
-# initializer()
+initializer()
 

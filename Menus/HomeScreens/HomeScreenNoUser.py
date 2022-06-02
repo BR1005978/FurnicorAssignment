@@ -20,9 +20,9 @@ def homeScreenNoUser():
 
     7. [DEV] Quick login as Advisor (beeboo, bungbung)
 
-    8. [DEV] Quick login as Super Admin(superadmin, Admin321!)
+    8. [DEV] Quick login as SysAdmin (sysadmin123, sysadminpassword)
 
-    9. [DEV] Quick login as SysAdmin (sysadmin123, sysadminpassword)
+    9. [DEV] Quick login as Super Admin(superadmin, Admin321!)
 
     0. Shut down program
             """)
@@ -36,9 +36,9 @@ def homeScreenNoUser():
         elif answer == "7":
             return Advisor("beeboo","bungbung")
         elif answer =="8":
-            return SuperAdmin()
-        elif answer =="9":
             return SysAdmin('sysadmin123', 'sysadminpassword')
+        elif answer =="9":
+            return SuperAdmin()
         elif answer =="0":
             exit()
         else:

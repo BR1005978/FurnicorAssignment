@@ -25,8 +25,11 @@ class Advisor:
         '''Update own password'''
         password = _password
 
-    def addNewMember(firstname, lastname, address, email, phonenumber):
-        '''add a new member to the system'''
+    def addNewMember(self, firstname, lastname, address, email, phonenumber):
+        '''add a new member to the system
+        
+        returns: void
+        '''
 
 
         databaseConnection = sqlite3.connect('FurnicorDatabase.db')
@@ -38,9 +41,9 @@ class Advisor:
                 '{generateUserID()}',
                 '{firstname}',
                 '{lastname}',
-                '{address},
+                '{address}',
                 '{email}',
-                '31-6-{phonenumber},
+                '31-6-{phonenumber}',
                 '{date.today()}'
             )
             """)
@@ -48,7 +51,6 @@ class Advisor:
         databaseConnection.commit()
         databaseConnection.close()
 
-        return
     
     def modifyMember():
         '''modify or update the information of a member in the system'''

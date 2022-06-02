@@ -1,3 +1,4 @@
+from Menus.ClassFunctionsMenus.AddNewMember2 import addNewMemberMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
@@ -69,8 +70,8 @@ def classFunctionsMenu(user):
             input()
     
         elif answer == "2":
-            print("add new member not yet implemented")
-            input()
+            addNewMemberMenu(user)
+            input("option 2, did it work?")
             
         elif answer == "3":
             print("modify member not yet implemented")
@@ -80,7 +81,7 @@ def classFunctionsMenu(user):
             print("search member in database not yet implemented")
             input()
         
-        if type(user) == SysAdmin or type(user) == SuperAdmin:
+        elif isinstance(user, SysAdmin):
             if answer == "5":
                 print("Search users function not yet implemented")
                 input()
@@ -112,8 +113,12 @@ def classFunctionsMenu(user):
             elif answer == "12": 
                 print("Delete member function not yet implemented ")
                 input()
+            elif answer != "0":
+                print("(sysadmin) input not recognized")
+                input()
+
         
-        if type(user) == SuperAdmin:
+        elif type(user) == SuperAdmin:
             if answer == "13":
                 print("Add admin function not yet implemented")
                 input()
@@ -129,11 +134,18 @@ def classFunctionsMenu(user):
             elif answer == "16":
                 print("Reset admin password function not yet implemented")
                 input()
+            elif answer != "0":
+                print("(superadmin) input not recognized")
+                input()
+
+
 
 
         elif answer == "0":
             break
+        
 
+        #B1 waarom komt het programma niet op dit punt wanneer de gebruiker een super admin is? wtf
         else:
             print("input not recognized")
             input()

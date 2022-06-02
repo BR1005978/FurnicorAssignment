@@ -19,6 +19,8 @@ def passwordCheck(password):
     - Cannot be longer than 30 characters
     - Can contain letters (a-z), (A-Z), numbers (0-9), special characters such as ~!@#$%&_-+=`|\(){}[]:;'<>,.?\n
     - Must have a combination of at least one lowercase letter, one uppercase letter, one digit, and one special character
+    
+    returns: true if it meets these conditions, else returns a ValueError with printable string
     '''
     print("passwordCheck()")
 
@@ -30,11 +32,11 @@ def passwordCheck(password):
 
 
     if len(password) > 30:
-        return ValueError("Error: This password is too long")
+        return ValueError("Error: This password is too long, must be less than 30 characters in length.")
     if len(password) < 8:
-        return ValueError("Error: This password is too short")
+        return ValueError("Error: This password is too short, must be at least 8 characters in length.")
     if password == password.lower():
-        return ValueError("Error: Password must contain at least one lowercase and one uppercase letter")
+        return ValueError("Error: Password must contain at least one lowercase and one uppercase letter.")
 
     for i in range(len(password)):
         if password[i].lower() in letterlist:
@@ -44,14 +46,14 @@ def passwordCheck(password):
         elif password[i] in speccharlist:
             speccharcount+=1 
         else:
-            return ValueError("Error: false input detected")
+            return ValueError("Error: false input detected.")
 
     if lettercount < 1:
-        return ValueError("Error: The password must have at least one letter")
+        return ValueError("Error: The password must have at least one letter.")
     if digitcount < 1:
-        return ValueError("Error: The password must have at least one digit")
+        return ValueError("Error: The password must have at least one digit.")
     if speccharcount < 1:
-        return ValueError("Error: The password must have at least one special symbol")
+        return ValueError("Error: The password must have at least one special symbol.")
 
     return True
 
@@ -99,7 +101,7 @@ def usernameCheck(username):
     
     # check to see if it already exists. if it does, then yeet a ValueError
 
-    databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     DBcursor.execute("""

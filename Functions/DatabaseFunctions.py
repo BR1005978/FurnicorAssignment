@@ -8,7 +8,7 @@ def wipeDatabase():
     '''
     this function wipes all entries in the database. use with caution
     '''
-    databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     tables = ['Advisors', 'SysAdmins', 'Members']
@@ -26,7 +26,7 @@ def createDummyData():
     insert random members, advisors and sysadmins etc into all 3 tables
     '''
 
-    databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     ### insert advisors into database
@@ -246,5 +246,5 @@ def createDummyData():
 
 
 ## testenv
-
+# wipeDatabase()
 createDummyData()

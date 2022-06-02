@@ -17,7 +17,7 @@ def verifyCredentials(username, password):
     if unsuccesful, returns a tuple: (False, None) 
     '''
 
-    databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     usertype = ""
