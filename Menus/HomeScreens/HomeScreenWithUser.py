@@ -1,8 +1,7 @@
-from Menus.ClassFunctionsMenus.SysAdminFunctionsMenu import sysAdminFunctionsMenu
+
 from Menus.Login import loginScreen
 from Menus.Info.InfoScreen import displayInfo
-from Menus.ClassFunctionsMenus.AdvisorFunctionsMenu import advisorFunctionsMenu
-from Menus.ClassFunctionsMenus.SuperAdminFunctionsMenu import superAdminFunctionsMenu
+from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
 
@@ -40,14 +39,15 @@ def homeScreenWithUser(user):
 
         if answer == "1":
             print("accessing class-specific functions...") 
-            if type(user) == Advisor: 
-                advisorFunctionsMenu(user)
-            elif type(user) == SysAdmin:
-                sysAdminFunctionsMenu(user)
-            elif type(user) == SuperAdmin:
-                superAdminFunctionsMenu(user)
-            else:
-                print("something really weird just happened. the user is of an unknown class?")
+            classFunctionsMenu(user)
+            # if type(user) == Advisor: 
+            #     classFunctionsMenu(user)
+            # elif type(user) == SysAdmin:
+            #     sysAdminFunctionsMenu(user)
+            # elif type(user) == SuperAdmin:
+            #     superAdminFunctionsMenu(user)
+            # else:
+            #     print("something really weird just happened. the user is of an unknown class?")
             
                
         

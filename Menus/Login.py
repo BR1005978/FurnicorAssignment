@@ -111,7 +111,7 @@ def loginScreen():
         else:
             cont = input("credentials not found. press enter to try again, or type q to cancel ... ")
             if cont.lower() == "q":
-                return ""
+                return None
 
 
 #loginScreen()

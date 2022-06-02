@@ -1,5 +1,7 @@
 from Menus.Login import loginScreen
 from Menus.Info.InfoScreen import displayInfo
+from Userclasses.AdvisorClass import Advisor
+from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
 
 def homeScreenNoUser():
@@ -16,6 +18,10 @@ def homeScreenNoUser():
 
     2. Display program info
 
+    7. [DEV] Quick login as Advisor (beeboo, bungbung)
+
+    8. [DEV] Quick login as Super Admin(superadmin, Admin321!)
+
     9. [DEV] Quick login as SysAdmin (sysadmin123, sysadminpassword)
 
     0. Shut down program
@@ -27,6 +33,10 @@ def homeScreenNoUser():
             return loginScreen()
         elif answer =="2":
             displayInfo()
+        elif answer == "7":
+            return Advisor("beeboo","bungbung")
+        elif answer =="8":
+            return SuperAdmin()
         elif answer =="9":
             return SysAdmin('sysadmin123', 'sysadminpassword')
         elif answer =="0":

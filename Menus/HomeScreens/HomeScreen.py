@@ -6,7 +6,7 @@ from Menus.Info.InfoScreen import displayInfo
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SysAdminClass import SysAdmin
 
-from Menus.ClassFunctionsMenus.AdvisorFunctionsMenu import advisorFunctionsMenu
+from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
 
 
 '''
