@@ -31,21 +31,34 @@ import sqlite3
 databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
 DBcursor = databaseConnection.cursor()
 
-DBcursor.execute("""
-SELECT username 
-FROM Advisors
+### querying from 2 tables with same column name
+# DBcursor.execute("""
+#     SELECT username
+#     FROM Advisors
+#     UNION
+#     SELECT username
+#     FROM SysAdmins
+# """)
+
+# queryresults= DBcursor.fetchall()
+
+# print(queryresults)
+
+# DBcursor.execute("""
+# SELECT username 
+# FROM Advisors
 
 
-""")
-queryresult = DBcursor.fetchall()
+# """)
+# queryresult = DBcursor.fetchall()
 
 
-print('query result =', queryresult)
+# print('query result =', queryresult)
 
-print(type(queryresult[0]))
+# print(type(queryresult[0]))
 
-if ('lameAdvisor',) in queryresult:
-    print('found lameAdvisor username')
+# if ('lameAdvisor',) in queryresult:
+#     print('found lameAdvisor username')
 
 
 

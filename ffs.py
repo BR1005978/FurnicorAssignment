@@ -1,5 +1,5 @@
 import sqlite3
-import Menus.HomeScreen as hs
+import Menus.HomeScreens.HomeScreen as hs
 import Userclasses
 from Userclasses.SysAdminClass import SysAdmin
 

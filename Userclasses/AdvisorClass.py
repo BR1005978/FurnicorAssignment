@@ -1,7 +1,8 @@
 from datetime import date
 import sqlite3
 
-from Functions.Auxfunctions import generateUserID;
+from Functions.Auxfunctions import generateUserID
+
 
 class Advisor:
 
@@ -15,6 +16,9 @@ class Advisor:
 
     def __repr__(self):
         return f"{self.username} (Advisor)"
+
+    def sayType(self):
+        return "advisor"
 
 
     def updateOwnPassword(_password):

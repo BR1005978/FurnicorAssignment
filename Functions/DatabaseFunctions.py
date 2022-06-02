@@ -225,6 +225,19 @@ def createDummyData():
         '31-6-77896534',
         '{date.today()}'
     )
+    """)  
+
+    DBcursor.execute(f"""
+    INSERT INTO Members
+    VALUES(
+        '{generateUserID()}',
+        'Piet',
+        'Potvis',
+        'Zwemstraat 29, Vislandserdorp',
+        'slappehap@vismail.org',
+        '31-6-23334953',
+        '{date.today()}'
+    )
     """)    
 
     databaseConnection.commit()

@@ -1,9 +1,9 @@
 '''
 CheckFunctions.py contains typechecking functions such as passwordcheck, usernamecheck, etc
 '''
+import sqlite3
 
 
-print("CheckFunctions.py")
 
 # some variables to be used in following functions 
 
@@ -70,8 +70,14 @@ def usernameCheck(username):
     ○ can contain letters (a-z), numbers (0-9), underscores (_), apostrophes ('), and periods (.)
 
     ○ no distinguishing between lowercase and uppercase letters
+
+    To do: return ValueError if username already exists
+
     '''
 
+    print('usernameCheck()')
+
+    # if the username is not a string for some reason
     if not (isinstance(username, str)):
         return ValueError("Error: some weird shit just happened. How did you manage to not make the username a string?")
 
@@ -91,7 +97,27 @@ def usernameCheck(username):
         if username[i].lower() not in [*letterlist, *numbers, *usernameAllowedsymbols]:
             return ValueError(f"Error: '{username[i]}' is not allowed in usernames")
     
+    # check to see if it already exists. if it does, then yeet a ValueError
+
+    databaseConnection = sqlite3.connect('FurnicoreDatabase.db')
+    DBcursor = databaseConnection.cursor()
+
+    DBcursor.execute("""
+        SELECT username 
+        FROM Advisors
+        UNION
+        SELECT username
+        FROM SysAdmins 
+    """)
+
+    queryresults = DBcursor.fetchall()
+
+    if (f'{username.lower()}',) in queryresults:
+        return ValueError("This username already exists. Please pick a different one.")
+
+    
     return True
+
 
 
 

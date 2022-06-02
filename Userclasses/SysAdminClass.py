@@ -22,6 +22,8 @@ class SysAdmin(Advisor):
     def __repr__(self):
         return f"{self.username} (SysAdmin)" 
 
+    def sayType(self):
+        return "SysAdmin"
 
     def queryUsers():
         '''check the list of users and their roles'''

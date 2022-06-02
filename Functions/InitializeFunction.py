@@ -14,15 +14,15 @@ def initializer():
 
     #create SysAdmins table
 
-    print()
+    print('initializer()')
 
     print("attempting SysAdmins table creation ...")
 
     try:
         DBcursor.execute("""
             CREATE TABLE SysAdmins (
-                username text, 
-                password text
+                username TEXT PRIMARY KEY, 
+                password TEXT
                 )""")
     except sqlite3.OperationalError:
         print("Table SysAdmins already exists.")
@@ -40,8 +40,8 @@ def initializer():
     try:
         DBcursor.execute("""
             CREATE TABLE Advisors (
-                username text, 
-                password text
+                username TEXT PRIMARY KEY, 
+                password TEXT
                 )""")
     except sqlite3.OperationalError:
         print("Table Advisors already exists.")
@@ -58,7 +58,7 @@ def initializer():
     try:
         DBcursor.execute("""
             CREATE TABLE Members (
-                membershipID integer,
+                membershipID integer PRIMARY KEY,
                 firstname text, 
                 lastname text,
                 address text,
@@ -79,5 +79,5 @@ def initializer():
     databaseConnection.close()
 
 
-initializer()
+# initializer()
 
