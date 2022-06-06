@@ -1,4 +1,5 @@
 from Menus.ClassFunctionsMenus.AddNewMember2 import addNewMemberMenu
+from Menus.ClassFunctionsMenus.queryMember4 import queryMemberMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
@@ -78,8 +79,8 @@ def classFunctionsMenu(user):
             input()
 
         elif answer == "4":
-            print("search member in database not yet implemented")
-            input()
+            queryMemberMenu(user)
+            
         
         elif isinstance(user, SysAdmin):
             if answer == "5":
@@ -145,7 +146,7 @@ def classFunctionsMenu(user):
             break
         
 
-        #B1 waarom komt het programma niet op dit punt wanneer de gebruiker een super admin is? wtf
+        #B1 waarom komt het programma niet op dit punt wanneer de gebruiker een super admin is? heuh
         else:
             print("input not recognized")
             input()

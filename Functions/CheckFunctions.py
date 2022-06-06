@@ -94,12 +94,12 @@ def usernameCheck(username):
     if (username[0].lower() not in letterlist):
         return ValueError("Error: first character of username must be a letter")
     
-    # typechecking dat boi
+    # typechecking for invalid characters
     for i in range(len(username)):
         if username[i].lower() not in [*letterlist, *numbers, *usernameAllowedsymbols]:
             return ValueError(f"Error: '{username[i]}' is not allowed in usernames")
     
-    # check to see if it already exists. if it does, then yeet a ValueError
+    # check to see if it already exists. if it does, then raise a ValueError
 
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()

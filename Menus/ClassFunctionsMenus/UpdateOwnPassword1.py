@@ -5,7 +5,7 @@ from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
 
-def updateOwnPassword(user):
+def updateOwnPasswordMenu(user):
     '''
     brings up a menu where a user can attempt to update its password. 
 

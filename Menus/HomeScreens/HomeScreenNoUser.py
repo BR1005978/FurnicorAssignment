@@ -3,6 +3,7 @@ from Menus.Info.InfoScreen import displayInfo
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
+from deprecated.SQLite import SQLite3fiddle
 
 def homeScreenNoUser():
         '''
@@ -24,6 +25,8 @@ def homeScreenNoUser():
 
     9. [DEV] Quick login as Super Admin(superadmin, Admin321!)
 
+    a. [DEV] run SQLite.py
+
     0. Shut down program
             """)
 
@@ -34,11 +37,13 @@ def homeScreenNoUser():
         elif answer =="2":
             displayInfo()
         elif answer == "7":
-            return Advisor("beeboo","bungbung")
+            return Advisor("advisorAccount1","advisorAccount1")
         elif answer =="8":
             return SysAdmin('sysadmin123', 'sysadminpassword')
         elif answer =="9":
             return SuperAdmin()
+        elif answer.lower() == "a":
+            SQLite3fiddle()
         elif answer =="0":
             exit()
         else:
