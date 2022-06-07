@@ -1,7 +1,7 @@
-from Menus.ClassFunctionsMenus.AddNewMember2 import addNewMemberMenu
-from Menus.ClassFunctionsMenus.ModifyMember3 import modifyMemberMenu
-from Menus.ClassFunctionsMenus.UpdateOwnPassword1 import updateOwnPasswordMenu
-from Menus.ClassFunctionsMenus.queryMember4 import queryMemberMenu
+from Menus.ClassFunctionsMenus.AddNewMemberMenu2 import addNewMemberMenu
+from Menus.ClassFunctionsMenus.ModifyMemberMenu3 import modifyMemberMenu
+from Menus.ClassFunctionsMenus.UpdateOwnPasswordMenu1 import updateOwnPasswordMenu
+from Menus.ClassFunctionsMenus.queryMemberMenu4 import queryMemberMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 

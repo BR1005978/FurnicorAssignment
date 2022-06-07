@@ -11,9 +11,8 @@ class Advisor:
     Advisors (to be defined by a system administrator or a super administrator) – An advisor can manage members in the system (register new members, modify, search or retrieve their information.)
     this class serves as the base class for SysAdmin and SuperAdmin due to shared functionality.
     '''
-    def __init__(self, _username, _password):
+    def __init__(self, _username):
         self.username = _username
-        self.password = _password
 
     def __repr__(self):
         return f"{self.username} (Advisor)"
@@ -23,7 +22,10 @@ class Advisor:
 
 
     def updateOwnPassword(self,newpass):
-        '''Update own password'''
+        '''
+        Update own password
+        note: this function is called by Menus.ClassFunctionsMenus.UpdateOwnPassword1
+        '''
         databaseConnection = sqlite3.connect('FurnicorDatabase.db')
         DBcursor = databaseConnection.cursor()
 

@@ -9,7 +9,6 @@ class SuperAdmin(SysAdmin):
     
     def __init__(self):
         self.username = "superadmin"
-        self.password = "Admin321!"
 
     def __repr__(self):
         return f"{self.username} (SuperAdmin)"
