@@ -1,5 +1,6 @@
 from Menus.ClassFunctionsMenus.AddNewMember2 import addNewMemberMenu
 from Menus.ClassFunctionsMenus.ModifyMember3 import modifyMemberMenu
+from Menus.ClassFunctionsMenus.UpdateOwnPassword1 import updateOwnPasswordMenu
 from Menus.ClassFunctionsMenus.queryMember4 import queryMemberMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
@@ -68,8 +69,7 @@ def classFunctionsMenu(user):
         answer = input("Type the number of an option and press enter : ")
 
         if answer == "1":
-            print("updating own password not yet implemented")
-            input()
+            updateOwnPasswordMenu(user)
     
         elif answer == "2":
             addNewMemberMenu(user)

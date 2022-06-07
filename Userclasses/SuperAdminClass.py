@@ -38,6 +38,9 @@ class SuperAdmin(SysAdmin):
     def sayType(self):
         return "SUPER ADMIN"
 
+    def updateOwnPassword(self, newpass):
+        print("This function is not available for SUPER ADMIN.")
+        input()
 
     def addAdmin():
         '''add a new admin to the system'''

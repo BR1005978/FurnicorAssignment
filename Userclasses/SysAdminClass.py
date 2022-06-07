@@ -25,6 +25,7 @@ class SysAdmin(Advisor):
     def sayType(self):
         return "SYSADMIN"
 
+
     def queryUsers():
         '''check the list of users and their roles'''
         return

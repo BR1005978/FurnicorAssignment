@@ -2,6 +2,7 @@ from datetime import date
 import sqlite3
 
 from Functions.Auxfunctions import generateUserID
+from Functions.DatabaseFunctions import insertIntoDatabase5args
 
 
 class Advisor:
@@ -21,35 +22,23 @@ class Advisor:
         return "ADVISOR"
 
 
-    def updateOwnPassword(_password):
+    def updateOwnPassword(self,newpass):
         '''Update own password'''
-        password = _password
-
-    def addNewMember(self, firstname, lastname, address, email, phonenumber):
-        '''add a new member to the system
-        
-        returns: void
-        '''
-
-
         databaseConnection = sqlite3.connect('FurnicorDatabase.db')
         DBcursor = databaseConnection.cursor()
 
         DBcursor.execute(f"""
-            INSERT INTO Members
-            VALUES(
-                '{generateUserID()}',
-                '{firstname}',
-                '{lastname}',
-                '{address}',
-                '{email}',
-                '31-6-{phonenumber}',
-                '{date.today()}'
-            )
+            UPDATE {self.sayType()}
+            SET password = '{hash(newpass)}'
+            WHERE username = '{self.username}'
             """)
 
         databaseConnection.commit()
         databaseConnection.close()
+
+    def addNewMember(self, firstname, lastname, address, email, phonenumber):
+        insertIntoDatabase5args(firstname, lastname, address, email, phonenumber)
+        #TODOA1: make sure this function also logs this operation into the log file
 
     
     def modifyMember(self, column, variable, memID ):

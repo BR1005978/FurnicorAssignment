@@ -32,28 +32,14 @@ def updateOwnPasswordMenu(user):
                 databaseConnection = sqlite3.connect('FurnicorDatabase.db')
                 DBcursor = databaseConnection.cursor()
                 
-                if type(user) == Advisor:
-                    try: 
-                        DBcursor.execute(f"""
-                        UPDATE Advisors
-                        SET password = '{pw1}'
-                        WHERE username = '{user.username}'
-                        """)  
-                        print("Updating Advisor password succeeded (presumably)")  
-                    except: 
-                        print("something went wrong")
-                elif type(user) == SysAdmin:    
-                    try:
-                        DBcursor.execute(f"""
-                        UPDATE SysAdmins
-                        SET password = '{pw1}'
-                        WHERE username = '{user.username}'
-                        """ )
-                        print("Updating SysAdmin password succeeded (presumably)")
-                    except:
-                        print("updating SysAdmin password failed for some reason")
+                if type(user) == Advisor or type(user) == SysAdmin:
+                    # try: 
+                    user.updateOwnPassword(pw1)  
+                    print(f"Updating {user.sayType} password succeeded (presumably)")  
+                    # except: 
+                    #     print("something went wrong")
                 elif type(user) == SuperAdmin:
-                    print("Error: cannot change SuperAdmin's password. The teachers would become angry... ")
+                    print("ERROR: cannot change SuperAdmin's password. The teachers would become angry... ")
                     print("Press enter to continue ... ")
 
 
