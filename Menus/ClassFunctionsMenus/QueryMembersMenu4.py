@@ -1,7 +1,7 @@
 import sqlite3
 
 
-def queryMemberMenu(user):
+def queryMembersMenu(user):
     print("[DEV]queryMemberMenu()")
     while True:
         columnName = ''

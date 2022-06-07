@@ -1,4 +1,4 @@
-from DatabaseFunctions import *
+from DatabaseFunctions import insertIntoDatabase3arg,insertIntoDatabase5args
 
 def createDummyData():
     '''
@@ -32,3 +32,5 @@ def createDummyData():
     insertIntoDatabase5args('Berend', 'Baardhuis', 'Plopstraat 953, Plopsaland', 'plopperdeplopperdeplop@plopmail.plop', '31-6-11223344')
     insertIntoDatabase5args('Snoek', 'van der Snor', 'Zwemstraat 23, Vislandserdorp', 'snorrrrr@snormail.org', '31-6-77896534')
     insertIntoDatabase5args('Piet', 'Potvis', 'Zwemstraat 29, Vislandserdorp', 'slappehap@vismail.org', '31-6-23334953')
+
+createDummyData()

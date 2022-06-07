@@ -41,7 +41,7 @@ def homeScreenNoUser():
         elif answer =="8":
             return SysAdmin('sysadmin123')
         elif answer =="9":
-            return SuperAdmin('SUPERADMIN')
+            return SuperAdmin()
         elif answer.lower() == "a":
             SQLite3fiddle()
         elif answer =="0":

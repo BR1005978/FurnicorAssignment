@@ -1,3 +1,4 @@
+from Functions.DatabaseFunctions import insertIntoDatabase3arg
 from Userclasses.AdvisorClass import Advisor
 
 
@@ -30,8 +31,9 @@ class SysAdmin(Advisor):
         '''check the list of users and their roles'''
         return
 
-    def newAdvisor():
+    def newAdvisor(username, newpassword):
         '''define and add new advisor to the system'''
+        insertIntoDatabase3arg('Advisors', username, newpassword)
         return
 
     def modifyAdvisor():
@@ -39,7 +41,7 @@ class SysAdmin(Advisor):
         return
     
     def deleteAdvisor():
-        '''delete anexisting advisor's account'''
+        '''delete an existing advisor's account'''
         return
     
     def resetAdvisorPassword():
