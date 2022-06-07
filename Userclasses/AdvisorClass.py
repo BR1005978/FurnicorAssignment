@@ -18,7 +18,7 @@ class Advisor:
         return f"{self.username} (Advisor)"
 
     def sayType(self):
-        return "advisor"
+        return "ADVISOR"
 
 
     def updateOwnPassword(_password):
@@ -52,9 +52,22 @@ class Advisor:
         databaseConnection.close()
 
     
-    def modifyMember():
-        '''modify or update the information of a member in the system'''
+    def modifyMember(self, column, variable, memID ):
+        '''modify or update the information of a member in the system
 
+        returns: void
+        '''
+        databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+        DBcursor = databaseConnection.cursor()
+
+        DBcursor.execute(f"""
+            UPDATE Members
+            SET {column} = '{variable}'
+            WHERE membershipID = '{memID}'
+            """)
+
+        databaseConnection.commit()
+        databaseConnection.close()
 
         return
     

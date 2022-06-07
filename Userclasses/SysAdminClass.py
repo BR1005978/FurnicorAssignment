@@ -23,7 +23,7 @@ class SysAdmin(Advisor):
         return f"{self.username} (SysAdmin)" 
 
     def sayType(self):
-        return "SysAdmin"
+        return "SYSADMIN"
 
     def queryUsers():
         '''check the list of users and their roles'''

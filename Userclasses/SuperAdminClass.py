@@ -36,7 +36,7 @@ class SuperAdmin(SysAdmin):
     ###########################################
     
     def sayType(self):
-        return "super admin"
+        return "SUPER ADMIN"
 
 
     def addAdmin():

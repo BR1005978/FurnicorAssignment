@@ -1,4 +1,5 @@
 from Menus.ClassFunctionsMenus.AddNewMember2 import addNewMemberMenu
+from Menus.ClassFunctionsMenus.ModifyMember3 import modifyMemberMenu
 from Menus.ClassFunctionsMenus.queryMember4 import queryMemberMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
@@ -72,11 +73,9 @@ def classFunctionsMenu(user):
     
         elif answer == "2":
             addNewMemberMenu(user)
-            input("option 2, did it work?")
-            
+
         elif answer == "3":
-            print("modify member not yet implemented")
-            input()
+            modifyMemberMenu(user)
 
         elif answer == "4":
             queryMemberMenu(user)
