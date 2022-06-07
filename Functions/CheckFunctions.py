@@ -81,7 +81,7 @@ def usernameCheck(username):
 
     # if the username is not a string for some reason
     if not (isinstance(username, str)):
-        return ValueError("Error: some weird shit just happened. How did you manage to not make the username a string?")
+        return ValueError("Error: Something very weird just happened. How did you manage to not make the username a string?")
 
 
     usernameAllowedsymbols = ["_", "\'", "."]

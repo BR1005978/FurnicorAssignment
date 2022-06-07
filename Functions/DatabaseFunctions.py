@@ -1,5 +1,5 @@
 import sqlite3
-from Auxfunctions import generateUserID
+from Functions.Auxfunctions import generateUserID
 from datetime import date
 
 
@@ -62,6 +62,21 @@ def insertIntoDatabase5args(firstname, lastname, address, email, phonenumber):
     databaseConnection.close()
 
 
+def queryDatabase2args(column = '*', table = ''):
+    '''
+    '''
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+    DBcursor = databaseConnection.cursor()
+
+    DBcursor.execute(f"""
+        SELECT {column} 
+        FROM {table}
+        """)
+
+    databaseConnection.commit()
+    databaseConnection.close()
+    return
+
 
 ## testenv
-wipeDatabase()
+# wipeDatabase()

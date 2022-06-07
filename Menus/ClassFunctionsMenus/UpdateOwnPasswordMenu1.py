@@ -27,10 +27,6 @@ def updateOwnPasswordMenu(user):
             pwcheck = passwordCheck(pw1)
             if pwcheck == True:
 
-                ###TD1 update password in database
-
-                databaseConnection = sqlite3.connect('FurnicorDatabase.db')
-                DBcursor = databaseConnection.cursor()
                 
                 if type(user) == Advisor or type(user) == SysAdmin:
                     # try: 

@@ -40,7 +40,7 @@ def queryMembersMenu(user):
 
     searchData = input("Enter data to look for: ")
 
-    searchResults = user.queryMember(columnName, searchData.lower())
+    searchResults = user.queryMembers(columnName, searchData.lower())
     print("Fetching results ...")
     if searchData == []:
         print("Nothing found")

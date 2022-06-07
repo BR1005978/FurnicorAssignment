@@ -31,7 +31,7 @@ class SysAdmin(Advisor):
         '''check the list of users and their roles'''
         return
 
-    def newAdvisor(username, newpassword):
+    def newAdvisor(self, username, newpassword):
         '''define and add new advisor to the system'''
         insertIntoDatabase3arg('Advisors', username, newpassword)
         return

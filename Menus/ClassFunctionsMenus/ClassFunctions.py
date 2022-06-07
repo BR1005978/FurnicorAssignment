@@ -1,7 +1,9 @@
 from Menus.ClassFunctionsMenus.AddNewMemberMenu2 import addNewMemberMenu
+from Menus.ClassFunctionsMenus.CreateNewAdvisorMenu6 import createNewAdvisorMenu
 from Menus.ClassFunctionsMenus.ModifyMemberMenu3 import modifyMemberMenu
+from Menus.ClassFunctionsMenus.QueryUsersMenu5 import queryUsersMenu
 from Menus.ClassFunctionsMenus.UpdateOwnPasswordMenu1 import updateOwnPasswordMenu
-from Menus.ClassFunctionsMenus.QueryMembersMenu4 import queryMemberMenu
+from Menus.ClassFunctionsMenus.QueryMembersMenu4 import queryMembersMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
@@ -78,17 +80,16 @@ def classFunctionsMenu(user):
             modifyMemberMenu(user)
 
         elif answer == "4":
-            queryMemberMenu(user)
+            queryMembersMenu(user)
             
         
         elif isinstance(user, SysAdmin):
             if answer == "5":
-                print("Search users function not yet implemented")
+                queryUsersMenu(user)
                 input()
             
             elif answer == "6":
-                print("Create new advisor function not yet implemented")
-                input()
+                createNewAdvisorMenu(user)
             
             elif answer == "7": 
                 print("Modify advisor function not yet implemented ")

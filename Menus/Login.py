@@ -27,7 +27,7 @@ def verifyCredentials(username, password):
                     SELECT * 
                     FROM Advisors
                     WHERE username = '{username}'
-                    AND password = '{password}'
+                    AND password = '{hash(password)}'
                     
                     """)
 
