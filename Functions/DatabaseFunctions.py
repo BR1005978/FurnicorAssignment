@@ -28,7 +28,7 @@ def insertIntoDatabase3arg(table, username, password):
     INSERT INTO {table}
     VALUES(
         '{username}',
-        '{hash(password)}'
+        '{password}'
     )
     """)
 

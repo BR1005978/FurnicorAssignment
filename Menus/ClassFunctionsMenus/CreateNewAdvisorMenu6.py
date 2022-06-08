@@ -6,7 +6,7 @@ def createNewAdvisorMenu(user):
     '''
     takes the current user as an argument for logging purposes, nothing else
 
-    [TODO]: add input validation and security
+    TODO: add input validation and security
     '''
 
     print("[DEV] createNewAdvisorMenu()")

@@ -27,6 +27,9 @@ dbConn.close()
 from datetime import date
 import sqlite3
 
+from Functions.DatabaseFunctions import wipeDatabase
+from Functions.createDummyData import createDummyData
+
 # from Functions.Auxfunctions import generateUserID
 #from Member import MemberClass
 
@@ -34,27 +37,50 @@ def SQLite3fiddle():
 
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
+    wipeDatabase()
+    createDummyData()
+    # username = "test2"
+    # password = "test2"
 
-    column = 'firstname'
-    variable = 'sjaak'
+    # DBcursor.execute(f"""
+    #                 INSERT INTO Advisors
+    #                 Values('{username}', '{password}')
+    
+    # """ )
 
-    DBcursor.execute(f"""
+    # databaseConnection.commit()
+
+    # DBcursor.execute(f"""
+    #                 SELECT * 
+    #                 FROM Advisors
+    #                 WHERE username = '{username}'
+    #                 AND password = '{password}'
+                    
+    #                 """)
+    
+    # results = DBcursor.fetchall()
+
+    # print(results)
+    # column = 'firstname'
+    # variable = 'sjaak'
+
+    # DBcursor.execute(f"""
         
-        SELECT *
-        FROM Members
-        WHERE {column} = '{variable}' COLLATE NOCASE
+    #     SELECT *
+    #     FROM Members
+    #     WHERE {column} = '{variable}' COLLATE NOCASE
         
-        """)
+    #     """)
 
-    queryresult = DBcursor.fetchall()
+    # queryresult = DBcursor.fetchall()
 
-    print(queryresult)
-    print(type(queryresult))
+    # print(queryresult)
+    # print(type(queryresult))
 
-    if queryresult == []: 
-        print("queryresult is an empty list")
-    else:
-        print("apparantly queryresult is not an empty list")
+    # if queryresult == []: 
+    #     print("queryresult is an empty list")
+    # else:
+    #     print("apparantly queryresult is not an empty list")
 
     # DBcursor.execute(f"""
     #     INSERT INTO Members
@@ -181,8 +207,8 @@ def SQLite3fiddle():
     # print(DBcursor.fetchall())
 
 
-    databaseConnection.commit()
+    # databaseConnection.commit()
 
-    databaseConnection.close()
+    # databaseConnection.close()
 
     input("press enter to continue")

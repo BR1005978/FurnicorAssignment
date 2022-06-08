@@ -1,3 +1,5 @@
+from Functions.InitializeFunction import initializer
+from Functions.createDummyData import createDummyData
 from Menus.Login import loginScreen
 from Menus.Info.InfoScreen import displayInfo
 from Userclasses.AdvisorClass import Advisor
@@ -27,6 +29,8 @@ def homeScreenNoUser():
 
     a. [DEV] run SQLite.py
 
+    b. [DEV] create dummy data
+
     0. Shut down program
             """)
 
@@ -44,6 +48,9 @@ def homeScreenNoUser():
             return SuperAdmin()
         elif answer.lower() == "a":
             SQLite3fiddle()
+        elif answer.lower() == "b":
+            initializer()
+            createDummyData()
         elif answer =="0":
             exit()
         else:

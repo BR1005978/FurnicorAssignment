@@ -1,4 +1,4 @@
-from DatabaseFunctions import insertIntoDatabase3arg,insertIntoDatabase5args
+from Functions.DatabaseFunctions import insertIntoDatabase3arg,insertIntoDatabase5args
 
 def createDummyData():
     '''
@@ -6,23 +6,23 @@ def createDummyData():
     insert random members, advisors and sysadmins etc into all 3 tables
     '''
 
-    ### insert advisors into database   insertIntoDatabase3arg('Advisors', 'dummyAdvisor', hash('advisorpassword'))
-    insertIntoDatabase3arg('Advisors', 'advisorAccount1', hash('secretpassword'))
-    insertIntoDatabase3arg('Advisors', 'lameAdvisor', hash('advisorpassword2'))
-    insertIntoDatabase3arg('Advisors', 'Richard123', hash('crazychicken'))
-    insertIntoDatabase3arg('Advisors', 'Jacket5', hash('HotlineFlorida'))
-    insertIntoDatabase3arg('Advisors', 'beeboo', hash('bungbung'))
-    insertIntoDatabase3arg('Advisors', 'stonkerino.supremo', hash('snickers'))
+    ### insert advisors into database   insertIntoDatabase3arg('Advisors', 'dummyAdvisor', 'advisorpassword')
+    insertIntoDatabase3arg('Advisors', 'advisorAccount1', 'secretpassword')
+    insertIntoDatabase3arg('Advisors', 'lameAdvisor', 'advisorpassword2')
+    insertIntoDatabase3arg('Advisors', 'Richard123', 'crazychicken')
+    insertIntoDatabase3arg('Advisors', 'Jacket5', 'HotlineFlorida')
+    insertIntoDatabase3arg('Advisors', 'beeboo', 'bungbung')
+    insertIntoDatabase3arg('Advisors', 'stonkerino.supremo', 'snickers')
 
     ### insert SysAdmins into table
-    insertIntoDatabase3arg('SysAdmins', 'chillerino', hash('youllneverguessthis'))
-    insertIntoDatabase3arg('SysAdmins', 'sysadmin123',hash('sysadminpassword'))
-    insertIntoDatabase3arg('SysAdmins', 'getrekt555',hash('some_damn_secret_password'))
-    insertIntoDatabase3arg('SysAdmins', 'chillywilly',hash('snorkadork9325'))
-    insertIntoDatabase3arg('SysAdmins', 'woolybully',hash('lecoqsportif'))
-    insertIntoDatabase3arg('SysAdmins', 'derperinosupremo',hash('passworderinosupremo'))
-    insertIntoDatabase3arg('SysAdmins', 'BIMPF',hash('knollzors'))
-    insertIntoDatabase3arg('SysAdmins', 'sluggy.Maximo', hash('cheesesticks'))
+    insertIntoDatabase3arg('SysAdmins', 'chillerino', 'youllneverguessthis')
+    insertIntoDatabase3arg('SysAdmins', 'sysadmin123','sysadminpassword')
+    insertIntoDatabase3arg('SysAdmins', 'getrekt555','some_damn_secret_password')
+    insertIntoDatabase3arg('SysAdmins', 'chillywilly','snorkadork9325')
+    insertIntoDatabase3arg('SysAdmins', 'woolybully','lecoqsportif')
+    insertIntoDatabase3arg('SysAdmins', 'derperinosupremo','passworderinosupremo')
+    insertIntoDatabase3arg('SysAdmins', 'BIMPF','knollzors')
+    insertIntoDatabase3arg('SysAdmins', 'sluggy.Maximo', 'cheesesticks')
 
     ### insert members into database
     insertIntoDatabase5args('Knoert', 'Klokiebril', 'Stronkstraat 85, Otterdam', 'k.klokerino@bonkmail.com', '31-6-58785232')
@@ -33,4 +33,3 @@ def createDummyData():
     insertIntoDatabase5args('Snoek', 'van der Snor', 'Zwemstraat 23, Vislandserdorp', 'snorrrrr@snormail.org', '31-6-77896534')
     insertIntoDatabase5args('Piet', 'Potvis', 'Zwemstraat 29, Vislandserdorp', 'slappehap@vismail.org', '31-6-23334953')
 
-createDummyData()

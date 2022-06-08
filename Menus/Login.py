@@ -20,24 +20,27 @@ def verifyCredentials(username, password):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    usertype = ""
+
+
     
     # try to find the credentials in the Advisors table first ...
     DBcursor.execute(f"""
                     SELECT * 
                     FROM Advisors
                     WHERE username = '{username}'
-                    AND password = '{hash(password)}'
+                    AND password = '{password}'
                     
                     """)
 
-    results = DBcursor.fetchone()
 
-    
-    try:
-        userobject = Advisor(username, password)
-    except: 
-        print("[DEV] creating advisor failed")
+    # if something was returned from the database, that must imply that
+    # the credentials were correct. therefore, make an advisor with this username
+
+    if results != None:
+        try:
+            userobject = Advisor(username)
+        except: 
+            print("[DEV] creating advisor failed")
 
     # if that didn't work, try to find the credentials in the 
     # SysAdmins table ...
@@ -46,16 +49,18 @@ def verifyCredentials(username, password):
                 SELECT * 
                 FROM SysAdmins
                 WHERE username = '{username}'
-                AND password = '{hash(password)}'
+                AND password = '{passwor}'
                 
                 """)
         
         results = DBcursor.fetchone()
         try:
-            userobject = SysAdmin(username, password)
+            userobject = SysAdmin(username)
         except: 
             print("[DEV] creating sysadmin failed")
 
+    # if THAT also didn't work, we should check if the user attempted to login as superadmin,
+    # which has some hardcoded credentials
     if results == None and username == 'superadmin' and password == 'Admin321!':
         print("super admin login succeeded")
         return True, SuperAdmin()

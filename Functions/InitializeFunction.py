@@ -79,5 +79,4 @@ def initializer():
     databaseConnection.close()
 
 
-initializer()
 

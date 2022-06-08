@@ -49,5 +49,3 @@ def generateRandomPassword():
     # input: geen
     # returns: een string
     
-
-#print(generateUserID())

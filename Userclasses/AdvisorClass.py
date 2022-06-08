@@ -31,7 +31,7 @@ class Advisor:
 
         DBcursor.execute(f"""
             UPDATE {self.sayType()}
-            SET password = '{hash(newpass)}'
+            SET password = '{newpass}'
             WHERE username = '{self.username}'
             """)
 
