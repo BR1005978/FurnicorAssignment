@@ -127,11 +127,31 @@ def checkAddress(adres):
 
     from the documentation: Address (Street name, House number, Zip Code (DDDDXX), City (system should generate a list of 10 city names of your choice predefined in the system)
     '''
-    ### TODOHENDRIK: maak een functie die kijkt of een adres in het juiste formaat is
+    ### TDH2: maak een functie die kijkt of een adres in het juiste formaat is
     ### tip : gebruik regex. python heeft een ingebouwde regex library (import re) 
     ### die je kan gebruiken om strings te vergelijken en te checken of het in een juist format is. 
     ### input: een string, het adres
     ### output: een boolean
+
+
+def checkPhonenumber(phonenumber):
+    '''
+    function that checks if a phone number is in the right format
+    tip: phone numbers are strings
+    '''
+    #TDH3: een functie maken die checkt of een telefoonnummer wel in het juiste format is
+
+
+def checkEmail(email):
+    '''
+    function that checks if an email adres is in the right format
+    '''
+    # TDH4: een functie maken die checkt of een ingevoerd e-mail adres in het juiste format is
+    # input: een email adres
+    # output: een boolean
+    #tip; gebruik regex
+
+
 
 
 

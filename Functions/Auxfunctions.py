@@ -44,9 +44,10 @@ def generateRandomPassword():
     '''
     function that returns a random password that meets the requirements
     '''
-    ###TODOHENDRIK maak een functie die een string returned, willekeurig gegenereerd, die voldoet aan de voorwaarden van de wachtwoorden
-    ### input: geen
-    ### returns: een string
+    #TDH1 maak een functie die een string returned, willekeurig gegenereerd, 
+    # die voldoet aan de voorwaarden van de wachtwoorden
+    # input: geen
+    # returns: een string
     
 
 #print(generateUserID())
