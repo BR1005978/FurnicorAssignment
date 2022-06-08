@@ -46,7 +46,7 @@ def verifyCredentials(username, password):
                 SELECT * 
                 FROM SysAdmins
                 WHERE username = '{username}'
-                AND password = '{password}'
+                AND password = '{hash(password)}'
                 
                 """)
         

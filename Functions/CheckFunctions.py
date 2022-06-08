@@ -121,6 +121,18 @@ def usernameCheck(username):
     return True
 
 
+def checkAddress(adres):
+    '''
+    function that checks if an address is in the right format
+
+    from the documentation: Address (Street name, House number, Zip Code (DDDDXX), City (system should generate a list of 10 city names of your choice predefined in the system)
+    '''
+    ### TODOHENDRIK: maak een functie die kijkt of een adres in het juiste formaat is
+    ### tip : gebruik regex. python heeft een ingebouwde regex library (import re) 
+    ### die je kan gebruiken om strings te vergelijken en te checken of het in een juist format is. 
+    ### input: een string, het adres
+    ### output: een boolean
+
 
 
 
