@@ -60,7 +60,6 @@ class Advisor:
         databaseConnection.commit()
         databaseConnection.close()
 
-        return
     
     def queryMembers(self,column, variable):
         '''search and retrieve the information of a member. provide a column to specify on what information to look (firstname, lastname, phone number, home address, email address, user ID), then provide the variable'''

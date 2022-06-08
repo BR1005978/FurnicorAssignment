@@ -75,7 +75,35 @@ def queryDatabase2args(column = '*', table = ''):
 
     databaseConnection.commit()
     databaseConnection.close()
-    return
+
+def deleteEntry(table, variable, key):
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+    DBcursor = databaseConnection.cursor()
+
+    DBcursor.execute(f"""
+        DELETE FROM {table}
+        WHERE {key} = {variable}
+    """)
+
+    databaseConnection.commit()
+    databaseConnection.close()
+
+
+def updateEntry(table, column, newValue, conditionColumn, conditionValue):
+    '''
+    versatile function that allows modifications on one entry in the database
+    '''
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+    DBcursor = databaseConnection.cursor()
+
+    DBcursor.execute(f"""
+        UPDATE {table}
+        SET {column} = {newValue}
+        WHERE {conditionColumn} = {conditionValue}
+    """)
+
+    databaseConnection.commit()
+    databaseConnection.close()
 
 
 ## testenv

@@ -1,3 +1,4 @@
+from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabase3arg, updateEntry
 from Userclasses.SysAdminClass import SysAdmin
 
 
@@ -41,18 +42,30 @@ class SuperAdmin(SysAdmin):
         print("This function is not available for SUPER ADMIN.")
         input()
 
-    def addAdmin():
+    def addAdmin(username, password):
         '''add a new admin to the system'''
-        return
+        insertIntoDatabase3arg('SysAdmins', username, password)
 
-    def modifyAdmin():
+    def modifyAdmin(column, newValue):
         '''modify or update an existing admin's account and profile'''
-        return
+        updateEntry('SysAdmins', column, newValue)
     
-    def deleteAdmin():
+    def deleteAdmin(username):
         '''delete an existing admin's account'''
-        return
+        deleteEntry('SysAdmins', 'username', username)
     
-    def resetAdminPassword():
+    def resetAdminPassword(sysadminUsername):
         '''reset an existing admin's password, give him a temporary one'''
-        return
+        
+        def generaterandomstring():
+            print("placeholder function, will be Auxfunctions.generateRandomPassword() instead")
+            return "randomstring"
+
+
+        newPassword = generaterandomstring()
+
+        updateEntry('SysAdmins', 'password', newPassword, 'username', sysadminUsername)
+
+        return newPassword
+
+        

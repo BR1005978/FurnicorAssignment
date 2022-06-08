@@ -1,4 +1,5 @@
-from Functions.DatabaseFunctions import insertIntoDatabase3arg
+import sqlite3
+from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabase3arg, updateEntry
 from Userclasses.AdvisorClass import Advisor
 
 
@@ -36,17 +37,46 @@ class SysAdmin(Advisor):
         insertIntoDatabase3arg('Advisors', username, newpassword)
         return
 
-    def modifyAdvisor():
+    def modifyAdvisor(column, variable, username):
         '''modify or update an existing advisor's account and profile'''
-        return
+
+        databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+        DBcursor = databaseConnection.cursor()
+
+        DBcursor.execute(f"""
+            UPDATE Advisors
+            SET {column} = '{variable}'
+            WHERE 'username' = '{username}'
+            """)
+
+        databaseConnection.commit()
+        databaseConnection.close()
     
-    def deleteAdvisor():
+    def deleteAdvisor(username):
         '''delete an existing advisor's account'''
+
+        deleteEntry('Advisors', 'username', username)
         return
     
-    def resetAdvisorPassword():
-        '''reset an advisor's password'''
-        return
+    def resetAdvisorPassword(advisorUsername):
+        '''
+        reset an advisor's password.
+        generates a random password and updates the advisor based on the inputted username in 
+        the database accordingly. 
+
+        returns: the new (randomized) password
+        '''
+
+        def generaterandomstring():
+            print("placeholder function, will be Auxfunctions.generateRandomPassword() instead")
+            return "randomstring"
+
+
+        newPassword = generaterandomstring()
+
+        updateEntry('SysAdmins', 'password', newPassword, 'username', advisorUsername)
+
+        return newPassword
     
     def backupSystem():
         '''make a backup of the system'''
@@ -56,8 +86,10 @@ class SysAdmin(Advisor):
         '''show the logs file of the system'''
         return
 
-    def deleteMember():
+    def deleteMember(memID):
         '''delete a member's record from the database'''
+
+        deleteEntry('Members', 'membershipID', memID)
         return
 
 
