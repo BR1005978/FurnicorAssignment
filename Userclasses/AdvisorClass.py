@@ -81,5 +81,4 @@ class Advisor:
         databaseConnection.close()
 
         return queryresult
-
-
+    

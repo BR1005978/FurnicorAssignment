@@ -20,7 +20,7 @@ def verifyCredentials(username, password):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-
+    results = None
 
     
     # try to find the credentials in the Advisors table first ...
@@ -49,7 +49,7 @@ def verifyCredentials(username, password):
                 SELECT * 
                 FROM SysAdmins
                 WHERE username = '{username}'
-                AND password = '{passwor}'
+                AND password = '{password}'
                 
                 """)
         

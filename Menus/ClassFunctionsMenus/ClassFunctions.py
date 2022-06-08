@@ -1,9 +1,9 @@
-from Menus.ClassFunctionsMenus.AddNewMemberMenu2 import addNewMemberMenu
-from Menus.ClassFunctionsMenus.CreateNewAdvisorMenu6 import createNewAdvisorMenu
-from Menus.ClassFunctionsMenus.ModifyMemberMenu3 import modifyMemberMenu
-from Menus.ClassFunctionsMenus.QueryUsersMenu5 import queryUsersMenu
-from Menus.ClassFunctionsMenus.UpdateOwnPasswordMenu1 import updateOwnPasswordMenu
-from Menus.ClassFunctionsMenus.QueryMembersMenu4 import queryMembersMenu
+from Menus.ClassFunctionsMenus.F2AddNewMemberMenu import addNewMemberMenu
+from Menus.ClassFunctionsMenus.F6CreateNewAdvisorMenu import createNewAdvisorMenu
+from Menus.ClassFunctionsMenus.F3ModifyMemberMenu import modifyMemberMenu
+from Menus.ClassFunctionsMenus.F5QueryUsersMenu import queryUsersMenu
+from Menus.ClassFunctionsMenus.F1UpdateOwnPasswordMenu import updateOwnPasswordMenu
+from Menus.ClassFunctionsMenus.F4QueryMembersMenu import queryMembersMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 

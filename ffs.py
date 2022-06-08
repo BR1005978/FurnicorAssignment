@@ -4,7 +4,7 @@ import Menus.HomeScreens.HomeScreen as hs
 import Userclasses
 from Userclasses.SysAdminClass import SysAdmin
 
-from Menus.ClassFunctionsMenus.UpdateOwnPasswordMenu1 import *
+from Menus.ClassFunctionsMenus.F1UpdateOwnPasswordMenu import *
 
 def Main():
     
