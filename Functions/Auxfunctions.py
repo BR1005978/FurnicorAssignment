@@ -4,6 +4,7 @@ Auxiliary functions such as generateUserID to be used in other places of the pro
 
 import random 
 import string
+import hashlib
 
 def generateUserID():
     '''
@@ -52,4 +53,19 @@ def generateRandomPassword():
     
     chars = string.ascii_letters
     
-    return ''.join(random.choice(chars) for i in range(12))
+    return ''.join(random.choice(chars) for i in range(10))
+
+
+def hashEncrypt(unhashed):
+    '''
+    a function that takes in a string and hashes it. 
+    the hashed output will be consistent for the same input 
+    '''
+
+    encodedInput = unhashed.encode()
+    hashedInput = hashlib.md5(encodedInput)
+    digestedInput = hashedInput.hexdigest()
+
+    return digestedInput
+
+

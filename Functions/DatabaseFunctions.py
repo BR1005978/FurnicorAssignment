@@ -1,5 +1,5 @@
 import sqlite3
-from Functions.Auxfunctions import generateUserID
+from Functions.Auxfunctions import generateUserID, hashEncrypt
 from datetime import date
 
 
@@ -28,7 +28,7 @@ def insertIntoDatabase3arg(table, username, password):
     INSERT INTO {table}
     VALUES(
         '{username}',
-        '{password}'
+        '{hashEncrypt(password)}'
     )
     """)
 

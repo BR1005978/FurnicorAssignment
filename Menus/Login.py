@@ -1,5 +1,6 @@
 from hashlib import new
 import sqlite3
+from Functions.Auxfunctions import hashEncrypt
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
@@ -28,9 +29,11 @@ def verifyCredentials(username, password):
                     SELECT * 
                     FROM Advisors
                     WHERE username = '{username}'
-                    AND password = '{password}'
+                    AND password = '{hashEncrypt(password)}'
                     
                     """)
+    print("this is the password you inputted:", password)
+    print("printing the encrypted password!", hashEncrypt(password))
 
 
     # if something was returned from the database, that must imply that
@@ -49,7 +52,7 @@ def verifyCredentials(username, password):
                 SELECT * 
                 FROM SysAdmins
                 WHERE username = '{username}'
-                AND password = '{password}'
+                AND password = '{hashEncrypt(password)}'
                 
                 """)
         
