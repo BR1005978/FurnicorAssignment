@@ -50,3 +50,6 @@ def generateRandomPassword():
     # input: geen
     # returns: een string
     
+    chars = string.ascii_letters
+    
+    return ''.join(random.choice(chars) for i in range(12))
