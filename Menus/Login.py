@@ -1,5 +1,6 @@
 from hashlib import new
 import sqlite3
+from telnetlib import ENCRYPT
 from Functions.Auxfunctions import hashEncrypt
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
@@ -22,6 +23,7 @@ def verifyCredentials(username, password):
     DBcursor = databaseConnection.cursor()
 
     results = None
+    encryptedPassword = hashEncrypt(password)
 
     
     # try to find the credentials in the Advisors table first ...
@@ -29,12 +31,11 @@ def verifyCredentials(username, password):
                     SELECT * 
                     FROM Advisors
                     WHERE username = '{username}'
-                    AND password = '{hashEncrypt(password)}'
+                    AND password = '{encryptedPassword}'
                     
                     """)
-    print("this is the password you inputted:", password)
-    print("printing the encrypted password!", hashEncrypt(password))
 
+    results = DBcursor.fetchone()
 
     # if something was returned from the database, that must imply that
     # the credentials were correct. therefore, make an advisor with this username
@@ -52,7 +53,7 @@ def verifyCredentials(username, password):
                 SELECT * 
                 FROM SysAdmins
                 WHERE username = '{username}'
-                AND password = '{hashEncrypt(password)}'
+                AND password = '{encryptedPassword}'
                 
                 """)
         
@@ -77,7 +78,7 @@ def verifyCredentials(username, password):
         return False, None
 
     # if the credentials WERE correct ...
-    elif results[0] == username and results[1] == password:
+    elif results[0] == username and results[1] == encryptedPassword:
         print('verifyCredentials(): found correct credentials in database')
         return True, userobject
 

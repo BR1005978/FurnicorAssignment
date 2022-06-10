@@ -57,6 +57,5 @@ Phone number: {item[5]}
 Registration date: {item[6]}
             """)
         print("")
-    print("[DEV]: ", searchResults)
     input("Press 'enter' to continue ...")
 

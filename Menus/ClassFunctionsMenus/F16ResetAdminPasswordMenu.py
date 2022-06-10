@@ -1,5 +1,5 @@
 from Functions.Auxfunctions import generateRandomPassword
-from Functions.DatabaseFunctions import updateEntry
+from Functions.DatabaseFunctions import resetPassword, updateEntry
 
 
 def resetAdminPasswordMenu(user):
@@ -11,6 +11,6 @@ def resetAdminPasswordMenu(user):
 
     username = input("Enter the username of the SysAdmin from which you want to reset the password: ")
 
-    updateEntry('SysAdmins', 'password', newpass, 'username', username)
+    resetPassword('SysAdmins', 'password', newpass, 'username', username)
 
     print(f"The new password is: {newpass}\nRemember it well.")

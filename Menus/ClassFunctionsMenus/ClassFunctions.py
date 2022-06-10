@@ -1,12 +1,15 @@
 from Menus.ClassFunctionsMenus.F12DeleteMemberMenu import deleteMemberMenu
 from Menus.ClassFunctionsMenus.F15DeleteAdminMenu import deleteAdminMenu
+from Menus.ClassFunctionsMenus.F16ResetAdminPasswordMenu import resetAdminPasswordMenu
 from Menus.ClassFunctionsMenus.F2AddNewMemberMenu import addNewMemberMenu
 from Menus.ClassFunctionsMenus.F6CreateNewAdvisorMenu import createNewAdvisorMenu
 from Menus.ClassFunctionsMenus.F3ModifyMemberMenu import modifyMemberMenu
 from Menus.ClassFunctionsMenus.F5QueryUsersMenu import queryUsersMenu
 from Menus.ClassFunctionsMenus.F1UpdateOwnPasswordMenu import updateOwnPasswordMenu
 from Menus.ClassFunctionsMenus.F4QueryMembersMenu import queryMembersMenu
+from Menus.ClassFunctionsMenus.F7ModifyAdvisorMenu import modifyAdvisorMenu
 from Menus.ClassFunctionsMenus.F8DeleteAdvisorMenu import deleteAdvisorMenu
+from Menus.ClassFunctionsMenus.F9ResetAdvisorPasswordMenu import resetAdvisorPassword
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
@@ -86,7 +89,7 @@ def classFunctionsMenu(user):
             queryMembersMenu(user)
             
         
-        elif isinstance(user, SysAdmin):
+        if isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
                 input()
@@ -95,14 +98,14 @@ def classFunctionsMenu(user):
                 createNewAdvisorMenu(user)
             
             elif answer == "7": 
-                print("Modify advisor function not yet implemented ")
+                modifyAdvisorMenu(user)
                 input()
             
             elif answer == "8": 
                 deleteAdvisorMenu(user)
             
             elif answer == "9": 
-                print("Reset advisor's password function not yet implemented ")
+                resetAdvisorPassword(user)
                 input()
             
             elif answer == "10": 
@@ -115,12 +118,12 @@ def classFunctionsMenu(user):
             
             elif answer == "12": 
                 deleteMemberMenu(user)
-            elif answer != "0":
+            elif answer != "0" and type(user) != SuperAdmin:
                 print("(sysadmin) input not recognized")
                 input()
 
         
-        elif type(user) == SuperAdmin:
+        if type(user) == SuperAdmin:
             if answer == "13":
                 print("Add admin function not yet implemented")
                 input()
@@ -133,7 +136,7 @@ def classFunctionsMenu(user):
                 deleteAdminMenu(user)
                 
             elif answer == "16":
-                print("Reset admin password function not yet implemented")
+                resetAdminPasswordMenu(user)
                 input()
             elif answer != "0":
                 print("(superadmin) input not recognized")

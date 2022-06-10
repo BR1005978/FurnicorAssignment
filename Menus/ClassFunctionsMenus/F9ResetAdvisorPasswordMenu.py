@@ -1,5 +1,5 @@
 from Functions.Auxfunctions import generateRandomPassword
-from Functions.DatabaseFunctions import updateEntry
+from Functions.DatabaseFunctions import resetPassword, updateEntry
 
 
 def resetAdvisorPassword(user):
@@ -11,6 +11,6 @@ def resetAdvisorPassword(user):
 
     username = input("Enter the username of the advisor from which you want to reset the password: ")
 
-    updateEntry('Advisors', 'password', newpass, 'username', username)
+    resetPassword('Advisors', 'password', newpass, 'username', username)
 
     print(f"The new password is: {newpass}\nRemember it well.")

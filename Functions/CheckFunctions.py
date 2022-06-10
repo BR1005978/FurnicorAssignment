@@ -2,7 +2,7 @@
 CheckFunctions.py contains typechecking functions such as passwordcheck, usernamecheck, etc
 '''
 import sqlite3
-
+import re
 
 
 # some variables to be used in following functions 
@@ -73,8 +73,6 @@ def usernameCheck(username):
 
     ○ no distinguishing between lowercase and uppercase letters
 
-    To do: return ValueError if username already exists
-
     '''
 
     print('usernameCheck()')
@@ -121,18 +119,44 @@ def usernameCheck(username):
     return True
 
 
-def checkAddress(adres):
+def checkString(String):
     '''
-    function that checks if an address is in the right format
-
-    from the documentation: Address (Street name, House number, Zip Code (DDDDXX), City (system should generate a list of 10 city names of your choice predefined in the system)
+    checks the String for validity
     '''
-    ### TDH2: maak een functie die kijkt of een adres in het juiste formaat is
-    ### tip : gebruik regex. python heeft een ingebouwde regex library (import re) 
-    ### die je kan gebruiken om strings te vergelijken en te checken of het in een juist format is. 
-    ### input: een string, het adres
-    ### output: een boolean
+    if re.match("[a-zA-Z]", String):
+        return True
+    else:
+        return False
 
+def checkHouseNumber(housenumber):
+    '''
+    check to see if it's a actual number.
+    no sneaky metacharacters allowed
+    '''
+    if re.match("[0-9]", housenumber):
+        return True
+    else: 
+        return False
+
+def checkZipCode(zipcode):
+    '''
+    regex to see if the zipcode is in a valid format
+    '''
+    if re.match("[0-9]{4}[a-zA-Z]{2}", zipcode):
+        return True
+    else:
+        return False
+
+def checkCity(city):
+    '''
+    check to see if the inputted value is in a list of allowed city names
+    '''
+    validCities = ["Kapellerdijk", "Botervuik", "Hendrik-Ambacht", "Rotterdijk", "Hoogkerk", "Vislandserdorp", "Heerenvoorn", "Drollendam", "Koningsveen", "Muizendam"]
+
+    if city in validCities:
+        return True
+    else:
+        return False
 
 def checkPhonenumber(phonenumber):
     '''
@@ -140,6 +164,10 @@ def checkPhonenumber(phonenumber):
     tip: phone numbers are strings
     '''
     #TDH3: een functie maken die checkt of een telefoonnummer wel in het juiste format is
+    if re.match(r"^[0-9]", phonenumber ) and len(phonenumber) == 8:
+        return True
+    else:
+        return False
 
 
 def checkEmail(email):
@@ -150,6 +178,7 @@ def checkEmail(email):
     # input: een email adres
     # output: een boolean
     #tip; gebruik regex
+
 
 
 

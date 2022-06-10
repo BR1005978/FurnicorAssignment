@@ -103,8 +103,24 @@ def updateEntry(table, column, newValue, conditionColumn, conditionValue):
 
     DBcursor.execute(f"""
         UPDATE {table}
-        SET {column} = {newValue}
-        WHERE {conditionColumn} = {conditionValue}
+        SET {column} = '{newValue}'
+        WHERE {conditionColumn} = '{conditionValue}'
+    """)
+
+    databaseConnection.commit()
+    databaseConnection.close()
+
+def resetPassword(table, column, newValue, conditionColumn, conditionValue):
+    '''
+    reset the password of a user
+    '''
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+    DBcursor = databaseConnection.cursor()
+
+    DBcursor.execute(f"""
+        UPDATE {table}
+        SET {column} = '{hashEncrypt(newValue)}'
+        WHERE {conditionColumn} = '{conditionValue}'
     """)
 
     databaseConnection.commit()
