@@ -1,9 +1,12 @@
+from Menus.ClassFunctionsMenus.F12DeleteMemberMenu import deleteMemberMenu
+from Menus.ClassFunctionsMenus.F15DeleteAdminMenu import deleteAdminMenu
 from Menus.ClassFunctionsMenus.F2AddNewMemberMenu import addNewMemberMenu
 from Menus.ClassFunctionsMenus.F6CreateNewAdvisorMenu import createNewAdvisorMenu
 from Menus.ClassFunctionsMenus.F3ModifyMemberMenu import modifyMemberMenu
 from Menus.ClassFunctionsMenus.F5QueryUsersMenu import queryUsersMenu
 from Menus.ClassFunctionsMenus.F1UpdateOwnPasswordMenu import updateOwnPasswordMenu
 from Menus.ClassFunctionsMenus.F4QueryMembersMenu import queryMembersMenu
+from Menus.ClassFunctionsMenus.F8DeleteAdvisorMenu import deleteAdvisorMenu
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
@@ -48,7 +51,7 @@ def classFunctionsMenu(user):
     11. Show the logs
 
     12. Delete a member""")
-
+        ####################
 
         ####################
         # display superadmin functions
@@ -96,8 +99,7 @@ def classFunctionsMenu(user):
                 input()
             
             elif answer == "8": 
-                print("Delete an advisor function not yet implemented ")
-                input()
+                deleteAdvisorMenu(user)
             
             elif answer == "9": 
                 print("Reset advisor's password function not yet implemented ")
@@ -112,8 +114,7 @@ def classFunctionsMenu(user):
                 input()
             
             elif answer == "12": 
-                print("Delete member function not yet implemented ")
-                input()
+                deleteMemberMenu(user)
             elif answer != "0":
                 print("(sysadmin) input not recognized")
                 input()
@@ -129,8 +130,7 @@ def classFunctionsMenu(user):
                 input()
 
             elif answer == "15":
-                print("Delete admin function not yet implemented")
-                input()
+                deleteAdminMenu(user)
                 
             elif answer == "16":
                 print("Reset admin password function not yet implemented")
@@ -146,7 +146,6 @@ def classFunctionsMenu(user):
             break
         
 
-        #B1 waarom komt het programma niet op dit punt wanneer de gebruiker een super admin is? heuh
         else:
             print("input not recognized")
             input()

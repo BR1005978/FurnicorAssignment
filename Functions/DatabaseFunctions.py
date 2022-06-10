@@ -76,13 +76,18 @@ def queryDatabase2args(column = '*', table = ''):
     databaseConnection.commit()
     databaseConnection.close()
 
-def deleteEntry(table, variable, key):
+def deleteEntry(table, key, variable):
+    '''
+    deletes an entry from the database. 
+    TODO: verify if the inputted variable actually exists in the database
+    
+    '''
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     DBcursor.execute(f"""
         DELETE FROM {table}
-        WHERE {key} = {variable}
+        WHERE {key} = '{variable}'
     """)
 
     databaseConnection.commit()

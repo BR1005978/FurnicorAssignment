@@ -3,6 +3,7 @@ Auxiliary functions such as generateUserID to be used in other places of the pro
 '''
 
 import random 
+import string
 
 def generateUserID():
     '''
