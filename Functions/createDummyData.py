@@ -27,11 +27,11 @@ def createDummyData():
 
     ### insert members into database
     # allowed city names: 
-    insertIntoDatabase5args('Knoert', 'Klokiebril', 'Stronkstraat 85, 3012TX, Botervuik', 'k.klokerino@bonkmail.com', '58785232')
-    insertIntoDatabase5args('Sjaak', 'Sjouwer', 'Pronkstraat 88,  1805BB, Drollendam', 'boterhammetje85@live.nl', '55447895')
-    insertIntoDatabase5args('Jos', 'Brulvink', 'Pokémonstraat 103, 1566WE, Heerenvoorn', 'brullerino@gmail.com', '12969545')
-    insertIntoDatabase5args('Terry', 'Tarrelbraft', 'Snaakstraat 5, 1755PA, Hoogkerk', 'tarreltjeknarreltje@outlook.com', '17879325')
-    insertIntoDatabase5args('Berend', 'Baardhuis', 'Plopstraat 953, 1988TT, Muizendam', 'plopperdeplopperdeplop@plopmail.plop', '11223344')
-    insertIntoDatabase5args('Snoek', 'van der Snor', 'Zwemstraat 23, 2812BP, Vislandserdorp', 'snorrrrr@snormail.org', '77896534')
-    insertIntoDatabase5args('Piet', 'Potvis', 'Zwemstraat 29, 2813TT, Vislandserdorp', 'slappehap@vismail.org', '23334953')
+    insertIntoDatabase5args('Knoert', 'Klokiebril', 'Stronkstraat 85, 3012TX Botervuik', 'k.klokerino@bonkmail.com', '58785232')
+    insertIntoDatabase5args('Sjaak', 'Sjouwer', 'Pronkstraat 88,  1805BB Drollendam', 'boterhammetje85@live.nl', '55447895')
+    insertIntoDatabase5args('Jos', 'Brulvink', 'Pokémonstraat 103, 1566WE Heerenvoorn', 'brullerino@gmail.com', '12969545')
+    insertIntoDatabase5args('Terry', 'Tarrelbraft', 'Snaakstraat 5, 1755PA Hoogkerk', 'tarreltjeknarreltje@outlook.com', '17879325')
+    insertIntoDatabase5args('Berend', 'Baardhuis', 'Plopstraat 953, 1988TT Muizendam', 'plopperdeplopperdeplop@plopmail.plop', '11223344')
+    insertIntoDatabase5args('Snoek', 'van der Snor', 'Zwemstraat 23, 2812BP Vislandserdorp', 'snorrrrr@snormail.org', '77896534')
+    insertIntoDatabase5args('Piet', 'Potvis', 'Zwemstraat 29, 2813TT Vislandserdorp', 'slappehap@vismail.org', '23334953')
 

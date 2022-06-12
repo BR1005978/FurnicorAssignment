@@ -64,6 +64,7 @@ class SysAdmin(Advisor):
         generates a random password and updates the advisor based on the inputted username in 
         the database accordingly. 
 
+        input: the username of the advisor
         returns: the new (randomized) password
         '''
 
@@ -79,7 +80,18 @@ class SysAdmin(Advisor):
         return newPassword
     
     def backupSystem():
-        '''make a backup of the system'''
+        '''
+        make a backup of the system
+        
+        input: nothing
+        returns: nothing
+        '''
+        #TODOPS2: schrijf een functie die het bestandje FurnicorDatabase.db en logfile.txt
+        #verplaatsen naar een mapje genaamd 'backup'
+
+
+
+
         return
 
     def showLogs():

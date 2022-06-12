@@ -1,13 +1,17 @@
 import importlib
 import sqlite3
+from Functions.InitializeFunction import initializer
 import Menus.HomeScreens.HomeScreen as hs
 import Userclasses
 from Userclasses.SysAdminClass import SysAdmin
 
-from Menus.ClassFunctionsMenus.F1UpdateOwnPasswordMenu import *
+initializer()
 
 def Main():
-    
+
+
+
+
     hs.homeScreen()
 
 

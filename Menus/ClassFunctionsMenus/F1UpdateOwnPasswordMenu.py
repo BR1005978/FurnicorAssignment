@@ -32,6 +32,7 @@ def updateOwnPasswordMenu(user):
                     # try: 
                     user.updateOwnPassword(pw1)  
                     print(f"Updating {user.sayType} password succeeded (presumably)")  
+                    break
                     # except: 
                     #     print("something went wrong")
                 elif type(user) == SuperAdmin:

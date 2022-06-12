@@ -1,7 +1,7 @@
 from datetime import date
 import sqlite3
 
-from Functions.Auxfunctions import generateUserID
+from Functions.Auxfunctions import generateUserID, hashEncrypt
 from Functions.DatabaseFunctions import insertIntoDatabase5args
 
 
@@ -30,8 +30,8 @@ class Advisor:
         DBcursor = databaseConnection.cursor()
 
         DBcursor.execute(f"""
-            UPDATE {self.sayType()}
-            SET password = '{newpass}'
+            UPDATE {self.sayType()}s
+            SET password = '{hashEncrypt(newpass)}'
             WHERE username = '{self.username}'
             """)
 

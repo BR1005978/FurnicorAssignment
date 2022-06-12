@@ -23,6 +23,8 @@ def generateUserID():
     § Valid ID number: 5223287425
     '''
 
+    ### TODOPS3: zorgen dat membershipIDs wel echt uniek zijn
+
     ID = random.randint(100000000,999999999)
 
     IDstring = str(ID)
@@ -68,4 +70,33 @@ def hashEncrypt(unhashed):
 
     return digestedInput
 
+def encryptData(unencryptedData):
+    '''
+    function that encrypts a string (and/or telephone number)
+    to store it in the database and log file
 
+    '''
+    # TODOPS1: maak een functie die een inkomende string (of telefoonnummer) encrypt
+    # voel je trouwens vrij om functienaam en / of variabelen te veranderen
+
+    encryptedData = ''
+
+    # encrypt magic hierzo
+
+
+    return encryptedData
+
+
+def decryptData(encryptedData):
+    '''
+    function that decrypts a string (and/or telephone number) for 
+    reading purposes
+    '''
+    # TODOPS1: 
+
+    decryptedData = '' 
+
+    #nog meer magie hierzo
+
+
+    return decryptedData

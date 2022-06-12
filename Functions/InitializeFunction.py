@@ -1,4 +1,18 @@
 import sqlite3
+import os
+import csv
+
+def initializeLogfile():
+    ''' 
+    function that creates the logfile if it does not exist yet on startup
+    '''
+
+    if os.path.exists('logfile.txt'):
+        print("[DEV] logfile exists")
+    else:
+        print("logfile does not exist")
+        file = open('logfile.txt', 'w')
+        file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
 
 
 
@@ -8,75 +22,79 @@ def initializer():
     the functions that initialize the database. think of the functions that make the tables if there are none yet. 
     so the functions that get executed on the first time starting up this program
     '''
+    initializeLogfile()
 
-    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
-    DBcursor = databaseConnection.cursor()
-
-    #create SysAdmins table
-
-    print('initializer()')
-
-    print("attempting SysAdmins table creation ...")
-
-    try:
-        DBcursor.execute("""
-            CREATE TABLE SysAdmins (
-                username TEXT PRIMARY KEY, 
-                password TEXT
-                )""")
-    except sqlite3.OperationalError:
-        print("Table SysAdmins already exists.")
-    except:
-        print("Unknown error in database table creation")
+    if os.path.exists('FurnicorDatabase.db'):
+        print('[DEV] database exists')
     else:
-        print("SysAdmins table created")
+        print('[DEV] database does not yet exist, creating now ...')
+        databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+        DBcursor = databaseConnection.cursor()
+
+        #create SysAdmins table
+
+        print('initializer()')
+
+        print("attempting SysAdmins table creation ...")
+
+        try:
+            DBcursor.execute("""
+                CREATE TABLE SysAdmins (
+                    username TEXT PRIMARY KEY, 
+                    password TEXT
+                    )""")
+        except sqlite3.OperationalError:
+            print("Table SysAdmins already exists.")
+        except:
+            print("Unknown error in database table creation")
+        else:
+            print("SysAdmins table created")
 
 
 
 
-    #create advisors table
+        #create advisors table
 
-    print("attempting Advisor table creation ...")
-    try:
-        DBcursor.execute("""
-            CREATE TABLE Advisors (
-                username TEXT PRIMARY KEY, 
-                password TEXT
-                )""")
-    except sqlite3.OperationalError:
-        print("Table Advisors already exists.")
-    except:
-        print("Unknown error in database table creation")
-    else:
-        print("Advisors table created")
-
-
-
-    #create Members table
-
-    print("attempting Members table creation ...")
-    try:
-        DBcursor.execute("""
-            CREATE TABLE Members (
-                membershipID integer PRIMARY KEY,
-                firstname text, 
-                lastname text,
-                address text,
-                email text,
-                phonenumber text,
-                registrationdate text
-                )""")
-    except sqlite3.OperationalError:
-        print("Table Members already exists.")
-    except:
-        print("Unknown error in database table creation")
-    else:
-        print("Members table created")
+        print("attempting Advisor table creation ...")
+        try:
+            DBcursor.execute("""
+                CREATE TABLE Advisors (
+                    username TEXT PRIMARY KEY, 
+                    password TEXT
+                    )""")
+        except sqlite3.OperationalError:
+            print("Table Advisors already exists.")
+        except:
+            print("Unknown error in database table creation")
+        else:
+            print("Advisors table created")
 
 
-    databaseConnection.commit()
 
-    databaseConnection.close()
+        #create Members table
 
+        print("attempting Members table creation ...")
+        try:
+            DBcursor.execute("""
+                CREATE TABLE Members (
+                    membershipID integer PRIMARY KEY,
+                    firstname text, 
+                    lastname text,
+                    address text,
+                    email text,
+                    phonenumber text,
+                    registrationdate text
+                    )""")
+        except sqlite3.OperationalError:
+            print("Table Members already exists.")
+        except:
+            print("Unknown error in database table creation")
+        else:
+            print("Members table created")
+
+
+        databaseConnection.commit()
+
+        databaseConnection.close()
 
 

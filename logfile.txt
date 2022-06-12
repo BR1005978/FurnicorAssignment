@@ -1,0 +1,9 @@
+Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious
+1, no username entered, 2022-06-12, 14:17:04, no description given, ., sus?
+2, no username entered, 2022-06-12, 14:17:21, no description given, ., sus?
+3, no username entered, 2022-06-12, 14:17:46, no description given, ., sus?
+4, no username entered, 2022-06-12, 14:20:23, no description given, ., sus?
+5, no username entered, 2022-06-12, 14:20:39, no description given, ., sus?
+6, no username entered, 2022-06-12, 14:21:55, no description given, ., sus?
+7, no username entered, 2022-06-12, 14:22:56, no description given, ., sus?
+8, no username entered, 2022-06-12, 14:24:12, no description given, ., sus?

@@ -163,7 +163,6 @@ def checkPhonenumber(phonenumber):
     function that checks if a phone number is in the right format
     tip: phone numbers are strings
     '''
-    #TDH3: een functie maken die checkt of een telefoonnummer wel in het juiste format is
     if re.match(r"^[0-9]", phonenumber ) and len(phonenumber) == 8:
         return True
     else:

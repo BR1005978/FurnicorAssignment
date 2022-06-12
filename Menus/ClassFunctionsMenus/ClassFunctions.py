@@ -1,4 +1,7 @@
+from Functions.createDummyData import createDummyData
 from Menus.ClassFunctionsMenus.F12DeleteMemberMenu import deleteMemberMenu
+from Menus.ClassFunctionsMenus.F13AddAdminMenu import addAdminMenu
+from Menus.ClassFunctionsMenus.F14ModifyAdminMenu import modifyAdminMenu
 from Menus.ClassFunctionsMenus.F15DeleteAdminMenu import deleteAdminMenu
 from Menus.ClassFunctionsMenus.F16ResetAdminPasswordMenu import resetAdminPasswordMenu
 from Menus.ClassFunctionsMenus.F2AddNewMemberMenu import addNewMemberMenu
@@ -66,7 +69,9 @@ def classFunctionsMenu(user):
 
     15. Delete admin
 
-    16. Reset admin password""")
+    16. Reset admin password
+    
+    17. Create dummy data""")
         ####################
 
 
@@ -125,11 +130,11 @@ def classFunctionsMenu(user):
         
         if type(user) == SuperAdmin:
             if answer == "13":
-                print("Add admin function not yet implemented")
+                addAdminMenu(user)
                 input()
                 
             elif answer == "14":
-                print("Modify admin function not yet implemented")
+                modifyAdminMenu(user)
                 input()
 
             elif answer == "15":
@@ -137,7 +142,10 @@ def classFunctionsMenu(user):
                 
             elif answer == "16":
                 resetAdminPasswordMenu(user)
-                input()
+
+            elif answer == "17":
+                createDummyData()
+
             elif answer != "0":
                 print("(superadmin) input not recognized")
                 input()

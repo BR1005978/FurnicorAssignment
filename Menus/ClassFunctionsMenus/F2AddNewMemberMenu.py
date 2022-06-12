@@ -1,5 +1,5 @@
 from Functions.CheckFunctions import checkString
-from Functions.Logfunction import Log
+from Functions.Logfunction import LogData
 
 
 def addNewMemberMenu(user):
@@ -28,7 +28,7 @@ def addNewMemberMenu(user):
 
 
 
-    address = f"{streetname} {housenumber}, {zipcode}, {city}"
+    address = f"{streetname} {housenumber}, {zipcode} {city}"
 
     print(f"""
     Are these correct?
