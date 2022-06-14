@@ -10,7 +10,7 @@ Link naar students guide en lessen AN8: https://hrnl-my.sharepoint.com/:w:/g/per
 
 Deelnemers:  
 Bruno  
-Hendrik   
+Patrick 
 
 
 
