@@ -110,8 +110,6 @@ def loginScreen():
         username = input("Username: ")
         password = input("Password: ")
 
-
-
         verificationResults = verifyCredentials(username, password)
 
 
@@ -123,8 +121,3 @@ def loginScreen():
             cont = input("credentials not found. press enter to try again, or type q to cancel ... ")
             if cont.lower() == "q":
                 return None
-
-
-#loginScreen()
-
-    

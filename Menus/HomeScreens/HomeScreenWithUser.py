@@ -7,7 +7,9 @@ from Userclasses.SuperAdminClass import SuperAdmin
 
 from Userclasses.SysAdminClass import SysAdmin
 
-
+def clearConsole():
+    for x in range(20):
+        print("\n")
 
 def homeScreenWithUser(user):
     '''
@@ -17,9 +19,10 @@ def homeScreenWithUser(user):
 
     it only returns None when you want to log out 
     '''
-
-    print("Welcome user: ", user)
+    
     while True:
+        clearConsole()
+        print("Welcome user: ", user)
         print(
                 f"""
     1. Access {user.sayType()} functions
@@ -38,6 +41,7 @@ def homeScreenWithUser(user):
 
 
         if answer == "1":
+            clearConsole()
             print("accessing class-specific functions...") 
             classFunctionsMenu(user)
             # if type(user) == Advisor: 
@@ -64,7 +68,6 @@ def homeScreenWithUser(user):
                 logoutanswer = input(f"Log out user {user.username}? y/n : ")
                 if logoutanswer.lower() == "y":
                     print("Logging out ...")
-                    input()
                     return None
                 elif logoutanswer.lower() == "n":
                     input("Ok, not logging out.")

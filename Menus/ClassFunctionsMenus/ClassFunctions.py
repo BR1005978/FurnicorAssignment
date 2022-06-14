@@ -83,6 +83,7 @@ def classFunctionsMenu(user):
 
         if answer == "1":
             updateOwnPasswordMenu(user)
+            classFunctionsMenu(user)
     
         elif answer == "2":
             addNewMemberMenu(user)

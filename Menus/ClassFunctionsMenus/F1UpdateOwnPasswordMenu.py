@@ -4,6 +4,9 @@ from Userclasses.AdvisorClass import Advisor
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
+def clearConsole():
+    for x in range(20):
+        print("\n")
 
 def updateOwnPasswordMenu(user):
     '''
@@ -30,7 +33,8 @@ def updateOwnPasswordMenu(user):
                 
                 if type(user) == Advisor or type(user) == SysAdmin:
                     # try: 
-                    user.updateOwnPassword(pw1)  
+                    user.updateOwnPassword(pw1) 
+                    clearConsole() 
                     print(f"Updating {user.sayType} password succeeded (presumably)")  
                     break
                     # except: 
