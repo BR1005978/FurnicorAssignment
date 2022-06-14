@@ -2,6 +2,8 @@ import sqlite3
 from Functions.Auxfunctions import generateUserID, hashEncrypt
 from datetime import date
 
+from Functions.caesar import *
+
 
 def wipeDatabase():
     '''
@@ -27,7 +29,7 @@ def insertIntoDatabase3arg(table, username, password):
     DBcursor.execute(f"""
     INSERT INTO {table}
     VALUES(
-        '{username}',
+        '{encrypt(username,s)}',
         '{hashEncrypt(password)}'
     )
     """)
@@ -49,11 +51,11 @@ def insertIntoDatabase5args(firstname, lastname, address, email, phonenumber):
         INSERT INTO Members
         VALUES(
             '{generateUserID()}',
-            '{firstname}',
-            '{lastname}',
-            '{address}',
-            '{email}',
-            '31-6-{phonenumber}',
+            '{encrypt(firstname, s)}',
+            '{encrypt(lastname, s)}',
+            '{encrypt(address, s)}',
+            '{encrypt(email, s)}',
+            '31-6-{encrypt(phonenumber, s)}',
             '{date.today()}'
         )
         """)

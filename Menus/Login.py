@@ -2,6 +2,7 @@ from hashlib import new
 import sqlite3
 from telnetlib import ENCRYPT
 from Functions.Auxfunctions import hashEncrypt
+from Functions.caesar import *
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
@@ -30,12 +31,13 @@ def verifyCredentials(username, password):
     DBcursor.execute(f"""
                     SELECT * 
                     FROM Advisors
-                    WHERE username = '{username}'
+                    WHERE username = '{encrypt(username, s)}'
                     AND password = '{encryptedPassword}'
                     
                     """)
 
     results = DBcursor.fetchone()
+    results = (decrypt(results[0], s), results[1])
 
     # if something was returned from the database, that must imply that
     # the credentials were correct. therefore, make an advisor with this username
@@ -52,7 +54,7 @@ def verifyCredentials(username, password):
         DBcursor.execute(f"""
                 SELECT * 
                 FROM SysAdmins
-                WHERE username = '{username}'
+                WHERE username = '{encrypt(username, s)}'
                 AND password = '{encryptedPassword}'
                 
                 """)
