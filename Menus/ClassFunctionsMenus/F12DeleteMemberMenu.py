@@ -9,6 +9,6 @@ def deleteMemberMenu(user):
     print("[DEV] deleteMemberMenu()")
     
     membershipID = input("Type the membershipID of the Member you wish to delete (use the search member function to find one) : ")
-    user.deleteMember('Members', 'membershipID', membershipID)
+    user.deleteMember(membershipID)
     input("Press 'enter' to continue ... ")
     

@@ -98,7 +98,7 @@ class SysAdmin(Advisor):
         '''show the logs file of the system'''
         return
 
-    def deleteMember(memID):
+    def deleteMember(self, memID):
         '''delete a member's record from the database'''
 
         deleteEntry('Members', 'membershipID', memID)
