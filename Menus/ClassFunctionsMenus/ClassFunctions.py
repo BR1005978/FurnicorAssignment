@@ -53,7 +53,7 @@ def classFunctionsMenu(user):
 
     9. Reset an advisor's password
 
-    10. Make a backup of the system
+    10. Create or restore backup
 
     11. Show the logs
 
