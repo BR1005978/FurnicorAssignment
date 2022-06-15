@@ -1,5 +1,6 @@
 import sqlite3
 from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabase3arg, updateEntry
+from Functions.backup import createBackup, restoreBackup
 from Userclasses.AdvisorClass import Advisor
 
 
@@ -79,20 +80,20 @@ class SysAdmin(Advisor):
 
         return newPassword
     
-    def backupSystem():
+    def backupSystem(self):
         '''
         make a backup of the system
         
         input: nothing
         returns: nothing
         '''
+
+        createBackup()
         #TODOPS2: schrijf een functie die het bestandje FurnicorDatabase.db en logfile.txt
         #verplaatsen naar een mapje genaamd 'backup'
 
-
-
-
-        return
+    def restoreSystem(self):
+        restoreBackup()
 
     def showLogs():
         '''show the logs file of the system'''

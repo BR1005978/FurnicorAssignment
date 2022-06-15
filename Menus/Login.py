@@ -7,6 +7,8 @@ from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
 
+import os
+
 '''functions for logging in'''
 
 def verifyCredentials(username, password):
@@ -37,7 +39,8 @@ def verifyCredentials(username, password):
                     """)
 
     results = DBcursor.fetchone()
-    results = (decrypt(results[0], s), results[1])
+    if results != None:
+        results = (decrypt(results[0], s), results[1])
 
     # if something was returned from the database, that must imply that
     # the credentials were correct. therefore, make an advisor with this username

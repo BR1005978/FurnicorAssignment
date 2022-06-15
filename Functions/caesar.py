@@ -1,4 +1,4 @@
-from matplotlib.pyplot import text
+
 
 def encrypt(text,s):
     encryption = ""

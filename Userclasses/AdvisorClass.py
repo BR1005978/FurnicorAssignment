@@ -3,6 +3,7 @@ import sqlite3
 
 from Functions.Auxfunctions import generateUserID, hashEncrypt
 from Functions.DatabaseFunctions import insertIntoDatabase5args
+from Functions.caesar import *
 
 
 class Advisor:
@@ -32,7 +33,7 @@ class Advisor:
         DBcursor.execute(f"""
             UPDATE {self.sayType()}s
             SET password = '{hashEncrypt(newpass)}'
-            WHERE username = '{self.username}'
+            WHERE username = '{encrypt(self.username, s)}'
             """)
 
         databaseConnection.commit()
