@@ -5,6 +5,7 @@ def createBackup():
     os.system('copy logfile.txt backup.txt')
 
 def restoreBackup():
+    os.system('backup.db FurnicorDatabase.db')
     os.system('copy backup.txt logfile.txt')
 
 createBackup()
