@@ -72,8 +72,12 @@ class Advisor:
         SELECT *
         FROM Members
         WHERE {column} LIKE ? COLLATE NOCASE
-        
-        """, ("%"+ encrypt(variable)+ "%",))
+        UNION
+        SELECT *
+        FROM Members
+        WHERE {column} LIKE ? COLLATE NOCASE
+        """, ("%"+encrypt(variable)+"%","%"+encrypt(variable.lower())+"%")
+        )
 
  
 
@@ -91,6 +95,7 @@ class Advisor:
 
         queryresult = DBcursor.fetchall()
 
+        
         databaseConnection.commit()
         databaseConnection.close()
 

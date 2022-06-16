@@ -4,13 +4,17 @@ def encrypt(text,s = 8):
     encryption = ""
     for c in text:
         encryption += chr(ord(c) + s)
+
+    print(f"[DEV] encrypted string: {encryption}")
     return encryption
 
 def decrypt(text,s = 8):
-    encryption = ""
+    decryption = ""
     for c in text:
-        encryption += chr(ord(c) - s)
-    return encryption
+        decryption += chr(ord(c) - s)
+
+    print(f"[DEV] decrypted string: {decryption}")
+    return decryption
 
 #check the above function
 # text = "CEASER CIPHER DEMO12345678"
