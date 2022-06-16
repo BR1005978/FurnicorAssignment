@@ -47,7 +47,7 @@ def insertIntoDatabase5args(firstname, lastname, address, email, phonenumber):
     DBcursor = databaseConnection.cursor()
 
     try:
-         DBcursor.execute("INSERT INTO Members VALUES(?, ?, ?, ?, ?, ?, ?)", (generateUserID(), encrypt(firstname, s), encrypt(lastname, s), encrypt(address, s), encrypt(email, s), encrypt("31-6-"+ phonenumber, s), date.today()))
+         DBcursor.execute("INSERT INTO Members VALUES(?, ?, ?, ?, ?, ?, ?)", (encrypt(generateUserID()), encrypt(firstname, s), encrypt(lastname, s), encrypt(address, s), encrypt(email, s), encrypt("31-6-"+ phonenumber, s), date.today()))
     except sqlite3.IntegrityError:
         print("Database injection failed. Max character length exceeded. ")
         input("Press enter to continue...")
