@@ -26,7 +26,7 @@ def insertIntoDatabaseUSER(table, username, password, firstname, lastname):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
     try: 
-        DBcursor.execute(f"INSERT INTO {table} VALUES(?, ?)", (encrypt(username,s), hashEncrypt(password), encrypt(firstname), encrypt(lastname), encrypt(date.today())))
+        DBcursor.execute(f"INSERT INTO {table} VALUES(?, ?, ?, ?, ?)", (encrypt(username,s), hashEncrypt(password), encrypt(firstname,s ), encrypt(lastname, s), encrypt(str(date.today()), s)))
     except sqlite3.IntegrityError:
         print("Database injection failed. Max character length exceeded. ")
         input("Press enter to continue...")
@@ -47,7 +47,7 @@ def insertIntoDatabaseMEMBER(firstname, lastname, address, email, phonenumber):
     DBcursor = databaseConnection.cursor()
 
     try:
-         DBcursor.execute("INSERT INTO Members VALUES(?, ?, ?, ?, ?, ?, ?)", (encrypt(generateUserID()), encrypt(firstname, s), encrypt(lastname, s), encrypt(address, s), encrypt(email, s), encrypt("31-6-"+ phonenumber, s), date.today()))
+         DBcursor.execute("INSERT INTO Members VALUES(?, ?, ?, ?, ?, ?, ?)", (encrypt(str(generateUserID()), s), encrypt(firstname, s), encrypt(lastname, s), encrypt(address, s), encrypt(email, s), encrypt(f"31-6-{phonenumber}", s), encrypt(str(date.today()), s)))
     except sqlite3.IntegrityError:
         print("Database injection failed. Max character length exceeded. ")
         input("Press enter to continue...")
@@ -57,16 +57,18 @@ def insertIntoDatabaseMEMBER(firstname, lastname, address, email, phonenumber):
     databaseConnection.close()
 
 
-def queryDatabase2args(column = '*', table = ''):
+def queryDatabase3args(table, key, variable):
     '''
+    just a simple query function for the db
     '''
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
     DBcursor.execute(f"""
-        SELECT {column} 
+        SELECT *
         FROM {table}
-        """)
+        WHERE {key} = :var
+    """, {'var': encrypt(variable)})
 
     databaseConnection.commit()
     databaseConnection.close()
@@ -80,10 +82,13 @@ def deleteEntry(table, key, variable):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    DBcursor.execute(f"""
-        DELETE FROM {table}
-        WHERE {key} = :var
-    """, {'var': variable})
+    if queryDatabase3args(table,key,variable):
+        DBcursor.execute(f"""
+            DELETE FROM {table}
+            WHERE {key} = :var
+        """, {'var': encrypt(variable)})
+    else:
+        input("ERRORCODE DBFD1: Execution failed. Entry does not exist.")
 
     databaseConnection.commit()
     databaseConnection.close()

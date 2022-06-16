@@ -1,5 +1,7 @@
 import sqlite3
 
+from Functions.caesar import decrypt
+
 
 def queryMembersMenu(user):
     print("[DEV]queryMemberMenu()")
@@ -42,19 +44,20 @@ def queryMembersMenu(user):
 
     searchResults = user.queryMembers(columnName, searchData.lower())
     print("Fetching results ...")
-    if searchData == []:
+    print("[DEV] found this: ", searchResults)
+    if not (searchResults):
         print("Nothing found")
     else:
         print("Found these matching results: ")
         for item in searchResults:
             print(f"""
-Membership ID: {item[0]}
-First name: {item[1]} 
-Last name: {item[2]}
-Address: {item[3]}
-E-mail: {item[4]}
-Phone number: {item[5]}
-Registration date: {item[6]}
+Membership ID: {decrypt(item[0])}
+First name: {decrypt(item[1])} 
+Last name: {decrypt(item[2])}
+Address: {decrypt(item[3])}
+E-mail: {decrypt(item[4])}
+Phone number: {decrypt(item[5])}
+Registration date: {decrypt(item[6])}
             """)
         print("")
     input("Press 'enter' to continue ...")

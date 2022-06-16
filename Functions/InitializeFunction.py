@@ -107,7 +107,7 @@ def initializer():
         try:
             DBcursor.execute("""
                 CREATE TABLE Members (
-                    membershipID integer PRIMARY KEY,
+                    membershipID text PRIMARY KEY,
                     firstname text, 
                     lastname text,
                     address text,

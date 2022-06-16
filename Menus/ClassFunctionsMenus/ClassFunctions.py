@@ -5,7 +5,7 @@ from Menus.ClassFunctionsMenus.F13AddAdminMenu import addAdminMenu
 from Menus.ClassFunctionsMenus.F14ModifyAdminMenu import modifyAdminMenu
 from Menus.ClassFunctionsMenus.F15DeleteAdminMenu import deleteAdminMenu
 from Menus.ClassFunctionsMenus.F16ResetAdminPasswordMenu import resetAdminPasswordMenu
-from Menus.ClassFunctionsMenus.F2AddMemberMenu import addNewMemberMenu
+from Menus.ClassFunctionsMenus.F2AddMemberMenu import addMemberMenu
 from Menus.ClassFunctionsMenus.F6AddAdvisorMenu import createNewAdvisorMenu
 from Menus.ClassFunctionsMenus.F3ModifyMemberMenu import modifyMemberMenu
 from Menus.ClassFunctionsMenus.F5QueryUsersMenu import queryUsersMenu

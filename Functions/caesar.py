@@ -1,12 +1,12 @@
 
 
-def encrypt(text,s):
+def encrypt(text,s = 8):
     encryption = ""
     for c in text:
         encryption += chr(ord(c) + s)
     return encryption
 
-def decrypt(text,s):
+def decrypt(text,s = 8):
     encryption = ""
     for c in text:
         encryption += chr(ord(c) - s)
