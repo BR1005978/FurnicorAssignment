@@ -56,7 +56,7 @@ class Advisor:
             UPDATE Members
             SET {column} = :var
             WHERE membershipID = :mem
-            """, {'var':variable, 'mem':memID})
+            """, {'var':encrypt(variable, s), 'mem':memID})
 
         databaseConnection.commit()
         databaseConnection.close()

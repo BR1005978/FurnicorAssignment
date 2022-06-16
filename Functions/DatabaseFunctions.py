@@ -100,7 +100,7 @@ def updateEntry(table, column, newValue, conditionColumn, conditionValue):
         UPDATE {table}
         SET {column} = :val
         WHERE {conditionColumn} = :val2
-    """, {'val':newValue, 'val2': conditionValue})
+    """, {'val':encrypt(newValue, s), 'val2': conditionValue})
 
     databaseConnection.commit()
     databaseConnection.close()
