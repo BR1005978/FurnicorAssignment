@@ -71,9 +71,9 @@ class Advisor:
             
             SELECT *
             FROM Members
-            WHERE {column} LIKE '%{variable}%' COLLATE NOCASE
+            WHERE :col LIKE :val COLLATE NOCASE
             
-            """)
+            """, {'col': column, 'val': '%'+encrypt(variable, s)+'%'})
 
         queryresult = DBcursor.fetchall()
 

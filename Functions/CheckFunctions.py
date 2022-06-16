@@ -103,12 +103,12 @@ def usernameCheck(username):
     DBcursor = databaseConnection.cursor()
 
     DBcursor.execute("""
-        SELECT username 
+        SELECT username=:username 
         FROM Advisors
         UNION
-        SELECT username
+        SELECT username=:username
         FROM SysAdmins 
-    """)
+    """, {'username': username})
 
     queryresults = DBcursor.fetchall()
 
@@ -173,12 +173,16 @@ def checkEmail(email):
     '''
     function that checks if an email adres is in the right format
     '''
+    regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'   
+  
+    if(re.search(regex,email)):   
+        return True  
+    else:   
+        return False
     # TDH4: een functie maken die checkt of een ingevoerd e-mail adres in het juiste format is
     # input: een email adres
     # output: een boolean
     #tip; gebruik regex
-
-
 
 
 

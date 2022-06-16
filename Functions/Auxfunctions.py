@@ -2,7 +2,8 @@
 Auxiliary functions such as generateUserID to be used in other places of the program
 '''
 
-import random 
+import random
+import sqlite3 
 import string
 import hashlib
 
@@ -24,49 +25,49 @@ def generateUserID():
     '''
 
     ### TODOPS3: zorgen dat membershipIDs wel echt uniek zijn
-    # databaseConnection = sqlite3.connect('FurnicorDatabase.db')
-    # DBcursor = databaseConnection.cursor()
+    databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+    DBcursor = databaseConnection.cursor()
 
-    # def check():
-    #     ID = random.randint(100000000,999999999)
+    def check():
+        ID = random.randint(100000000,999999999)
 
-    #     IDstring = str(ID)
+        IDstring = str(ID)
 
-    #     IDsum = 0
+        IDsum = 0
 
-    #     for digit in IDstring:
-    #         IDsum += int(digit)
+        for digit in IDstring:
+            IDsum += int(digit)
         
-    #     IDsumstring = IDstring + str(IDsum % 10)
+        IDsumstring = IDstring + str(IDsum % 10)
 
-    #     finalID = int(IDsumstring)
+        finalID = int(IDsumstring)
 
-    #     DBcursor.execute("SELECT * FROM Members WHERE membershipID=:memberId", {'memberId': finalID})
-    #     listOfequalNums = DBcursor.fetchall()
-    #     if listOfequalNums:
-    #         check()
-    #     # this generates a valid user ID
-    #     else:  
-    #         return finalID
-    # check()
+        DBcursor.execute("SELECT * FROM Members WHERE membershipID=:memberId", {'memberId': finalID})
+        listOfequalNums = DBcursor.fetchall()
+        if listOfequalNums:
+            return check()
+        # this generates a valid user ID
+        else:  
+            return finalID
+    return check()
 
-    ID = random.randint(100000000,999999999)
+    # ID = random.randint(100000000,999999999)
 
-    IDstring = str(ID)
+    # IDstring = str(ID)
 
-    IDsum = 0
+    # IDsum = 0
 
-    for digit in IDstring:
-        IDsum += int(digit)
+    # for digit in IDstring:
+    #     IDsum += int(digit)
     
-    IDsumstring = IDstring + str(IDsum % 10)
+    # IDsumstring = IDstring + str(IDsum % 10)
 
-    finalID = int(IDsumstring)
+    # finalID = int(IDsumstring)
 
 
     
-    # this generates a valid user ID
-    return finalID
+    # # this generates a valid user ID
+    # return finalID
 
 
 def generateRandomPassword():

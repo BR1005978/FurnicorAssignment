@@ -33,10 +33,9 @@ def verifyCredentials(username, password):
     DBcursor.execute(f"""
                     SELECT * 
                     FROM Advisors
-                    WHERE username = '{encrypt(username, s)}'
-                    AND password = '{encryptedPassword}'
-                    
-                    """)
+                    WHERE username=:username
+                    AND password=:password
+                    """, {'username': encrypt(username, s), 'password': encryptedPassword})
 
     results = DBcursor.fetchone()
     if results != None:
@@ -57,10 +56,9 @@ def verifyCredentials(username, password):
         DBcursor.execute(f"""
                 SELECT * 
                 FROM SysAdmins
-                WHERE username = '{encrypt(username, s)}'
-                AND password = '{encryptedPassword}'
-                
-                """)
+                WHERE username=:username
+                AND password=:password
+                """, {'username': encrypt(username, s), 'password': encryptedPassword})
         
         results = DBcursor.fetchone()
         try:

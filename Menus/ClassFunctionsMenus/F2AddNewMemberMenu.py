@@ -1,6 +1,9 @@
-from Functions.CheckFunctions import checkString
+import email
+import os
+from Functions.CheckFunctions import checkEmail, checkString
 from Functions.Logfunction import LogData
 
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def addNewMemberMenu(user):
     '''
@@ -22,7 +25,15 @@ def addNewMemberMenu(user):
 
     city = input("Enter city: ")
 
-    email = input("Enter the e-mail address: ")
+    def emailfunc():
+        email = input("Enter the e-mail address: ")
+        if checkEmail(email):
+            return email
+        else:
+            print("Wrong email format. Please use this format: text@text.text")
+            return emailfunc()
+    
+    emailAddress = emailfunc()
 
     phonenumber = input("Enter the phonenumber: ")
 
@@ -36,7 +47,7 @@ def addNewMemberMenu(user):
     First name: {firstname}
     Last name: {lastname}
     Home address: {address}
-    E-mail address: {email}
+    E-mail address: {emailAddress}
     Phone number: 31-6-{phonenumber}
     """)
 
@@ -44,8 +55,9 @@ def addNewMemberMenu(user):
 
     if answer.lower() == 'y':
         try:
-            user.addNewMember(firstname,lastname,address,email,phonenumber)
-            input("Member added. Press 'enter' to continue... ")
+            user.addNewMember(firstname,lastname,address,emailAddress,phonenumber)
+            clearConsole()
+            print("Member added.")
         except ValueError:
             print("Errorcode ANMM1: some value error popped up while trying to add a member to the database.")
         except:

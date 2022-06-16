@@ -38,8 +38,8 @@ def queryUsersMenu(user):
         DBcursor.execute(f"""
         SELECT username 
         FROM Advisors
-        WHERE username LIKE '%{value}%'
-        """)
+        WHERE username LIKE :inp
+        """, {'inp': '%{value}%'})
         # print("advisor results: ", DBcursor.fetchall())
         
         results = DBcursor.fetchall()
@@ -50,8 +50,8 @@ def queryUsersMenu(user):
         DBcursor.execute(f"""
         SELECT username
         FROM SysAdmins
-        WHERE username LIKE '%{value}%'
-        """)
+        WHERE username LIKE :inp
+        """, {'inp': '%{value}%'})
         # print("SysAdmin results: ", DBcursor.fetchall())
         results = DBcursor.fetchall()
 
