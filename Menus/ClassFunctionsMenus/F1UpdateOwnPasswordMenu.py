@@ -1,12 +1,11 @@
+import os
 import sqlite3
 from Functions.CheckFunctions import passwordCheck
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SysAdminClass import SysAdmin
 from Userclasses.SuperAdminClass import SuperAdmin
 
-def clearConsole():
-    for x in range(20):
-        print("\n")
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def updateOwnPasswordMenu(user):
     '''

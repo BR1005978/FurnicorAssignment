@@ -1,4 +1,5 @@
 
+import os
 from Menus.Login import loginScreen
 from Menus.Info.InfoScreen import displayInfo
 from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
@@ -7,9 +8,7 @@ from Userclasses.SuperAdminClass import SuperAdmin
 
 from Userclasses.SysAdminClass import SysAdmin
 
-def clearConsole():
-    for x in range(20):
-        print("\n")
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def homeScreenWithUser(user):
     '''

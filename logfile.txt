@@ -60,3 +60,5 @@ Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious
 59, no username entered, 2022-06-15, 12:08:19, no description given, ., sus?
 60, no username entered, 2022-06-15, 12:09:38, no description given, ., sus?
 61, no username entered, 2022-06-15, 12:09:57, no description given, ., sus?
+62, no username entered, 2022-06-16, 11:41:24, no description given, ., sus?
+63, no username entered, 2022-06-16, 11:43:54, no description given, ., sus?

@@ -1,3 +1,4 @@
+import os
 from turtle import clear
 from Menus.HomeScreens.HomeScreenNoUser import homeScreenNoUser
 from Menus.HomeScreens.HomeScreenWithUser import homeScreenWithUser
@@ -8,9 +9,7 @@ from Userclasses.AdvisorClass import Advisor
 from Userclasses.SysAdminClass import SysAdmin
 
 from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
-def clearConsole():
-    for x in range(20):
-        print("\n")
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 '''
 
