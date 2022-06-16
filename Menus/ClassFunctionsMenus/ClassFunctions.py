@@ -72,9 +72,7 @@ def classFunctionsMenu(user):
 
     16. Reset admin password
     
-    17. Create dummy data
-    
-    18. Restore backup""")
+    17. Create dummy data""")
         ####################
 
 
@@ -148,10 +146,7 @@ def classFunctionsMenu(user):
 
             elif answer == "17":
                 createDummyData()
-            
-            elif answer == "18":
-                user.restoreBackup()
-                input("Backup restored. Press enter to continue ... ")
+
 
             elif answer != "0":
                 print("(superadmin) input not recognized")
