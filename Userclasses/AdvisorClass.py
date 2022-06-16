@@ -2,7 +2,7 @@ from datetime import date
 import sqlite3
 
 from Functions.Auxfunctions import generateUserID, hashEncrypt
-from Functions.DatabaseFunctions import insertIntoDatabaseMEMBER
+from Functions.DatabaseFunctions import insertIntoDatabaseMEMBER, queryDatabase3args
 from Functions.caesar import *
 
 
@@ -75,10 +75,12 @@ class Advisor:
         
         """, ("%"+ encrypt(variable)+ "%",))
 
+ 
+
 
         # yo patrick ik krijg deze shit niet aan de praat, man. dat met col en val en die dubbele puntjes idk hoe het werkt
         # maar als ik het op een andere manier doe (zie boven)  dan werkt het wel 
-        
+
         # DBcursor.execute(f"""
             
         #     SELECT *
