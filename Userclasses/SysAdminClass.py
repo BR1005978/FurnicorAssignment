@@ -46,9 +46,9 @@ class SysAdmin(Advisor):
 
         DBcursor.execute(f"""
             UPDATE Advisors
-            SET {column} = '{variable}'
-            WHERE 'username' = '{username}'
-            """)
+            SET {column} = :var
+            WHERE 'username' = :user
+            """, {'var': variable ,'user':username})
 
         databaseConnection.commit()
         databaseConnection.close()
@@ -104,5 +104,3 @@ class SysAdmin(Advisor):
 
         deleteEntry('Members', 'membershipID', memID)
         return
-
-

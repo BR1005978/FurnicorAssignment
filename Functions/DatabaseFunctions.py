@@ -26,13 +26,7 @@ def insertIntoDatabase3arg(table, username, password):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    DBcursor.execute(f"""
-    INSERT INTO {table}
-    VALUES(
-        '{encrypt(username,s)}',
-        '{hashEncrypt(password)}'
-    )
-    """)
+    DBcursor.execute(f"INSERT INTO {table} VALUES(?, ?)", (encrypt(username,s), hashEncrypt(password)))
 
     databaseConnection.commit()
     databaseConnection.close()
@@ -47,18 +41,7 @@ def insertIntoDatabase5args(firstname, lastname, address, email, phonenumber):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    DBcursor.execute(f"""
-        INSERT INTO Members
-        VALUES(
-            '{generateUserID()}',
-            '{encrypt(firstname, s)}',
-            '{encrypt(lastname, s)}',
-            '{encrypt(address, s)}',
-            '{encrypt(email, s)}',
-            '31-6-{encrypt(phonenumber, s)}',
-            '{date.today()}'
-        )
-        """)
+    DBcursor.execute("INSERT INTO Members VALUES(?, ?, ?, ?, ?, ?, ?)", (generateUserID(), encrypt(firstname, s), encrypt(lastname, s), encrypt(address, s), encrypt(email, s), encrypt("31-6-"+ phonenumber, s), date.today()))
 
     databaseConnection.commit()
     databaseConnection.close()
@@ -89,8 +72,8 @@ def deleteEntry(table, key, variable):
 
     DBcursor.execute(f"""
         DELETE FROM {table}
-        WHERE {key} = '{variable}'
-    """)
+        WHERE {key} = :var
+    """, {'var': variable})
 
     databaseConnection.commit()
     databaseConnection.close()
@@ -105,9 +88,9 @@ def updateEntry(table, column, newValue, conditionColumn, conditionValue):
 
     DBcursor.execute(f"""
         UPDATE {table}
-        SET {column} = '{newValue}'
-        WHERE {conditionColumn} = '{conditionValue}'
-    """)
+        SET {column} = :val
+        WHERE {conditionColumn} = :val2
+    """, {'val':newValue, 'val2': conditionValue})
 
     databaseConnection.commit()
     databaseConnection.close()
@@ -121,9 +104,9 @@ def resetPassword(table, column, newValue, conditionColumn, conditionValue):
 
     DBcursor.execute(f"""
         UPDATE {table}
-        SET {column} = '{hashEncrypt(newValue)}'
-        WHERE {conditionColumn} = '{conditionValue}'
-    """)
+        SET {column} = :col
+        WHERE {conditionColumn} = :col2
+    """, {'col': hashEncrypt(newValue), 'col2': conditionValue})
 
     databaseConnection.commit()
     databaseConnection.close()
