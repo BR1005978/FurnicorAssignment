@@ -1,5 +1,6 @@
 import email
 import os
+from sqlite3 import IntegrityError
 from Functions.CheckFunctions import *
 from Functions.Logfunction import LogData
 
@@ -103,7 +104,10 @@ city: """)
             print("Member added.")
         except ValueError:
             print("Errorcode ANMM1: some value error popped up while trying to add a member to the database.")
-        # except:
-        #     print("Errorcode ANMM2: something unknown happened")
+        except IntegrityError:
+            print("Database injection failed. Max character length exceeded. ")
+            input("Press enter to continue...")
+        except:
+            print("Errorcode ANMM2: something unknown happened")
     elif answer.lower() == 'n':
         print("OK. Aborting function.")

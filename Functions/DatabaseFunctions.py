@@ -25,14 +25,17 @@ def insertIntoDatabase3arg(table, username, password):
     '''
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
-
-    DBcursor.execute(f"""
-    INSERT INTO {table}
-    VALUES(
-        '{encrypt(username,s)}',
-        '{hashEncrypt(password)}'
-    )
-    """)
+    try: 
+        DBcursor.execute(f"""
+        INSERT INTO {table}
+        VALUES(
+            '{encrypt(username,s)}',
+            '{hashEncrypt(password)}'
+        )
+        """)
+    except sqlite3.IntegrityError:
+        print("Database injection failed. Max character length exceeded. ")
+        input("Press enter to continue...")
 
     databaseConnection.commit()
     databaseConnection.close()
@@ -47,18 +50,22 @@ def insertIntoDatabase5args(firstname, lastname, address, email, phonenumber):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    DBcursor.execute(f"""
-        INSERT INTO Members
-        VALUES(
-            '{generateUserID()}',
-            '{encrypt(firstname, s)}',
-            '{encrypt(lastname, s)}',
-            '{encrypt(address, s)}',
-            '{encrypt(email, s)}',
-            '31-6-{encrypt(phonenumber, s)}',
-            '{date.today()}'
-        )
-        """)
+    try:
+        DBcursor.execute(f"""
+            INSERT INTO Members
+            VALUES(
+                '{generateUserID()}',
+                '{encrypt(firstname, s)}',
+                '{encrypt(lastname, s)}',
+                '{encrypt(address, s)}',
+                '{encrypt(email, s)}',
+                '31-6-{encrypt(phonenumber, s)}',
+                '{date.today()}'
+            )
+            """)
+    except sqlite3.IntegrityError:
+        print("Database injection failed. Max character length exceeded. ")
+        input("Press enter to continue...")
 
     databaseConnection.commit()
     databaseConnection.close()
