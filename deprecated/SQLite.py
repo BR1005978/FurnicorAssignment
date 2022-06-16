@@ -37,8 +37,8 @@ def SQLite3fiddle():
 
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
+ 
     wipeDatabase()
-    createDummyData()
     # username = "test2"
     # password = "test2"
 

@@ -1,4 +1,5 @@
 from Functions.createDummyData import createDummyData
+from Menus.ClassFunctionsMenus.F10BackupSystemMenu import backupSystemMenu
 from Menus.ClassFunctionsMenus.F12DeleteMemberMenu import deleteMemberMenu
 from Menus.ClassFunctionsMenus.F13AddAdminMenu import addAdminMenu
 from Menus.ClassFunctionsMenus.F14ModifyAdminMenu import modifyAdminMenu
@@ -52,7 +53,7 @@ def classFunctionsMenu(user):
 
     9. Reset an advisor's password
 
-    10. Make a backup of the system
+    10. Create or restore backup
 
     11. Show the logs
 
@@ -71,7 +72,9 @@ def classFunctionsMenu(user):
 
     16. Reset admin password
     
-    17. Create dummy data""")
+    17. Create dummy data
+    
+    18. Restore backup""")
         ####################
 
 
@@ -95,7 +98,7 @@ def classFunctionsMenu(user):
             queryMembersMenu(user)
             
         
-        if isinstance(user, SysAdmin):
+        elif isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
                 input()
@@ -115,8 +118,7 @@ def classFunctionsMenu(user):
                 input()
             
             elif answer == "10": 
-                print("Create backup function not yet implemented ")
-                input()
+                backupSystemMenu(user)
             
             elif answer == "11": 
                 print("Show logs function not yet implemented ")
@@ -129,7 +131,7 @@ def classFunctionsMenu(user):
                 input()
 
         
-        if type(user) == SuperAdmin:
+        elif type(user) == SuperAdmin:
             if answer == "13":
                 addAdminMenu(user)
                 input()
@@ -146,6 +148,10 @@ def classFunctionsMenu(user):
 
             elif answer == "17":
                 createDummyData()
+            
+            elif answer == "18":
+                user.restoreBackup()
+                input("Backup restored. Press enter to continue ... ")
 
             elif answer != "0":
                 print("(superadmin) input not recognized")
