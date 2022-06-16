@@ -81,3 +81,5 @@ Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious
 80, no username entered, 2022-06-16, 12:45:27, no description given, ., sus?
 81, no username entered, 2022-06-16, 12:46:29, no description given, ., sus?
 82, no username entered, 2022-06-16, 13:05:04, no description given, ., sus?
+83, no username entered, 2022-06-16, 13:05:26, no description given, ., sus?
+84, no username entered, 2022-06-16, 13:24:39, no description given, ., sus?
