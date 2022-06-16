@@ -39,7 +39,7 @@ class Advisor:
         databaseConnection.commit()
         databaseConnection.close()
 
-    def addMember(self, firstname, lastname, address, email, phonenumber):
+    def addNewMember(self, firstname, lastname, address, email, phonenumber):
         insertIntoDatabaseMEMBER(firstname, lastname, address, email, phonenumber)
         #TODOA1: make sure this function also logs this operation into the log file
 
@@ -68,12 +68,24 @@ class Advisor:
         DBcursor = databaseConnection.cursor()
 
         DBcursor.execute(f"""
+        
+        SELECT *
+        FROM Members
+        WHERE {column} LIKE ? COLLATE NOCASE
+        
+        """, ("%"+ encrypt(variable)+ "%",))
+
+
+        # yo patrick ik krijg deze shit niet aan de praat, man. dat met col en val en die dubbele puntjes idk hoe het werkt
+        # maar als ik het op een andere manier doe (zie boven)  dan werkt het wel 
+        
+        # DBcursor.execute(f"""
             
-            SELECT *
-            FROM Members
-            WHERE :col LIKE :val COLLATE NOCASE
+        #     SELECT *
+        #     FROM Members
+        #     WHERE :col LIKE :val COLLATE NOCASE
             
-            """, {'col': column, 'val': '%'+encrypt(variable, s)+'%'})
+        #     """, {'col': column, 'val': '%'+encrypt(variable)+'%'})
 
         queryresult = DBcursor.fetchall()
 

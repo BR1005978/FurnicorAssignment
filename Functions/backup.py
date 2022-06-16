@@ -8,5 +8,3 @@ def restoreBackup():
     os.system('copy backup.db FurnicorDatabase.db')
     os.system('copy backup.txt logfile.txt')
 
-createBackup()
-restoreBackup()

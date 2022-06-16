@@ -29,6 +29,7 @@ import sqlite3
 
 from Functions.DatabaseFunctions import wipeDatabase
 from Functions.InitializeFunction import initializer
+from Functions.caesar import encrypt
 from Functions.createDummyData import createDummyData
 
 # from Functions.Auxfunctions import generateUserID
@@ -39,6 +40,31 @@ def SQLite3fiddle():
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
  
+    # DBcursor.execute(f"""
+    #     SELECT * FROM Members
+    #     WHERE firstname = '{encrypt("Jos")}'
+
+    # """)
+
+    column = 'firstname'
+    variable = 'jos'
+
+    DBcursor.execute(f"""
+            
+            SELECT *
+            FROM Members
+            WHERE {column} LIKE ? COLLATE NOCASE
+            
+            """, ("%"+ encrypt(variable)+ "%",))
+
+    results = DBcursor.fetchall()
+
+    if results:
+        print("found something")
+    else:
+        print("found nothing")
+
+    print(results)
     # wipeDatabase()
     # initializer()
     # username = "test2"
