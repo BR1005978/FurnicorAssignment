@@ -28,6 +28,7 @@ from datetime import date
 import sqlite3
 
 from Functions.DatabaseFunctions import wipeDatabase
+from Functions.InitializeFunction import initializer
 from Functions.createDummyData import createDummyData
 
 # from Functions.Auxfunctions import generateUserID
@@ -38,7 +39,8 @@ def SQLite3fiddle():
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
  
-    wipeDatabase()
+    # wipeDatabase()
+    # initializer()
     # username = "test2"
     # password = "test2"
 
