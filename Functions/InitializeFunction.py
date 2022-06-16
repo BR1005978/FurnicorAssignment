@@ -33,15 +33,30 @@ def initializer():
 
         #create SysAdmins table
 
-        print('initializer()')
+        print('[DEV] initializer()')
 
         print("attempting SysAdmins table creation ...")
 
         try:
             DBcursor.execute("""
                 CREATE TABLE SysAdmins (
-                    username TEXT PRIMARY KEY, 
-                    password TEXT
+                    username TEXT PRIMARY KEY,
+                    password TEXT,
+                    firstname TEXT,
+                    lastname TEXT,
+                    regdate TEXT,
+
+                    CHECK 
+                    (length(username) < 50
+                    AND
+                    length(password) < 50
+                    AND
+                    length(firstname) < 50
+                    AND
+                    length(lastname) < 50
+                    AND
+                    length(regdate) < 50
+                    ) 
                     )""")
         except sqlite3.OperationalError:
             print("Table SysAdmins already exists.")
@@ -59,8 +74,23 @@ def initializer():
         try:
             DBcursor.execute("""
                 CREATE TABLE Advisors (
-                    username TEXT PRIMARY KEY, 
-                    password TEXT
+                    username TEXT PRIMARY KEY,
+                    password TEXT,
+                    firstname TEXT,
+                    lastname TEXT,
+                    regdate TEXT,
+
+                    CHECK 
+                    (length(username) < 50
+                    AND
+                    length(password) < 50
+                    AND
+                    length(firstname) < 50
+                    AND
+                    length(lastname) < 50
+                    AND
+                    length(regdate) < 50
+                    ) 
                     )""")
         except sqlite3.OperationalError:
             print("Table Advisors already exists.")
@@ -83,7 +113,21 @@ def initializer():
                     address text,
                     email text,
                     phonenumber text,
-                    registrationdate text
+                    registrationdate text,
+
+                    CHECK 
+                    (length(firstname) < 50
+                    AND
+                    length(lastname) < 50
+                    AND
+                    length(address) < 50
+                    AND
+                    length(email) < 50
+                    AND
+                    length(phonenumber) < 50
+                    AND
+                    length(registrationdate) < 50
+                    ) 
                     )""")
         except sqlite3.OperationalError:
             print("Table Members already exists.")

@@ -60,7 +60,7 @@ def addNewMemberMenu(user):
             print("Member added.")
         except ValueError:
             print("Errorcode ANMM1: some value error popped up while trying to add a member to the database.")
-        except:
-            print("Errorcode ANMM2: something unknown happened")
+        # except:
+        #     print("Errorcode ANMM2: something unknown happened")
     elif answer.lower() == 'n':
         print("OK. Aborting function.")
