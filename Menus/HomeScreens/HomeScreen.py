@@ -12,7 +12,6 @@ from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 '''
-
 the main menus of this program.
 
 three functions: 
