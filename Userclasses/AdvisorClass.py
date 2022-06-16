@@ -32,9 +32,9 @@ class Advisor:
 
         DBcursor.execute(f"""
             UPDATE {self.sayType()}s
-            SET password = '{hashEncrypt(newpass)}'
-            WHERE username = '{encrypt(self.username, s)}'
-            """)
+            SET password = :password
+            WHERE username = :username
+            """, {'password':hashEncrypt(newpass), 'username':encrypt(self.username, s)})
 
         databaseConnection.commit()
         databaseConnection.close()
@@ -54,9 +54,9 @@ class Advisor:
 
         DBcursor.execute(f"""
             UPDATE Members
-            SET {column} = '{variable}'
-            WHERE membershipID = '{memID}'
-            """)
+            SET {column} = :var
+            WHERE membershipID = :mem
+            """, {'var':variable, 'mem':memID})
 
         databaseConnection.commit()
         databaseConnection.close()
