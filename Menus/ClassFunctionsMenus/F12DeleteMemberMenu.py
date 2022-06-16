@@ -7,8 +7,11 @@ def deleteMemberMenu(user):
     '''
 
     print("[DEV] deleteMemberMenu()")
+    membershipID = input("Enter the membership ID of the member which you want to delete (use the search function (4) to find the membership ID) or type 'q' to cancel: ")
     
-    membershipID = input("Type the membershipID of the Member you wish to delete (use the search member function to find one) : ")
+    if membershipID.lower() == 'q':
+        return
+
     user.deleteMember(membershipID)
     input("Press 'enter' to continue ... ")
     
