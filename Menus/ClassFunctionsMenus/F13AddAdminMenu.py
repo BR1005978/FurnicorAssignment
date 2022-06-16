@@ -6,11 +6,14 @@ def addAdminMenu(user):
     the interactive menu for SuperAdmin.addAdmin()
     '''
     
-    print("[DEV] createNewAdminMenu()")
+    print("[DEV] addNewAdminMenu()")
 
-    username = input("Enter the username of the new Admin: ")
+    firstname = input("Enter the first name of the new advisor: ")
+    lastname = input("Enter the last name of the new admin: ")
+    username = input("Enter the username of the new admin: ")
     if usernameCheck(username) == ValueError:
         print(usernameCheck(username))
+        return
     else:
         while True:
             pw1 = input("Enter new password  : ")
@@ -25,7 +28,7 @@ def addAdminMenu(user):
                 pwcheck = passwordCheck(pw1)
                 if pwcheck == True:
                     #add new Admin to database
-                    user.newAdmin(username, pw1)
+                    user.newAdmin(username, pw1, firstname, lastname)
                     break
                 else:
                     print(pwcheck)

@@ -6,12 +6,12 @@ from Functions.Logfunction import LogData
 
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
-def addNewMemberMenu(user):
+def addMemberMenu(user):
     '''
     the menu for creating a new member. asking all the required
     fields and then attempting to add it to the database
 
-    this is not very secure or robust yet as of 2-6-2022
+
     '''
     
     firstname = input("Input first name: ")
@@ -53,7 +53,7 @@ Drollendam
 Koningsveen
 Muizendam
 city: """)
-        if checkCity(city):
+        if checkCity(city.lower()):
             return city
         else:
             print("Wrong city format. Please use one of the provided cities.")
@@ -99,7 +99,7 @@ city: """)
 
     if answer.lower() == 'y':
         try:
-            user.addNewMember(firstname,lastname,address,emailAddress,phonenumber)
+            user.addMember(firstname,lastname,address,emailAddress,phonenumber)
             clearConsole()
             print("Member added.")
         except ValueError:

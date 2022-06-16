@@ -5,8 +5,11 @@ clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def modifyMemberMenu(user):
     print("[DEV]modifyMemberMenu()")
-    membershipID = input("Enter the membership ID of the member which you want to modify (use the search function (3) to find the membership ID): ")
+    membershipID = input("Enter the membership ID of the member which you want to modify (use the search function (4) to find the membership ID) or type 'q' to cancel: ")
     
+    if membershipID.lower() == 'q':
+        return
+
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
