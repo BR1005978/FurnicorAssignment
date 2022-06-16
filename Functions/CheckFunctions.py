@@ -57,8 +57,6 @@ def passwordCheck(password):
 
     return True
 
-
-
 def usernameCheck(username):
     '''
     checking the username for validity
@@ -118,7 +116,6 @@ def usernameCheck(username):
     
     return True
 
-
 def checkString(String):
     '''
     checks the String for validity
@@ -168,7 +165,6 @@ def checkPhonenumber(phonenumber):
     else:
         return False
 
-
 def checkEmail(email):
     '''
     function that checks if an email adres is in the right format
@@ -179,44 +175,3 @@ def checkEmail(email):
         return True  
     else:   
         return False
-    # TDH4: een functie maken die checkt of een ingevoerd e-mail adres in het juiste format is
-    # input: een email adres
-    # output: een boolean
-    #tip; gebruik regex
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###testenv
-# while True:
-#     password = input("enter password: ")
-
-#     outcome = passwordCheck(password)
-
-
-#     if isinstance(outcome, ValueError):
-#         print("this is a value error: ", outcome)
-#     else:
-#         print("password probably correct")
-
-
-
-# while True:
-#     usernayme = input("enter username: ")
-
-#     outcomeUsername = usernameCheck(usernayme)
-
-#     if isinstance(outcomeUsername, ValueError):
-#         print("this is a value error: ", outcomeUsername)
-#     else:
-#         print("username probably correct", usernayme)

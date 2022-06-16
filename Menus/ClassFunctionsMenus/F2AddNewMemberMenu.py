@@ -1,6 +1,6 @@
 import email
 import os
-from Functions.CheckFunctions import checkEmail, checkString
+from Functions.CheckFunctions import *
 from Functions.Logfunction import LogData
 
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
@@ -12,18 +12,53 @@ def addNewMemberMenu(user):
 
     this is not very secure or robust yet as of 2-6-2022
     '''
+    
+    firstname = input("Input first name: ")
+    
+    lastname = input("Input last name: ")
+    
+    streetname = input("Input street name: ")
 
-    firstname = input("Enter the first name of the member: ")
-    #checkString(firstname)
-    lastname = input("Enter the last name of the member: ")
-    #checkString(lastname)
-    streetname = input("Enter street name: ")
+    def housenumberfunc():
+        housenumber = input("Enter house number: ")
+        if checkHouseNumber(housenumber):
+            return housenumber
+        else:
+            print("Wrong housenumber format. Please only use numbers")
+            return housenumberfunc()
+    
+    housenumber = housenumberfunc()
 
-    housenumber = input("Enter house number: ")
+    def zipcodefunc():
+        zipcode = input("Enter zipcode: ")
+        if checkZipCode(zipcode):
+            return zipcode
+        else:
+            print("Wrong zipcode format. Please use this format: ")
+            return zipcodefunc()
+    
+    zipcode = zipcodefunc()
 
-    zipcode = input("Enter zipcode: ")
-
-    city = input("Enter city: ")
+    def cityfunc():
+        city = input("""Enter one of the following cities: 
+Kapellerdijk
+Botervuik
+Hendrik-Ambacht
+Rotterdijk
+Hoogkerk
+Vislandserdorp
+Heerenvoorn
+Drollendam
+Koningsveen
+Muizendam
+city: """)
+        if checkCity(city):
+            return city
+        else:
+            print("Wrong city format. Please use one of the provided cities.")
+            return cityfunc()
+    
+    city = cityfunc()
 
     def emailfunc():
         email = input("Enter the e-mail address: ")
@@ -35,7 +70,15 @@ def addNewMemberMenu(user):
     
     emailAddress = emailfunc()
 
-    phonenumber = input("Enter the phonenumber: ")
+    def phonenumberfunc():
+        phonenumber = input("Enter phone number: +31-6")
+        if checkPhonenumber(phonenumber):
+            return phonenumber
+        else:
+            print("Wrong phonenumber format. Please use only use 8 numbers")
+            return phonenumberfunc()
+    
+    phonenumber = phonenumberfunc()
 
 
 
