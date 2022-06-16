@@ -19,14 +19,14 @@ def wipeDatabase():
     databaseConnection.commit()
     databaseConnection.close()
 
-def insertIntoDatabase3arg(table, username, password):
+def insertIntoDatabaseUSER(table, username, password, firstname, lastname):
     ''' 
     function that inserts data into either the Advisors or the SysAdmins table
     '''
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
     try: 
-        DBcursor.execute(f"INSERT INTO {table} VALUES(?, ?)", (encrypt(username,s), hashEncrypt(password)))
+        DBcursor.execute(f"INSERT INTO {table} VALUES(?, ?)", (encrypt(username,s), hashEncrypt(password), encrypt(firstname), encrypt(lastname), encrypt(date.today())))
     except sqlite3.IntegrityError:
         print("Database injection failed. Max character length exceeded. ")
         input("Press enter to continue...")
@@ -37,7 +37,7 @@ def insertIntoDatabase3arg(table, username, password):
     databaseConnection.close()
 
 
-def insertIntoDatabase5args(firstname, lastname, address, email, phonenumber):
+def insertIntoDatabaseMEMBER(firstname, lastname, address, email, phonenumber):
     '''
     add a new member to the system
     '''

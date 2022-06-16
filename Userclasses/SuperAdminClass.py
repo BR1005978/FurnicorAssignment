@@ -1,4 +1,4 @@
-from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabase3arg, updateEntry
+from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabaseUSER, updateEntry
 from Userclasses.SysAdminClass import SysAdmin
 
 
@@ -19,13 +19,13 @@ class SuperAdmin(SysAdmin):
 
     # from Advisor
     #updateOwnPassword():
-    #addNewMember():
+    #addMember():
     #modifyMember():
     #queryMember():
 
     # from SysAdmin
     #queryUsers():
-    #newAdvisor():
+    #addAdvisor():
     #modifyAdvisor():
     #deleteAdvisor():
     #resetAdvisorPassword():
@@ -44,7 +44,7 @@ class SuperAdmin(SysAdmin):
 
     def addAdmin(username, password):
         '''add a new admin to the system'''
-        insertIntoDatabase3arg('SysAdmins', username, password)
+        insertIntoDatabaseUSER('SysAdmins', username, password)
 
     def modifyAdmin(column, newValue):
         '''modify or update an existing admin's account and profile'''

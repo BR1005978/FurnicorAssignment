@@ -2,7 +2,7 @@ from datetime import date
 import sqlite3
 
 from Functions.Auxfunctions import generateUserID, hashEncrypt
-from Functions.DatabaseFunctions import insertIntoDatabase5args
+from Functions.DatabaseFunctions import insertIntoDatabaseMEMBER
 from Functions.caesar import *
 
 
@@ -39,8 +39,8 @@ class Advisor:
         databaseConnection.commit()
         databaseConnection.close()
 
-    def addNewMember(self, firstname, lastname, address, email, phonenumber):
-        insertIntoDatabase5args(firstname, lastname, address, email, phonenumber)
+    def addMember(self, firstname, lastname, address, email, phonenumber):
+        insertIntoDatabaseMEMBER(firstname, lastname, address, email, phonenumber)
         #TODOA1: make sure this function also logs this operation into the log file
 
     

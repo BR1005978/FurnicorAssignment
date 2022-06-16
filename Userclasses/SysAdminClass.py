@@ -1,5 +1,5 @@
 import sqlite3
-from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabase3arg, updateEntry
+from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabaseUSER, updateEntry
 from Functions.backup import createBackup, restoreBackup
 from Userclasses.AdvisorClass import Advisor
 
@@ -17,7 +17,7 @@ class SysAdmin(Advisor):
     ###########################################
     ### functions inherited from advisor    ###
     #updateOwnPassword():
-    #addNewMember():
+    #addMember():
     #modifyMember():
     #queryMember():
     ###########################################
@@ -33,9 +33,9 @@ class SysAdmin(Advisor):
         '''check the list of users and their roles'''
         return
 
-    def newAdvisor(self, username, newpassword):
+    def addAdvisor(self, username, newpassword, firstname, lastname):
         '''define and add new advisor to the system'''
-        insertIntoDatabase3arg('Advisors', username, newpassword)
+        insertIntoDatabaseUSER('Advisors', username, newpassword, firstname, lastname)
         return
 
     def modifyAdvisor(column, variable, username):
