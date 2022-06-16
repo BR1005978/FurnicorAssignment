@@ -41,25 +41,44 @@ def addMemberMenu(user):
     zipcode = zipcodefunc()
 
     def cityfunc():
-        city = input("""Enter one of the following cities: 
-Kapellerdijk
-Botervuik
-Hendrik-Ambacht
-Rotterdijk
-Hoogkerk
-Vislandserdorp
-Heerenvoorn
-Drollendam
-Koningsveen
-Muizendam
+        answer = input("""Select one of the following cities: 
+1.    Kapellerdijk
+2.    Botervuik
+3.    Hendrik-Ambacht
+4.    Rotterdijk
+5.    Hoogkerk
+6.    Vislandserdorp
+7.    Heerenvoorn
+8.    Drollendam
+9.    Koningsveen
+10.   Muizendam
 city: """)
-        if checkCity(city.lower()):
-            return city
+        if answer == '1':
+            return "Kapellerdijk"
+        elif answer == '2':
+            return 'Botervuik'
+        elif answer == '3':
+            return 'Hendrik-Ambacht'
+        elif answer == '4':
+            return 'Rotterdijk'
+        elif answer == '5':
+            return 'Hoogkerk'
+        elif answer == '6':
+            return 'Vislandserdorp'
+        elif answer == '7':
+            return 'Heerenvoorn'
+        elif answer == '8':
+            return 'Drollendam'
+        elif answer == '9':
+            return 'Koningsveen'
+        elif answer == '10':
+            return 'Muizendam'
+
         else:
-            print("Wrong city format. Please use one of the provided cities.")
+            input("Input not recognized, please try again... ")
             return cityfunc()
-    
     city = cityfunc()
+
 
     def emailfunc():
         email = input("Enter the e-mail address: ")
@@ -99,9 +118,10 @@ city: """)
 
     if answer.lower() == 'y':
         try:
-            user.addMember(firstname,lastname,address,emailAddress,phonenumber)
+            user.addNewMember(firstname,lastname,address,emailAddress,phonenumber)
             clearConsole()
             print("Member added.")
+            input()
         except ValueError:
             print("Errorcode ANMM1: some value error popped up while trying to add a member to the database.")
         except IntegrityError:
@@ -109,5 +129,6 @@ city: """)
             input("Press enter to continue...")
         except:
             print("Errorcode ANMM2: something unknown happened")
+            input()
     elif answer.lower() == 'n':
         print("OK. Aborting function.")

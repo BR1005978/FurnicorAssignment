@@ -169,7 +169,7 @@ def checkEmail(email):
     '''
     function that checks if an email adres is in the right format
     '''
-    regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'   
+    regex = '^[a-zA-Z0-9]+[\._]?[a-zA-Z0-9]+[@]\w+[.]\w{2,3}$'   
   
     if(re.search(regex,email)):   
         return True  

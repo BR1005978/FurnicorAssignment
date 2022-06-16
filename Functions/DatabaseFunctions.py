@@ -67,11 +67,15 @@ def queryDatabase3args(table, key, variable):
     DBcursor.execute(f"""
         SELECT *
         FROM {table}
-        WHERE {key} = :var
-    """, {'var': encrypt(variable)})
+        WHERE {key} = ?
+    """, (encrypt(variable),))
 
+    results = DBcursor.fetchall()
     databaseConnection.commit()
     databaseConnection.close()
+
+    return results
+
 
 def deleteEntry(table, key, variable):
     '''
