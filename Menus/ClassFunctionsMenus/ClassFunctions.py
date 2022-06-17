@@ -146,7 +146,7 @@ def classFunctionsMenu(user):
             elif answer == "16":
                 resetAdminPasswordMenu(user)
                 break
-            
+
             # elif answer == "17":
             #     createDummyData()
 
