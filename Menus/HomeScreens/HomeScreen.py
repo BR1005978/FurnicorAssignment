@@ -9,7 +9,7 @@ from Userclasses.AdvisorClass import Advisor
 from Userclasses.SysAdminClass import SysAdmin
 
 from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 '''
 
@@ -34,7 +34,7 @@ def homeScreen():
     while True:
         currentUser = None 
         while currentUser == None:
-            clearConsole()
+
             print(
         """    ______                     _                   
    / ____/__  __ _____ ____   (_)_____ ____   _____

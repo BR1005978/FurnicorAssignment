@@ -9,7 +9,7 @@ from Userclasses.SuperAdminClass import SuperAdmin
 
 from Userclasses.SysAdminClass import SysAdmin
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def homeScreenWithUser(user):
     '''
@@ -27,7 +27,7 @@ def homeScreenWithUser(user):
         showSus()
     
     while True:
-        clearConsole()
+
         print("Welcome user: ", user)
         print(
                 f"""
@@ -45,7 +45,7 @@ def homeScreenWithUser(user):
 
 
         if answer == "1":
-            clearConsole()
+
             print("accessing class-specific functions...") 
             classFunctionsMenu(user)
             # if type(user) == Advisor: 

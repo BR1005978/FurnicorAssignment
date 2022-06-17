@@ -1,7 +1,7 @@
 import os
 from Functions.Logfunction import showLogs, showSus
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def showLogsMenu(user):
     ''' 
@@ -16,10 +16,10 @@ def showLogsMenu(user):
 
 
         if answer == "1":
-            clearConsole()
+
             showLogs()
         elif answer == "2":
-            clearConsole()
+
             showSus()
         elif answer == "0":
             return

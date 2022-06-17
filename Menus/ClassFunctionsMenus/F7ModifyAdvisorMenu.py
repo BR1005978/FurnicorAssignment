@@ -4,7 +4,7 @@ from Functions.Logfunction import LogData, logSuspicious
 
 from Functions.caesar import *
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def modifyAdvisorMenu(user):
     '''
@@ -59,5 +59,5 @@ def modifyAdvisorMenu(user):
             logSuspicious(user.username, "Error code MA3, modification of advisor went wrong for some reason")
             input()
     else:
-        clearConsole()
+
         print("MemberId not found")

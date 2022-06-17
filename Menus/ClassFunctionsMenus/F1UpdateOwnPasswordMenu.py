@@ -41,7 +41,7 @@ def updateOwnPasswordMenu(user):
                     if type(user) == Advisor or type(user) == SysAdmin:
                         # try: 
                         user.updateOwnPassword(pw1) 
-                        clearConsole() 
+
                         print(f"Updating {user.sayType} password succeeded (presumably)")
                         LogData(user.username, "Changed password", sus = "no")  
                         break

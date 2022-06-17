@@ -4,7 +4,7 @@ from sqlite3 import IntegrityError
 from Functions.CheckFunctions import *
 from Functions.Logfunction import LogData, logSuspicious
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def addMemberMenu(user):
     '''
@@ -119,7 +119,7 @@ city: """)
     if answer.lower() == 'y':
         try:
             user.addNewMember(firstname,lastname,address,emailAddress,phonenumber)
-            clearConsole()
+
             print("Member added.")
             LogData(user.username, "Added new member to the database", f"{firstname} {lastname}", sus="no" )
             input()

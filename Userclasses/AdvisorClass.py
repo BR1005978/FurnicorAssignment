@@ -54,9 +54,10 @@ class Advisor:
 
         DBcursor.execute(f"""
             UPDATE Members
-            SET {column} = :var
-            WHERE membershipID = :mem
-            """, {'var':encrypt(variable, s), 'mem':memID})
+            SET {column} = ?
+            WHERE membershipID = ?
+            """, (encrypt(variable), encrypt(memID))
+        )
 
         databaseConnection.commit()
         databaseConnection.close()

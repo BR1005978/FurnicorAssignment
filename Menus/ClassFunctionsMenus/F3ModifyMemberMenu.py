@@ -2,8 +2,9 @@ import os
 import sqlite3
 
 from Functions.Logfunction import LogData, logSuspicious
+from Functions.caesar import encrypt
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def modifyMemberMenu(user):
     print("[DEV]modifyMemberMenu()")
@@ -15,7 +16,7 @@ def modifyMemberMenu(user):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    DBcursor.execute("SELECT * FROM Members WHERE membershipID=:memberId", {'memberId': membershipID})
+    DBcursor.execute("SELECT * FROM Members WHERE membershipID=:memberId", {'memberId': encrypt(membershipID)})
 
     idFound = DBcursor.fetchall()
     if idFound:
@@ -59,5 +60,5 @@ def modifyMemberMenu(user):
             logSuspicious(user.username, "Modify member had a weird error")
             input()
     else:
-        clearConsole()
-        print("MemberId not found")
+
+        input("MemberId not found")
