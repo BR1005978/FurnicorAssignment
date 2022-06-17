@@ -96,7 +96,7 @@ def classFunctionsMenu(user):
             queryMembersMenu(user)
             
         
-        elif isinstance(user, SysAdmin):
+        if isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
                 input()
@@ -129,7 +129,7 @@ def classFunctionsMenu(user):
                 input()
 
         
-        elif type(user) == SuperAdmin:
+        if type(user) == SuperAdmin:
             if answer == "13":
                 addAdminMenu(user)
                 input()
@@ -160,6 +160,6 @@ def classFunctionsMenu(user):
         
 
         else:
-            print("input not recognized")
+            print("...")
             input()
  

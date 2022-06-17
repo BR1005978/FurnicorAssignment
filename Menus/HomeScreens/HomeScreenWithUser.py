@@ -1,5 +1,6 @@
 
 import os
+from Functions.Logfunction import showSus
 from Menus.Login import loginScreen
 from Menus.Info.InfoScreen import displayInfo
 from Menus.ClassFunctionsMenus.ClassFunctions import classFunctionsMenu
@@ -18,6 +19,12 @@ def homeScreenWithUser(user):
 
     it only returns None when you want to log out 
     '''
+
+    ###
+    # menu for suspicious activity
+    ###
+    if isinstance(user, SysAdmin):
+        showSus()
     
     while True:
         clearConsole()

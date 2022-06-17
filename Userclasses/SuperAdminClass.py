@@ -42,19 +42,19 @@ class SuperAdmin(SysAdmin):
         print("This function is not available for SUPER ADMIN.")
         input()
 
-    def addAdmin(username, password):
+    def addAdmin(self, firstname, lastname, username, password):
         '''add a new admin to the system'''
-        insertIntoDatabaseUSER('SysAdmins', username, password)
+        insertIntoDatabaseUSER('SysAdmins',username, password,firstname,lastname)
 
-    def modifyAdmin(column, newValue):
+    def modifyAdmin(self, column, newValue):
         '''modify or update an existing admin's account and profile'''
         updateEntry('SysAdmins', column, newValue)
     
-    def deleteAdmin(username):
+    def deleteAdmin(self, username):
         '''delete an existing admin's account'''
         deleteEntry('SysAdmins', 'username', username)
     
-    def resetAdminPassword(sysadminUsername):
+    def resetAdminPassword(self, sysadminUsername):
         '''reset an existing admin's password, give him a temporary one'''
         
         def generaterandomstring():

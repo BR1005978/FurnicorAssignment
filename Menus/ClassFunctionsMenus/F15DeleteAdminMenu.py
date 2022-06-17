@@ -9,6 +9,6 @@ def deleteAdminMenu(user):
     print("[DEV] deleteAdminMenu()")
     
     username = input("Type the username of the Admin you wish to delete : ")
-    user.deleteAdmin('SysAdmins', 'username', username)
+    user.deleteAdmin(username)
     input("Press 'enter' to continue ... ")
     
