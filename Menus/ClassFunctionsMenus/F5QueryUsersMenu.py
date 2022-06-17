@@ -1,6 +1,7 @@
 import sqlite3
 
 from Functions.DatabaseFunctions import queryDatabase3args
+from Functions.Logfunction import LogData
 from Functions.caesar import decrypt, encrypt  
 
 
@@ -36,7 +37,7 @@ def queryUsersMenu(user):
 
         for item in results:
             resultsFormatted += f"{decrypt(item[0])}, SysAdmin\n"
-
+        LogData(user.username, "Queried the database for all users" )
         print(resultsFormatted)
 
     else:
@@ -65,6 +66,7 @@ def queryUsersMenu(user):
         for item in results:
             resultsFormatted += f"{decrypt(item[0])}, SysAdmin\n"
 
+        LogData(user.username, "Queried the database for users")
         print('Found the following results: \n' + resultsFormatted)    
 
 

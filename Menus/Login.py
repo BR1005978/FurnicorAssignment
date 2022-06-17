@@ -2,6 +2,7 @@ from hashlib import new
 import sqlite3
 from telnetlib import ENCRYPT
 from Functions.Auxfunctions import hashEncrypt
+from Functions.Logfunction import LogData, logSuspicious
 from Functions.caesar import *
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
@@ -102,8 +103,8 @@ def loginScreen():
 
 
     '''
-
-    while True:
+    i = 0
+    while i < 3:
         print("[DEV]loginScreen()")
 
         username = input("Username: ")
@@ -118,5 +119,8 @@ def loginScreen():
             return verificationResults[1]
         else:
             cont = input("Credentials not found. Press enter to try again, or type q to cancel ... ")
+            i += 1
             if cont.lower() == "q":
                 return None
+    input("Maximum amount of login attempts exceeded. Logging data...")
+    logSuspicious("anonymous user", "Max amount of login attempts exceeded")

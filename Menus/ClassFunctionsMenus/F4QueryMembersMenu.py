@@ -1,4 +1,5 @@
 import sqlite3
+from Functions.Logfunction import LogData
 
 from Functions.caesar import decrypt
 
@@ -50,6 +51,7 @@ def queryMembersMenu(user):
     print("[DEV] found this: ", searchResults)
     if not (searchResults):
         print("Nothing found")
+        LogData(user.username, "Attempted to find members, found nothing", sus="no" )
     else:
         print("Found these matching results: ")
         for item in searchResults:
@@ -63,5 +65,6 @@ Phone number: {decrypt(item[5])}
 Registration date: {decrypt(item[6])}
             """)
         print("")
+        LogData(user.username, "Retrieved information from the database about members", sus="no")
     input("Press 'enter' to continue ...")
 

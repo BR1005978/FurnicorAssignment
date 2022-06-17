@@ -1,4 +1,5 @@
 from Functions.CheckFunctions import passwordCheck, usernameCheck
+from Functions.Logfunction import logSuspicious
 
 
 def addAdminMenu(user):
@@ -13,9 +14,11 @@ def addAdminMenu(user):
     username = input("Enter the username of the new admin: ")
     if usernameCheck(username) == ValueError:
         print(usernameCheck(username))
+        logSuspicious(user.username, "attempted creation of admin failed with username", username)
         return
     else:
-        while True:
+        i = 0
+        while i < 3:
             pw1 = input("Enter new password  : ")
             pw2 = input("Repeat password     : ")
 
@@ -35,3 +38,5 @@ def addAdminMenu(user):
                     answer = input("Press enter to try again, or press 'Q' to quit this menu.")
                     if answer.lower() == "q":
                         break
+        print("Maximum attempts exceeded. Logging data. ")
+        logSuspicious(user.username, "Failed to create admin after several attempts")

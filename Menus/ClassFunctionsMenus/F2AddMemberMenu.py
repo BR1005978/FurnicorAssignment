@@ -2,7 +2,7 @@ import email
 import os
 from sqlite3 import IntegrityError
 from Functions.CheckFunctions import *
-from Functions.Logfunction import LogData
+from Functions.Logfunction import LogData, logSuspicious
 
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
@@ -31,11 +31,11 @@ def addMemberMenu(user):
     housenumber = housenumberfunc()
 
     def zipcodefunc():
-        zipcode = input("Enter zipcode: ")
+        zipcode = input("Enter zipcode (DDDDXX): ")
         if checkZipCode(zipcode):
             return zipcode
         else:
-            print("Wrong zipcode format. Please use this format: ")
+            print("Wrong zipcode format. Please use this format: DDDDXX ")
             return zipcodefunc()
     
     zipcode = zipcodefunc()
@@ -121,13 +121,17 @@ city: """)
             user.addNewMember(firstname,lastname,address,emailAddress,phonenumber)
             clearConsole()
             print("Member added.")
+            LogData(user.username, "Added new member to the database", f"{firstname} {lastname}", sus="no" )
+            input()
         except ValueError:
             print("Errorcode ANMM1: some value error popped up while trying to add a member to the database.")
         except IntegrityError:
             print("Database injection failed. Max character length exceeded. ")
+            logSuspicious(user.username, "Database integrity error; Max character length exceeded", sus="yes")
             input("Press enter to continue...")
         except:
             print("Errorcode ANMM2: something unknown happened")
+            logSuspicious(user.username, "Unknown error in Add New Member menu", "errorcode ANMM2", sus="yes")
             input()
     elif answer.lower() == 'n':
         print("OK. Aborting function.")

@@ -1,6 +1,8 @@
 import os
 import sqlite3
 
+from Functions.Logfunction import LogData, logSuspicious
+
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def modifyMemberMenu(user):
@@ -50,9 +52,11 @@ def modifyMemberMenu(user):
         try:
             print("Attempting to modify...")
             user.modifyMember(columnName,variable, membershipID)
-            input("Modification probably succeeded. Press 'enter' to continue ... ")
+            LogData(user.username, "Modified member", variable)
+            input("Modification succeeded. Press 'enter' to continue ... ")
         except:
             print("ERROR CODE MM3: Something went wrong... Please try again.")
+            logSuspicious(user.username, "Modify member had a weird error")
             input()
     else:
         clearConsole()
