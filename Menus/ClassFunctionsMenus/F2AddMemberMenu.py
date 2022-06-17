@@ -121,7 +121,6 @@ city: """)
             user.addNewMember(firstname,lastname,address,emailAddress,phonenumber)
             clearConsole()
             print("Member added.")
-            input()
         except ValueError:
             print("Errorcode ANMM1: some value error popped up while trying to add a member to the database.")
         except IntegrityError:

@@ -84,45 +84,53 @@ def classFunctionsMenu(user):
 
         if answer == "1":
             updateOwnPasswordMenu(user)
+            break
     
         elif answer == "2":
             addMemberMenu(user)
+            break
 
         elif answer == "3":
             modifyMemberMenu(user)
+            break
 
         elif answer == "4":
             queryMembersMenu(user)
-            
+            break
         
         if isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
-
+                break
             
             elif answer == "6":
                 createNewAdvisorMenu(user)
+                break
             
             elif answer == "7": 
                 modifyAdvisorMenu(user)
-
+                break
             
             elif answer == "8": 
                 deleteAdvisorMenu(user)
+                break
             
             elif answer == "9": 
                 resetAdvisorPassword(user)
-
+                break
             
             elif answer == "10": 
                 backupSystemMenu(user)
+                break
             
             elif answer == "11": 
                 print("Show logs function not yet implemented ")
-
+                break
             
             elif answer == "12": 
                 deleteMemberMenu(user)
+                break
+            
             elif answer != "0" and type(user) != SuperAdmin:
                 print("(sysadmin) input not recognized")
                 input()
