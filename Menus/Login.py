@@ -105,7 +105,7 @@ def loginScreen():
     '''
     i = 0
     while i < 3:
-        print("[DEV]loginScreen()")
+        
 
         username = input("Username: ")
         password = input("Password: ")

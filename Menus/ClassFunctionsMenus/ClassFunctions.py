@@ -72,9 +72,7 @@ def classFunctionsMenu(user):
 
     15. Delete admin
 
-    16. Reset admin password
-    
-    17. Create dummy data""")
+    16. Reset admin password""")
         ####################
 
 
@@ -86,69 +84,74 @@ def classFunctionsMenu(user):
 
         if answer == "1":
             updateOwnPasswordMenu(user)
-    
+            break
+
         elif answer == "2":
             addMemberMenu(user)
+            break
 
         elif answer == "3":
             modifyMemberMenu(user)
-
+            break
         elif answer == "4":
             queryMembersMenu(user)
-            
+            break
         
         if isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
-            
+                break
             elif answer == "6":
                 createNewAdvisorMenu(user)
-            
+                break
             elif answer == "7": 
                 modifyAdvisorMenu(user)
-
+                break
             
             elif answer == "8": 
                 deleteAdvisorMenu(user)
-            
+                break
             elif answer == "9": 
                 resetAdvisorPassword(user)
-
+                break
             
             elif answer == "10": 
                 backupSystemMenu(user)
-            
+                break
             elif answer == "11": 
                 showLogsMenu(user)
-
+                break
             
             elif answer == "12": 
                 deleteMemberMenu(user)
+                break
             elif answer != "0" and type(user) != SuperAdmin:
-                print("(sysadmin) input not recognized")
+                print("...")
                 input()
 
         
         if type(user) == SuperAdmin:
             if answer == "13":
                 addAdminMenu(user)
-                input()
+                break
                 
             elif answer == "14":
                 modifyAdminMenu(user)
-                input()
+                break
 
             elif answer == "15":
                 deleteAdminMenu(user)
-                
+                break
+
             elif answer == "16":
                 resetAdminPasswordMenu(user)
-
-            elif answer == "17":
-                createDummyData()
+                break
+            
+            # elif answer == "17":
+            #     createDummyData()
 
             elif answer != "0":
-                print("(superadmin) input not recognized")
+                print("...")
                 input()
 
 
