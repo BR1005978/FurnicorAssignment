@@ -98,7 +98,6 @@ def classFunctionsMenu(user):
         if isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
-
             
             elif answer == "6":
                 createNewAdvisorMenu(user)
