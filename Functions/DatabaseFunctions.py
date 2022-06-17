@@ -125,7 +125,7 @@ def resetPassword(table, column, newValue, conditionColumn, conditionValue):
         UPDATE {table}
         SET {column} = :col
         WHERE {conditionColumn} = :col2
-    """, {'col': hashEncrypt(newValue), 'col2': conditionValue})
+    """, {'col': hashEncrypt(newValue), 'col2': encrypt(conditionValue, s)})
 
     databaseConnection.commit()
     databaseConnection.close()
