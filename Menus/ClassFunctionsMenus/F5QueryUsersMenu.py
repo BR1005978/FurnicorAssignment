@@ -1,4 +1,7 @@
-import sqlite3  
+import sqlite3
+
+from Functions.DatabaseFunctions import queryDatabase3args
+from Functions.caesar import decrypt, encrypt  
 
 
 def queryUsersMenu(user):
@@ -10,6 +13,8 @@ def queryUsersMenu(user):
     
     resultsFormatted = ''
 
+
+    # queryDatabase3args('')
     if value == '':
         DBcursor.execute(f"""
             SELECT username 
@@ -20,7 +25,7 @@ def queryUsersMenu(user):
         results = DBcursor.fetchall()
 
         for item in results:
-            resultsFormatted += f"{item[0]}, Advisor\n"
+            resultsFormatted += f"{decrypt(item[0])}, Advisor\n"
 
         DBcursor.execute(f"""
             SELECT username
@@ -30,33 +35,35 @@ def queryUsersMenu(user):
         results = DBcursor.fetchall()
 
         for item in results:
-            resultsFormatted += f"{item[0]}, SysAdmin\n"
+            resultsFormatted += f"{decrypt(item[0])}, SysAdmin\n"
 
         print(resultsFormatted)
 
     else:
-        DBcursor.execute(f"""
-        SELECT username 
-        FROM Advisors
-        WHERE username LIKE :inp
-        """, {'inp': '%{value}%'})
-        # print("advisor results: ", DBcursor.fetchall())
+        # queryDatabase3args('')
+        # DBcursor.execute(f"""
+        # SELECT username 
+        # FROM Advisors
+        # WHERE username LIKE :inp
+        # """, {'inp': '%{value}%'})
+        # # print("advisor results: ", DBcursor.fetchall())
         
-        results = DBcursor.fetchall()
+        results = queryDatabase3args('Advisors', 'username', value)
 
         for item in results:
-            resultsFormatted += f"{item[0]}, Advisor\n"
+            resultsFormatted += f"{decrypt(item[0])}, Advisor\n"
 
-        DBcursor.execute(f"""
-        SELECT username
-        FROM SysAdmins
-        WHERE username LIKE :inp
-        """, {'inp': '%{value}%'})
-        # print("SysAdmin results: ", DBcursor.fetchall())
-        results = DBcursor.fetchall()
+        # DBcursor.execute(f"""
+        # SELECT username
+        # FROM SysAdmins
+        # WHERE username LIKE :inp
+        # """, {'inp': '%{value}%'})
+        # # print("SysAdmin results: ", DBcursor.fetchall())
+        results = queryDatabase3args('SysAdmins', 'username', value)
+
 
         for item in results:
-            resultsFormatted += f"{item[0]}, SysAdmin\n"
+            resultsFormatted += f"{decrypt(item[0])}, SysAdmin\n"
 
         print('Found the following results: \n' + resultsFormatted)    
 
