@@ -1,3 +1,6 @@
+from Functions.Logfunction import LogData, logSuspicious
+
+
 def modifyAdvisorMenu(user):
     '''
     the interactive menu for SysAdmin.modifyAdvisor()
@@ -33,7 +36,9 @@ def modifyAdvisorMenu(user):
     try:
         print("Attempting to modify...")
         user.modifyAdvisor(columnName,variable, username)
+        LogData(user.username, "User added new advisor to database", username)
         input("Modification probably succeeded. Press 'enter' to continue ... ")
     except:
         print("ERROR CODE MA3: Something went wrong... Please try again.")
+        logSuspicious(user.username, "Error code MA3, modification of advisor went wrong for some reason")
         input()

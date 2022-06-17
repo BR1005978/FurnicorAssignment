@@ -1,4 +1,5 @@
 from Functions.DatabaseFunctions import deleteEntry
+from Functions.Logfunction import LogData
 
 
 def deleteMemberMenu(user):
@@ -13,5 +14,6 @@ def deleteMemberMenu(user):
         return
 
     user.deleteMember(membershipID)
+    LogData(user.username, "attempted removal of member", membershipID)
     input("Press 'enter' to continue ... ")
     

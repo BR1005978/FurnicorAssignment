@@ -1,5 +1,7 @@
+from Functions.Logfunction import showSus
 from Functions.createDummyData import createDummyData
 from Menus.ClassFunctionsMenus.F10BackupSystemMenu import backupSystemMenu
+from Menus.ClassFunctionsMenus.F11ShowLogsMenu import showLogsMenu
 from Menus.ClassFunctionsMenus.F12DeleteMemberMenu import deleteMemberMenu
 from Menus.ClassFunctionsMenus.F13AddAdminMenu import addAdminMenu
 from Menus.ClassFunctionsMenus.F14ModifyAdminMenu import modifyAdminMenu
@@ -117,7 +119,7 @@ def classFunctionsMenu(user):
                 backupSystemMenu(user)
             
             elif answer == "11": 
-                print("Show logs function not yet implemented ")
+                showLogsMenu(user)
 
             
             elif answer == "12": 
@@ -144,7 +146,6 @@ def classFunctionsMenu(user):
 
             elif answer == "17":
                 createDummyData()
-
 
             elif answer != "0":
                 print("(superadmin) input not recognized")

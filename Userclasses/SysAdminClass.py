@@ -1,5 +1,6 @@
 import sqlite3
 from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabaseUSER, updateEntry
+from Functions.Logfunction import LogData, showLogs
 from Functions.backup import createBackup, restoreBackup
 from Userclasses.AdvisorClass import Advisor
 
@@ -95,12 +96,13 @@ class SysAdmin(Advisor):
     def restoreSystem(self):
         restoreBackup()
 
-    def showLogs():
-        '''show the logs file of the system'''
+    def showLogsAdmin():
+        
         return
 
     def deleteMember(self, memID):
         '''delete a member's record from the database'''
 
         deleteEntry('Members', 'membershipID', memID)
+        
         return

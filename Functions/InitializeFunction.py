@@ -11,7 +11,7 @@ def initializeLogfile():
         print("[DEV] logfile exists")
     else:
         print("logfile does not exist")
-        file = open('logfile.txt', 'w')
+        file = open('logfile.txt', 'w', encoding="utf-8")
         file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
 
 def initializeSusfile():
@@ -19,7 +19,7 @@ def initializeSusfile():
         print("[DEV] susfile exists")
     else:
         print("[DEV] susfile does not yet exist. making susfile")
-        file = open('susfile.txt', 'w')
+        file = open('susfile.txt', 'w', encoding="utf-8")
         file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
 
 
