@@ -81,7 +81,7 @@ def verifyCredentials(username, password):
         return False, None
 
     # if the credentials WERE correct ...
-    elif results[0] == username and results[1] == encryptedPassword:
+    elif results[0] == encrypt(username) and results[1] == encryptedPassword:
         print('verifyCredentials(): found correct credentials in database')
         return True, userobject
 
