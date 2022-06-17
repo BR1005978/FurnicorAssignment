@@ -2,6 +2,8 @@ import sqlite3
 import os
 import csv
 
+from Functions.caesar import encrypt
+
 def initializeLogfile():
     ''' 
     function that creates the logfile if it does not exist yet on startup
@@ -12,7 +14,7 @@ def initializeLogfile():
     else:
         print("logfile does not exist")
         file = open('logfile.txt', 'w', encoding="utf-8")
-        file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
+        file.write(encrypt("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n"))
 
 def initializeSusfile():
     if os.path.exists('suslogs.txt'):
@@ -20,7 +22,8 @@ def initializeSusfile():
     else:
         print("[DEV] susfile does not yet exist. making susfile")
         file = open('susfile.txt', 'w', encoding="utf-8")
-        file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
+        file.write(encrypt("""Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n
+"""))
 
 
 def initializer():

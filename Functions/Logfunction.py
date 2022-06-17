@@ -5,8 +5,11 @@ import csv
 from Functions.InitializeFunction import initializeLogfile
 from Functions.caesar import decrypt, encrypt
 
+global susp
+global norm
 susp = 0
 norm = 0
+
 def LogData(username = 'no username entered', description = 'no description given', addinfo = '.', sus ='no'):
     '''
     the function that logs a happening in the log file
@@ -20,6 +23,7 @@ def LogData(username = 'no username entered', description = 'no description give
     columns: No.,Username,Date,Time,Description of Activity, Additional information, Suspicious
     '''
     initializeLogfile()
+    global norm
     amountOfLines = norm
 
 
@@ -32,10 +36,12 @@ def LogData(username = 'no username entered', description = 'no description give
         currentime = datetime.datetime.now()
         time = currentime.strftime('%H:%M:%S')
         appendfile.write(encrypt(f"""{amountOfLines}, {username}, {datetime.date.today()}, {time}, {description}, {addinfo}, {sus}
-        """))
+"""))
+    norm = amountOfLines + 1
 
 def logSuspicious(username = 'no username entered', description = 'no description given', addinfo = '.', sus ='No'):
     LogData(username, description,addinfo, "Yes")
+    global susp
     amountOfLines = susp
 
 
@@ -47,8 +53,8 @@ def logSuspicious(username = 'no username entered', description = 'no descriptio
         currentime = datetime.datetime.now()
         time = currentime.strftime('%H:%M:%S')
         appendfile.write(encrypt(f"""{amountOfLines}, {username}, {datetime.date.today()}, {time}, {description}, {addinfo}, {sus}
-        """+"""
-        """  ))
+"""))
+    susp = susp + 1
 
 def showSus():
     amountOfLines = len(open('susfile.txt', 'r', encoding="utf-8").readlines())
