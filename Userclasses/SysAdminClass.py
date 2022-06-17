@@ -1,6 +1,7 @@
 import sqlite3
 from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabaseUSER, updateEntry
 from Functions.backup import createBackup, restoreBackup
+from Functions.caesar import *
 from Userclasses.AdvisorClass import Advisor
 
 
@@ -38,7 +39,7 @@ class SysAdmin(Advisor):
         insertIntoDatabaseUSER('Advisors', username, newpassword, firstname, lastname)
         return
 
-    def modifyAdvisor(column, variable, username):
+    def modifyAdvisor(self, column, variable, username):
         '''modify or update an existing advisor's account and profile'''
 
         databaseConnection = sqlite3.connect('FurnicorDatabase.db')
@@ -47,8 +48,8 @@ class SysAdmin(Advisor):
         DBcursor.execute(f"""
             UPDATE Advisors
             SET {column} = :var
-            WHERE 'username' = :user
-            """, {'var': variable ,'user':username})
+            WHERE username = :user
+            """, {'var': encrypt(variable, s) ,'user': encrypt(username, s)})
 
         databaseConnection.commit()
         databaseConnection.close()
