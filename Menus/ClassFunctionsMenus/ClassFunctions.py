@@ -84,7 +84,6 @@ def classFunctionsMenu(user):
 
         if answer == "1":
             updateOwnPasswordMenu(user)
-            classFunctionsMenu(user)
     
         elif answer == "2":
             addMemberMenu(user)
@@ -99,28 +98,28 @@ def classFunctionsMenu(user):
         if isinstance(user, SysAdmin):
             if answer == "5":
                 queryUsersMenu(user)
-                input()
+
             
             elif answer == "6":
                 createNewAdvisorMenu(user)
             
             elif answer == "7": 
                 modifyAdvisorMenu(user)
-                input()
+
             
             elif answer == "8": 
                 deleteAdvisorMenu(user)
             
             elif answer == "9": 
                 resetAdvisorPassword(user)
-                input()
+
             
             elif answer == "10": 
                 backupSystemMenu(user)
             
             elif answer == "11": 
                 print("Show logs function not yet implemented ")
-                input()
+
             
             elif answer == "12": 
                 deleteMemberMenu(user)

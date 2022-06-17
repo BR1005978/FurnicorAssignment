@@ -56,5 +56,14 @@ def showSus():
             with open('susfile.txt', 'r') as readfile: 
                 lines = readfile.readlines()
                 print(lines)
+                print("These are the alerts.")
+                ans = input("Clear logs? Y / N")
+                if ans.lower() == "y":
+                    file = open('susfile.txt', 'w')
+                    file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
+                elif ans.lower() == "n":
+                    input("Ok. Not removing logs.")
+                else:
+                    input("Input not recognized. Aborting. You can view suspicious activity in the admin menu.")
         else:
-            print("Input not recognized. Aborting. You can view suspicious activity in the admin menu.")
+            input("Input not recognized. Aborting. You can view suspicious activity in the admin menu.")

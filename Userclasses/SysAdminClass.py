@@ -53,13 +53,13 @@ class SysAdmin(Advisor):
         databaseConnection.commit()
         databaseConnection.close()
     
-    def deleteAdvisor(username):
+    def deleteAdvisor(self, username):
         '''delete an existing advisor's account'''
 
         deleteEntry('Advisors', 'username', username)
         return
     
-    def resetAdvisorPassword(advisorUsername):
+    def resetAdvisorPassword(self, advisorUsername):
         '''
         reset an advisor's password.
         generates a random password and updates the advisor based on the inputted username in 

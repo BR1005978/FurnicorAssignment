@@ -38,8 +38,6 @@ def verifyCredentials(username, password):
                     """, {'username': encrypt(username, s), 'password': encryptedPassword})
 
     results = DBcursor.fetchone()
-    if results != None:
-        results = (decrypt(results[0], s), results[1])
 
     # if something was returned from the database, that must imply that
     # the credentials were correct. therefore, make an advisor with this username

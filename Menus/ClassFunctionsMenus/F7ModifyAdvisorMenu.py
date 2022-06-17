@@ -12,13 +12,19 @@ def modifyAdvisorMenu(user):
         columnName = ''
         print("""Select credential to modify...
 1. Username
-2. Password""")
+2. Password
+3. First name
+4. Last name""")
         choice = input("Type the number of an option and press enter : ")
         if choice == "1":
             columnName = "username"
             break
         elif choice == "2":
             columnName = "password"
+        elif choice == "3":
+            columnName = "firstname"
+        elif choice == "4":
+            columnName = "lastname"
         else:
             input("Input not recognized, please try again ...")
 
