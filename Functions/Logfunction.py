@@ -5,7 +5,8 @@ import csv
 from Functions.InitializeFunction import initializeLogfile
 from Functions.caesar import decrypt, encrypt
 
-
+susp = 0
+norm = 0
 def LogData(username = 'no username entered', description = 'no description given', addinfo = '.', sus ='no'):
     '''
     the function that logs a happening in the log file
@@ -19,7 +20,7 @@ def LogData(username = 'no username entered', description = 'no description give
     columns: No.,Username,Date,Time,Description of Activity, Additional information, Suspicious
     '''
     initializeLogfile()
-    amountOfLines = len(open('logfile.txt', 'r', encoding="utf-8").readlines())
+    amountOfLines = norm
 
 
 
@@ -30,12 +31,12 @@ def LogData(username = 'no username entered', description = 'no description give
 
         currentime = datetime.datetime.now()
         time = currentime.strftime('%H:%M:%S')
-        appendfile.write(encrypt(f"""{username}, {datetime.date.today()}, {time}, {description}, {addinfo}, {sus}
+        appendfile.write(encrypt(f"""{amountOfLines}, {username}, {datetime.date.today()}, {time}, {description}, {addinfo}, {sus}
         """))
 
 def logSuspicious(username = 'no username entered', description = 'no description given', addinfo = '.', sus ='No'):
     LogData(username, description,addinfo, "Yes")
-    amountOfLines = len(open('susfile.txt', encoding="utf-8").readlines())
+    amountOfLines = susp
 
 
 
@@ -59,6 +60,8 @@ def showSus():
             with open('susfile.txt', 'r', encoding="utf-8") as readfile: 
                 lines = readfile.readlines()
                 for line in lines:
+                    global susp
+                    susp = susp + 1
                     print(decrypt(line))
                 print("These are the alerts.")
                 ans = input("Clear logs? Y / N")
@@ -76,4 +79,6 @@ def showLogs():
     with open("logfile.txt" , 'r', encoding="utf-8") as file: 
         lines = file.readlines()
         for line in lines:
+            global norm
+            norm = norm + 1
             print(decrypt(line))
