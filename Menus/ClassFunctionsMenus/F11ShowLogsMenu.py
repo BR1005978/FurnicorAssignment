@@ -1,12 +1,14 @@
+import os
 from Functions.Logfunction import showLogs, showSus
 
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
 
 def showLogsMenu(user):
     ''' 
     the interactive menu for SysAdmin.showLogs
     '''
     while True:
-        answer = input("""Show normal logs or show alerts (suspicious) logs?: 
+        answer = input("""\nShow normal logs or show alerts (suspicious) logs?: 
     1. Normal logs
     2. Suspicious logs
     0. Go back
@@ -14,8 +16,10 @@ def showLogsMenu(user):
 
 
         if answer == "1":
+            clearConsole()
             showLogs()
         elif answer == "2":
+            clearConsole()
             showSus()
         elif answer == "0":
             return
