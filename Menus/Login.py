@@ -89,9 +89,9 @@ def verifyCredentials(username, password):
     elif results == tuple(): 
         print('verifyCredentials(): returned an empty tuple, how did this happen?')
         return False, None 
-    else:
-        print("verifyCredentials(): something really weird happened.")
-        return False, None
+    # else:
+    #     print("verifyCredentials(): something really weird happened.")
+    #     return False, None
 
 
 def loginScreen():
@@ -104,9 +104,9 @@ def loginScreen():
 
 
     '''
-    # returnt deze functie een username? voor het definiëren van de huidige gebruiker?
+
     while True:
-        print("loginScreen()")
+        print("[DEV]loginScreen()")
 
         username = input("Username: ")
         password = input("Password: ")
@@ -115,10 +115,10 @@ def loginScreen():
 
 
         if verificationResults[0]:
-            print("loginScreen() returning the username: ", username)
+            print("[DEV]loginScreen() returning the username: ", username)
             #print("attempting to print the object: ", verificationResults[1])
             return verificationResults[1]
         else:
-            cont = input("credentials not found. press enter to try again, or type q to cancel ... ")
+            cont = input("Credentials not found. Press enter to try again, or type q to cancel ... ")
             if cont.lower() == "q":
                 return None

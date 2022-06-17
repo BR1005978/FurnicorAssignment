@@ -14,6 +14,13 @@ def initializeLogfile():
         file = open('logfile.txt', 'w')
         file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
 
+def initializeSusfile():
+    if os.path.exists('suslogs.txt'):
+        print("[DEV] susfile exists")
+    else:
+        print("[DEV] susfile does not yet exist. making susfile")
+        file = open('susfile.txt', 'w')
+        file.write("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n")
 
 
 def initializer():
@@ -23,6 +30,7 @@ def initializer():
     so the functions that get executed on the first time starting up this program
     '''
     initializeLogfile()
+    initializeSusfile()
 
     if os.path.exists('FurnicorDatabase.db'):
         print('[DEV] database exists')

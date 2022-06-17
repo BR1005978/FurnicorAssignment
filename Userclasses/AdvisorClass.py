@@ -62,7 +62,7 @@ class Advisor:
         databaseConnection.close()
 
     
-    def queryMembers(self,column, variable):
+    def queryMembers(self, column, variable):
         '''search and retrieve the information of a member. provide a column to specify on what information to look (firstname, lastname, phone number, home address, email address, user ID), then provide the variable'''
         databaseConnection = sqlite3.connect('FurnicorDatabase.db')
         DBcursor = databaseConnection.cursor()
@@ -85,13 +85,13 @@ class Advisor:
         # yo patrick ik krijg deze shit niet aan de praat, man. dat met col en val en die dubbele puntjes idk hoe het werkt
         # maar als ik het op een andere manier doe (zie boven)  dan werkt het wel 
 
-        # DBcursor.execute(f"""
+        DBcursor.execute(f"""
             
-        #     SELECT *
-        #     FROM Members
-        #     WHERE :col LIKE :val COLLATE NOCASE
+            SELECT *
+            FROM Members
+            WHERE :col LIKE :val COLLATE NOCASE
             
-        #     """, {'col': column, 'val': '%'+encrypt(variable)+'%'})
+            """, {'col': column, 'val': '%'+encrypt(variable)+'%'})
 
         queryresult = DBcursor.fetchall()
 

@@ -8,7 +8,7 @@ def addAdminMenu(user):
     
     print("[DEV] addNewAdminMenu()")
 
-    firstname = input("Enter the first name of the new advisor: ")
+    firstname = input("Enter the first name of the new admin: ")
     lastname = input("Enter the last name of the new admin: ")
     username = input("Enter the username of the new admin: ")
     if usernameCheck(username) == ValueError:
@@ -28,7 +28,7 @@ def addAdminMenu(user):
                 pwcheck = passwordCheck(pw1)
                 if pwcheck == True:
                     #add new Admin to database
-                    user.newAdmin(username, pw1, firstname, lastname)
+                    user.addAdmin(firstname, lastname, username, pw1)
                     break
                 else:
                     print(pwcheck)
