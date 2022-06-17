@@ -67,8 +67,8 @@ def queryDatabase3args(table, key, variable):
     DBcursor.execute(f"""
         SELECT *
         FROM {table}
-        WHERE {key} = ?
-    """, (encrypt(variable),))
+        WHERE {key} LIKE ?
+    """, ('%'+encrypt(variable)+'%',))
 
     results = DBcursor.fetchall()
     databaseConnection.commit()
