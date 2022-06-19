@@ -77,7 +77,7 @@ class Advisor:
         SELECT *
         FROM Members
         WHERE {column} LIKE ? COLLATE NOCASE
-        """, ("%"+encrypt(variable)+"%","%"+encrypt(variable.lower())+"%")
+        """, ("%"+encrypt(variable)+"%","%"+encrypt(variable.lower())+"%", "%"+encrypt(variable.title())+"%")
         )
 
  

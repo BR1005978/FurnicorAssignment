@@ -5,7 +5,6 @@ from Menus.Info.InfoScreen import displayInfo
 from Userclasses.AdvisorClass import Advisor
 from Userclasses.SuperAdminClass import SuperAdmin
 from Userclasses.SysAdminClass import SysAdmin
-from deprecated.SQLite import SQLite3fiddle
 
 def homeScreenNoUser():
         '''
