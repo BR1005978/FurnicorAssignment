@@ -68,7 +68,15 @@ def queryDatabase3args(table, key, variable):
         SELECT *
         FROM {table}
         WHERE {key} LIKE ?
-    """, ('%'+encrypt(variable)+'%',))
+        UNION
+        SELECT * 
+        FROM {table}
+        WHERE {key} LIKE ?
+        UNION 
+        SELECT * 
+        FROM {table}
+        WHERE {key} LIKE ?
+    """, ('%'+encrypt(variable)+'%', '%'+encrypt(variable.lower())+'%','%'+encrypt(variable.title())+'%'))
 
     results = DBcursor.fetchall()
     databaseConnection.commit()

@@ -43,9 +43,6 @@ def queryMembersMenu(user):
 
     searchData = input("Enter data to look for: ")
 
-
-    #TODO: hier gaat het mis. serachData.lower() werkt niet
-    #want door de encryption klopt de searchdata niet meer
     searchResults = user.queryMembers(columnName, searchData)
     print("Fetching results ...")
     print("[DEV] found this: ", searchResults)

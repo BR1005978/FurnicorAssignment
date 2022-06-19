@@ -76,21 +76,21 @@ def verifyCredentials(username, password):
     # and if that didn't find any credentials, well, then the credentials
     # most likely do not exist.  
     if results == None: 
-        print("verifyCredentials(): verifying credentials resulted in a nonetype. the credentials were probably incorrect")
+        print("Verifying credentials resulted in a nonetype. the credentials were probably incorrect")
         return False, None
 
     # if the credentials WERE correct ...
     elif results[0] == encrypt(username) and results[1] == encryptedPassword:
-        print('verifyCredentials(): found correct credentials in database')
+        print('Found correct credentials in database')
         return True, userobject
 
     # error handling for extremely weird errors which are likely not happening
     elif results == tuple(): 
-        print('verifyCredentials(): returned an empty tuple, how did this happen?')
+        print('Verifying credentials returned an empty tuple, how did this happen?')
         return False, None 
-    # else:
-    #     print("verifyCredentials(): something really weird happened.")
-    #     return False, None
+    else:
+        print("verifyCredentials(): something really weird happened.")
+        return False, None
 
 
 def loginScreen():
@@ -114,7 +114,7 @@ def loginScreen():
 
 
         if verificationResults[0]:
-            print("[DEV]loginScreen() returning the username: ", username)
+
             #print("attempting to print the object: ", verificationResults[1])
             return verificationResults[1]
         else:

@@ -1,12 +1,27 @@
 import os
 import sqlite3
+from Functions.DatabaseFunctions import queryDatabase3args
 
 from Functions.Logfunction import LogData, logSuspicious
+from Functions.caesar import decrypt, encrypt
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def modifyMemberMenu(user):
     print("[DEV]modifyMemberMenu()")
+
+    searchResults= queryDatabase3args('Members', 'firstname', '')
+    for item in searchResults:
+            print(f"""
+Membership ID: {decrypt(item[0])}
+First name: {decrypt(item[1])} 
+Last name: {decrypt(item[2])}
+Address: {decrypt(item[3])}
+E-mail: {decrypt(item[4])}
+Phone number: {decrypt(item[5])}
+Registration date: {decrypt(item[6])}
+            """)
+
     membershipID = input("Enter the membership ID of the member which you want to modify (use the search function (4) to find the membership ID) or type 'q' to cancel: ")
     
     if membershipID.lower() == 'q':
@@ -15,7 +30,7 @@ def modifyMemberMenu(user):
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
 
-    DBcursor.execute("SELECT * FROM Members WHERE membershipID=:memberId", {'memberId': membershipID})
+    DBcursor.execute("SELECT * FROM Members WHERE membershipID=:memberId", {'memberId': encrypt(membershipID)})
 
     idFound = DBcursor.fetchall()
     if idFound:
@@ -59,5 +74,5 @@ def modifyMemberMenu(user):
             logSuspicious(user.username, "Modify member had a weird error")
             input()
     else:
-        clearConsole()
-        print("MemberId not found")
+
+        input("MemberId not found")

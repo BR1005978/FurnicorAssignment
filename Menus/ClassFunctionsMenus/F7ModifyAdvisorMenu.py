@@ -4,7 +4,7 @@ from Functions.Logfunction import LogData, logSuspicious
 
 from Functions.caesar import *
 
-clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
 
 def modifyAdvisorMenu(user):
     '''
@@ -28,20 +28,19 @@ def modifyAdvisorMenu(user):
             columnName = ''
             print("""Select credential to modify...
     1. Username
-    2. Password
-    3. First name
-    4. Last name""")
+    2. First name
+    3. Last name""")
             choice = input("Type the number of an option and press enter : ")
             if choice == "1":
                 columnName = "username"
                 break
+            # elif choice == "2":
+            #     columnName = "password"
+            #     break
             elif choice == "2":
-                columnName = "password"
-                break
-            elif choice == "3":
                 columnName = "firstname"
                 break
-            elif choice == "4":
+            elif choice == "3":
                 columnName = "lastname"
                 break
             else:
@@ -52,12 +51,12 @@ def modifyAdvisorMenu(user):
         try:
             print("Attempting to modify...")
             user.modifyAdvisor(columnName,variable, username)
-            LogData(user.username, "User added new advisor to database", username)
+            LogData(user.username, "User modified advisor", username)
             input("Modification probably succeeded. Press 'enter' to continue ... ")
         except:
             print("ERROR CODE MA3: Something went wrong... Please try again.")
             logSuspicious(user.username, "Error code MA3, modification of advisor went wrong for some reason")
             input()
     else:
-        clearConsole()
+
         print("MemberId not found")
