@@ -1,4 +1,3 @@
-import os
 import zipfile
 
 list_files = ['FurnicorDatabase.db', 'logfile.txt']
