@@ -35,8 +35,6 @@ def homeScreenWithUser(user):
 
     2. Display program info
 
-    8. Print authorization credentials
-
     9. Log out
 
     0. Shut down program
@@ -63,10 +61,6 @@ def homeScreenWithUser(user):
         
         elif answer =="2":
             displayInfo()
-
-        elif answer == "8":
-            print(type(user))
-            input()
 
         elif answer =="9":
             logoutanswer = "" 

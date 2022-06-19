@@ -6,7 +6,7 @@ from Functions.caesar import decrypt, encrypt
 
 
 def queryUsersMenu(user):
-    print("[DEV] queryUsersMenu()")
+
     value = input("Enter username to look for, or leave blank to search all: ")
 
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')

@@ -14,10 +14,9 @@ def createNewAdvisorMenu(user):
     firstname = input("Enter the first name of the new advisor: ")
     lastname = input("Enter the last name of the new advisor: ")
     username = input("Enter the username of the new advisor: ")
-    if usernameCheck(username) == ValueError:
-        print(usernameCheck(username))
+    if not usernameCheck(username):
         return
-
+        
 
     else:
         i = 0

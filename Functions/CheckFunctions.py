@@ -77,25 +77,30 @@ def usernameCheck(username):
 
     # if the username is not a string for some reason
     if not (isinstance(username, str)):
-        return ValueError("Error: Something very weird just happened. How did you manage to not make the username a string?")
+        print("Error: Something very weird just happened. How did you manage to not make the username a string?")
+        return False 
 
 
     usernameAllowedsymbols = ["_", "\'", "."]
 
     # checking for length and first character
     if len(username) < 6:
-        return ValueError("Error: username must have at least 6 characters")
+        print("Error: username must have at least 6 characters")
+        return False
     if len(username) > 10: 
-        return ValueError("Error: username cannot be longer than 10 characters")
+        print("Error: username cannot be longer than 10 characters")
+        return False
     if (username[0].lower() not in letterlist):
-        return ValueError("Error: first character of username must be a letter")
+        print("Error: first character of username must be a letter")
+        return False
     
     # typechecking for invalid characters
     for i in range(len(username)):
         if username[i].lower() not in [*letterlist, *numbers, *usernameAllowedsymbols]:
-            return ValueError(f"Error: '{username[i]}' is not allowed in usernames")
+            print(f"Error: '{username[i]}' is not allowed in usernames")
+            return False
     
-    # check to see if it already exists. if it does, then raise a ValueError
+    # check to see if it already exists. if it does, then raise a print
 
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
@@ -111,7 +116,8 @@ def usernameCheck(username):
     queryresults = DBcursor.fetchall()
 
     if (f'{username.lower()}',) in queryresults:
-        return ValueError("This username already exists. Please pick a different one.")
+        print("This username already exists. Please pick a different one.")
+        return False 
 
     
     return True

@@ -11,8 +11,8 @@ def addAdminMenu(user):
     firstname = input("Enter the first name of the new admin: ")
     lastname = input("Enter the last name of the new admin: ")
     username = input("Enter the username of the new admin: ")
-    if usernameCheck(username) == ValueError:
-        print(usernameCheck(username))
+    if not usernameCheck(username):
+
         logSuspicious(user.username, "attempted creation of admin failed with username", username)
         return
     else:

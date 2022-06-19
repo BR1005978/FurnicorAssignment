@@ -44,7 +44,6 @@ def initializer():
 
         #create SysAdmins table
 
-        print('[DEV] initializer()')
 
         print("attempting SysAdmins table creation ...")
 
