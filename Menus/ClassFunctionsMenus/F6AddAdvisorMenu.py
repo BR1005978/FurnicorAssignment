@@ -45,4 +45,4 @@ def createNewAdvisorMenu(user):
                     if answer.lower() == "q":
                         break
 
-        logSuspicious(user.username, "User attempted to add advisor but failed passwordcheck multiple times" )
+            logSuspicious(user.username, "User attempted to add advisor but failed passwordcheck multiple times" )

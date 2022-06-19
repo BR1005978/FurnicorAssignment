@@ -18,7 +18,7 @@ def queryUsersMenu(user):
     # queryDatabase3args('')
     if value == '':
         DBcursor.execute(f"""
-            SELECT username 
+            SELECT * 
             FROM Advisors
             """)
         # print("advisor results: ", DBcursor.fetchall())
@@ -26,19 +26,31 @@ def queryUsersMenu(user):
         results = DBcursor.fetchall()
 
         for item in results:
-            resultsFormatted += f"{decrypt(item[0])}, Advisor\n"
-
+            resultsFormatted += f"""
+    Username  :{decrypt(item[0])}, 
+    User type : Advisor
+    First name: {decrypt(item[2])}
+    Last name : {decrypt(item[3])}
+    Registration date: {decrypt(item[4])}
+    """
         DBcursor.execute(f"""
-            SELECT username
+            SELECT *
             FROM SysAdmins
             """)
         # print("SysAdmin results: ", DBcursor.fetchall())
         results = DBcursor.fetchall()
 
         for item in results:
-            resultsFormatted += f"{decrypt(item[0])}, SysAdmin\n"
+            resultsFormatted += f"""
+    Username  : {decrypt(item[0])} 
+    User type : SysAdmin
+    First name: {decrypt(item[2])}
+    Last name : {decrypt(item[3])}
+    Registration date: {decrypt(item[4])}
+    """
         LogData(user.username, "Queried the database for all users" )
         print(resultsFormatted)
+        input()
 
     else:
         # queryDatabase3args('')
@@ -52,8 +64,13 @@ def queryUsersMenu(user):
         results = queryDatabase3args('Advisors', 'username', value)
 
         for item in results:
-            resultsFormatted += f"{decrypt(item[0])}, Advisor\n"
-
+            resultsFormatted += f"""
+    Username  :{decrypt(item[0])}, 
+    User type : Advisor
+    First name: {decrypt(item[2])}
+    Last name : {decrypt(item[3])}
+    Registration date: {decrypt(item[4])}
+    """
         # DBcursor.execute(f"""
         # SELECT username
         # FROM SysAdmins
@@ -64,11 +81,16 @@ def queryUsersMenu(user):
 
 
         for item in results:
-            resultsFormatted += f"{decrypt(item[0])}, SysAdmin\n"
-
+            resultsFormatted += f"""
+    Username  : {decrypt(item[0])} 
+    User type : SysAdmin
+    First name: {decrypt(item[2])}
+    Last name : {decrypt(item[3])}
+    Registration date: {decrypt(item[4])}
+    """
         LogData(user.username, "Queried the database for users")
         print('Found the following results: \n' + resultsFormatted)    
-
+        input()
 
     databaseConnection.commit()
     databaseConnection.close()
