@@ -5,7 +5,7 @@ from Functions.caesar import decrypt
 
 
 def queryMembersMenu(user):
-    print("[DEV]queryMemberMenu()")
+
     while True:
         columnName = ''
         print("""Search by...
@@ -45,7 +45,7 @@ def queryMembersMenu(user):
 
     searchResults = user.queryMembers(columnName, searchData)
     print("Fetching results ...")
-    print("[DEV] found this: ", searchResults)
+
     if not (searchResults):
         print("Nothing found")
         LogData(user.username, "Attempted to find members, found nothing", sus="no" )

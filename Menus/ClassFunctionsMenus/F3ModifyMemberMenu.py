@@ -8,7 +8,7 @@ from Functions.caesar import decrypt, encrypt
 
 
 def modifyMemberMenu(user):
-    print("[DEV]modifyMemberMenu()")
+
 
     searchResults= queryDatabase3args('Members', 'firstname', '')
     for item in searchResults:

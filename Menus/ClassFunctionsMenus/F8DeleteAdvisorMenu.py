@@ -8,7 +8,7 @@ def deleteAdvisorMenu(user):
 
     
     '''
-    print("[DEV] deleteAdvisorMenu()")
+
     
     username = input("Type the username of the advisor you wish to delete : ")
     user.deleteAdvisor(username)

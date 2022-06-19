@@ -72,9 +72,7 @@ def classFunctionsMenu(user):
 
     15. Delete admin
 
-    16. Reset admin password
-    
-    17. Create dummy data""")
+    16. Reset admin password""")
         ####################
 
 
@@ -125,7 +123,7 @@ def classFunctionsMenu(user):
             elif answer == "12": 
                 deleteMemberMenu(user)
             elif answer != "0" and type(user) != SuperAdmin:
-                print("(sysadmin) input not recognized")
+                print("...")
                 input()
 
         
@@ -144,11 +142,8 @@ def classFunctionsMenu(user):
             elif answer == "16":
                 resetAdminPasswordMenu(user)
 
-            elif answer == "17":
-                createDummyData()
-
             elif answer != "0":
-                print("(superadmin) input not recognized")
+                print("...")
                 input()
 
 

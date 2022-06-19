@@ -10,17 +10,17 @@ def initializeLogfile():
     '''
 
     if os.path.exists('logfile.txt'):
-        print("[DEV] logfile exists")
+        print("Logfile found ...")
     else:
-        print("logfile does not exist")
+        print("Logfile does not yet exis, making logfile")
         file = open('logfile.txt', 'w', encoding="utf-8")
         file.write(encrypt("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n"))
 
 def initializeSusfile():
     if os.path.exists('suslogs.txt'):
-        print("[DEV] susfile exists")
+        print("Alertfile found ...")
     else:
-        print("[DEV] susfile does not yet exist. making susfile")
+        print("Alertfile does not yet exist. making susfile")
         file = open('susfile.txt', 'w', encoding="utf-8")
         file.write(encrypt("""Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n
 """))
@@ -36,9 +36,9 @@ def initializer():
     initializeSusfile()
 
     if os.path.exists('FurnicorDatabase.db'):
-        print('[DEV] database exists')
+        print('Database file found')
     else:
-        print('[DEV] database does not yet exist, creating now ...')
+        print('Database does not yet exist, creating now ...')
         databaseConnection = sqlite3.connect('FurnicorDatabase.db')
         DBcursor = databaseConnection.cursor()
 

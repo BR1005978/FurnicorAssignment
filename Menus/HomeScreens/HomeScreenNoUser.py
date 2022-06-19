@@ -21,16 +21,6 @@ def homeScreenNoUser():
 
     2. Display program info
 
-    7. [DEV] Quick login as Advisor (advisorAccount1)
-
-    8. [DEV] Quick login as SysAdmin (sysadmin123)
-
-    9. [DEV] Quick login as Super Admin(superadmin, Admin321!)
-
-    a. [DEV] run SQLite.py
-
-    b. [DEV] create dummy data
-
     0. Shut down program
             """)
 
@@ -40,17 +30,6 @@ def homeScreenNoUser():
             return loginScreen()
         elif answer =="2":
             displayInfo()
-        elif answer == "7":
-            return Advisor("advisorAccount1")
-        elif answer =="8":
-            return SysAdmin('sysadmin123')
-        elif answer =="9":
-            return SuperAdmin()
-        elif answer.lower() == "a":
-            SQLite3fiddle()
-        elif answer.lower() == "b":
-            initializer()
-            createDummyData()
         elif answer =="0":
             exit()
         else:

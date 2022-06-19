@@ -47,8 +47,7 @@ def verifyCredentials(username, password):
         try:
             userobject = Advisor(username)
         except: 
-            print("[DEV] creating advisor failed")
-
+            pass
     # if that didn't work, try to find the credentials in the 
     # SysAdmins table ...
     if results == None:
@@ -63,7 +62,7 @@ def verifyCredentials(username, password):
         try:
             userobject = SysAdmin(username)
         except: 
-            print("[DEV] creating sysadmin failed")
+            pass
 
     # if THAT also didn't work, we should check if the user attempted to login as superadmin,
     # which has some hardcoded credentials
@@ -105,7 +104,7 @@ def loginScreen():
     '''
     i = 0
     while i < 3:
-        print("[DEV]loginScreen()")
+
 
         username = input("Username: ")
         password = input("Password: ")

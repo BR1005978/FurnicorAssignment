@@ -35,7 +35,7 @@ def homeScreenWithUser(user):
 
     2. Display program info
 
-    8. [DEV] print own type
+    8. Print authorization credentials
 
     9. Log out
 

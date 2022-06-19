@@ -1,4 +1,6 @@
+import sqlite3
 from Functions.DatabaseFunctions import deleteEntry, insertIntoDatabaseUSER, updateEntry
+from Functions.caesar import encrypt
 from Userclasses.SysAdminClass import SysAdmin
 
 
@@ -46,9 +48,19 @@ class SuperAdmin(SysAdmin):
         '''add a new admin to the system'''
         insertIntoDatabaseUSER('SysAdmins',username, password,firstname,lastname)
 
-    def modifyAdmin(self, column, newValue, adminusername):
+    def modifyAdmin(self, column, variable, username):
         '''modify or update an existing admin's account and profile'''
-        updateEntry('SysAdmins', column, newValue, 'username', adminusername)
+        databaseConnection = sqlite3.connect('FurnicorDatabase.db')
+        DBcursor = databaseConnection.cursor()
+
+        DBcursor.execute(f"""
+            UPDATE SysAdmins
+            SET {column} = :var
+            WHERE username = :user
+            """, {'var': encrypt(variable) ,'user': encrypt(username)})
+
+        databaseConnection.commit()
+        databaseConnection.close()
     
     def deleteAdmin(self, username):
         '''delete an existing admin's account'''

@@ -15,7 +15,6 @@ def updateOwnPasswordMenu(user):
     to do: also adjust new password in database
     '''
 
-    print("[DEV]updateOwnPassword()")
 
     if type(user) == SuperAdmin:
         print("ERROR: cannot change SuperAdmin's password. The teachers would become angry... ")
