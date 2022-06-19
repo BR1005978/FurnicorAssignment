@@ -1,10 +1,13 @@
 import os
+import zipfile
+
+list_files = ['FurnicorDatabase.db', 'logfile.txt']
 
 def createBackup():
-    os.system('copy FurnicorDatabase.db backup.db')
-    os.system('copy logfile.txt backup.txt')
+    with zipfile.ZipFile('backup.zip', 'w') as zipF:
+        for file in list_files:
+            zipF.write(file, compress_type=zipfile.ZIP_DEFLATED)
 
 def restoreBackup():
-    os.system('copy backup.db FurnicorDatabase.db')
-    os.system('copy backup.txt logfile.txt')
-
+    with zipfile.ZipFile('backup.zip', 'r') as zipF:
+        zipF.extractall()
