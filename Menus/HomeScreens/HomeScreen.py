@@ -42,7 +42,7 @@ def homeScreen():
  / __/  / /_/ // /   / / / // // /__ / /_/ // /    
 /_/     \__,_//_/   /_/ /_//_/ \___/ \____//_/     
 """)
-            print("Welcome to Furnicor Family System v1.0")
+            print("Welcome to Furnicor Family System v0.3")
             currentUser = homeScreenNoUser()
         print("Succesfully logged in as : ", currentUser)
 

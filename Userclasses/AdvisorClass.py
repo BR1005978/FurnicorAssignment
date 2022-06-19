@@ -77,11 +77,7 @@ class Advisor:
         SELECT *
         FROM Members
         WHERE {column} LIKE ? COLLATE NOCASE
-        UNION
-        SELECT *
-        FROM Members
-        WHERE {column} LIKE ? COLLATE NOCASE
-        """, ("%"+encrypt(variable)+"%","%"+encrypt(variable.lower())+"%", "%"+encrypt(variable.title())+"%")
+        """, ("%"+encrypt(variable)+"%","%"+encrypt(variable.lower())+"%")
         )
 
  
@@ -90,13 +86,13 @@ class Advisor:
         # yo patrick ik krijg deze shit niet aan de praat, man. dat met col en val en die dubbele puntjes idk hoe het werkt
         # maar als ik het op een andere manier doe (zie boven)  dan werkt het wel 
 
-        # DBcursor.execute(f"""
+        DBcursor.execute(f"""
             
-        #     SELECT *
-        #     FROM Members
-        #     WHERE :col LIKE :val COLLATE NOCASE
+            SELECT *
+            FROM Members
+            WHERE :col LIKE :val COLLATE NOCASE
             
-        #     """, {'col': column, 'val': '%'+encrypt(variable)+'%'})
+            """, {'col': column, 'val': '%'+encrypt(variable)+'%'})
 
         queryresult = DBcursor.fetchall()
 

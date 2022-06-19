@@ -2,7 +2,7 @@ import os
 import sqlite3
 from Functions.Logfunction import LogData, logSuspicious
 
-from Functions.caesar import *
+
 
 
 
@@ -15,7 +15,6 @@ def modifyAdvisorMenu(user):
     ###TODO: check if this username exists. 
 
 
-    print("[DEV]modifyAdvisorMenu()")
 
     databaseConnection = sqlite3.connect('FurnicorDatabase.db')
     DBcursor = databaseConnection.cursor()
@@ -59,4 +58,4 @@ def modifyAdvisorMenu(user):
             input()
     else:
 
-        print("MemberId not found")
+        input("MemberId not found")

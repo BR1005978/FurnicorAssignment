@@ -43,8 +43,13 @@ def logSuspicious(username = 'no username entered', description = 'no descriptio
     LogData(username, description,addinfo, "Yes")
     global susp
     amountOfLines = susp
+
+
+
     # append to susfile
     with open('susfile.txt', 'a+', encoding="utf-8") as appendfile:
+
+
         currentime = datetime.datetime.now()
         time = currentime.strftime('%H:%M:%S')
         appendfile.write(encrypt(f"""{amountOfLines}, {username}, {datetime.date.today()}, {time}, {description}, {addinfo}, {sus}
@@ -52,14 +57,9 @@ def logSuspicious(username = 'no username entered', description = 'no descriptio
     susp = susp + 1
 
 def showSus():
-    # amountOfLines = len(open('susfile.txt', 'r', encoding="utf-8").readlines())
+    amountOfLines = len(open('susfile.txt', 'r', encoding="utf-8").readlines())
 
-    # check to see if the file is longer than only the columns
-    with open('susfile.txt', 'r', encoding="utf-8") as readfile: 
-        filelength = len(readfile.read())
-
-
-    if filelength > 81:
+    if amountOfLines > 1:
         print("Admin, there is suspicious activity that requires your attention: ")
         answer = input("Would you like to see suspicious activity? Y/N ")
         if answer.lower() == "y":
@@ -69,33 +69,17 @@ def showSus():
                     global susp
                     susp = susp + 1
                     print(decrypt(line))
-                '''
-            with open("logfile.txt" , 'r', encoding="utf-8") as file: 
-                lines = file.readlines()
-                for line in lines:
-                    global norm
-                    norm = norm + 1
-                    print(decrypt(line))
-                            print("[DEV] susfile does not yet exist. making susfile")
-        file = open('susfile.txt', 'w', encoding="utf-8")
-        file.write(encrypt("""Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n
-"""))
-
-                '''
                 print("These are the alerts.")
-                ans = input("Clear logs? Y / N: ")
+                ans = input("Clear logs? Y / N")
                 if ans.lower() == "y":
                     file = open('susfile.txt', 'w', encoding="utf-8")
-                    file.write(encrypt("""Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious
-"""))
+                    file.write(encrypt("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious"))
                 elif ans.lower() == "n":
                     input("Ok. Not removing logs.")
                 else:
                     input("Input not recognized. Aborting. You can view suspicious activity in the admin menu.")
-        elif answer.lower() == "n":
-            input("Ok. You can view suspicious activity in the admin > 11. show the logs  menu ")
         else:
-            input("Input not recognized. Aborting. You can view suspicious activity in the admin > 11. show the logs  menu ")
+            input("Input not recognized. Aborting. You can view suspicious activity in the admin menu.")
 
 def showLogs():
     with open("logfile.txt" , 'r', encoding="utf-8") as file: 

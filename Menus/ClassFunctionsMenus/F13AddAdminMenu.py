@@ -6,8 +6,7 @@ def addAdminMenu(user):
     '''
     the interactive menu for SuperAdmin.addAdmin()
     '''
-    
-    print("[DEV] addNewAdminMenu()")
+
 
     firstname = input("Enter the first name of the new admin: ")
     lastname = input("Enter the last name of the new admin: ")

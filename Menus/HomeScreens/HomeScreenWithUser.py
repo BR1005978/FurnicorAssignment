@@ -35,6 +35,8 @@ def homeScreenWithUser(user):
 
     2. Display program info
 
+    8. Print authorization credentials
+
     9. Log out
 
     0. Shut down program

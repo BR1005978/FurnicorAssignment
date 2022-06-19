@@ -10,7 +10,7 @@ def createNewAdvisorMenu(user):
     TODO: add input validation and security
     '''
 
-    print("[DEV] createNewAdvisorMenu()")
+
     firstname = input("Enter the first name of the new advisor: ")
     lastname = input("Enter the last name of the new advisor: ")
     username = input("Enter the username of the new advisor: ")
