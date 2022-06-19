@@ -46,9 +46,9 @@ class SuperAdmin(SysAdmin):
         '''add a new admin to the system'''
         insertIntoDatabaseUSER('SysAdmins',username, password,firstname,lastname)
 
-    def modifyAdmin(self, column, newValue):
+    def modifyAdmin(self, column, newValue, adminusername):
         '''modify or update an existing admin's account and profile'''
-        updateEntry('SysAdmins', column, newValue)
+        updateEntry('SysAdmins', column, newValue, 'username', adminusername)
     
     def deleteAdmin(self, username):
         '''delete an existing admin's account'''

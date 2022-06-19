@@ -12,28 +12,30 @@ def modifyAdminMenu(user):
         columnName = ''
         print("""Select credential to modify...
 1. Username
-2. Password
-3. First name
-4. Last name""")
+2. First name
+3. Last name""")
         choice = input("Type the number of an option and press enter : ")
         if choice == "1":
             columnName = "username"
             break
+        # elif choice == "2":
+        #     columnName = "password"
+        #     break
         elif choice == "2":
-            columnName = "password"
-        elif choice == "3":
             columnName = "firstname"
-        elif choice == "4":
+            break
+        elif choice == "3":
             columnName = "lastname"
+            break
         else:
             input("Input not recognized, please try again ...")
 
     variable = input("Change to: ")
 
-    try:
-        print("Attempting to modify...")
-        user.modifyAdmin(columnName,variable, username)
-        input("Modification probably succeeded. Press 'enter' to continue ... ")
-    except:
-        print("ERROR CODE MA3: Something went wrong... Please try again.")
-        input()
+    # try:
+    print("Attempting to modify...")
+    user.modifyAdmin(columnName, variable, username)
+    input("Modification probably succeeded. Press 'enter' to continue ... ")
+    # except:
+    #     print("ERROR CODE MA3: Something went wrong... Please try again.")
+    #     input()
