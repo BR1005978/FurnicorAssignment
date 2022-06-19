@@ -29,7 +29,7 @@ import sqlite3
 
 from Functions.DatabaseFunctions import queryDatabase3args, wipeDatabase
 from Functions.InitializeFunction import initializer
-from Functions.caesar import decrypt, encrypt
+from Functions.caesar import encrypt
 from Functions.createDummyData import createDummyData
 
 # from Functions.Auxfunctions import generateUserID
@@ -37,7 +37,6 @@ from Functions.createDummyData import createDummyData
 
 def SQLite3fiddle():
 
-    with open('susfile.txt', 'r', encoding="utf-8") as readfile: 
-        print(len(readfile.read()))
+    print(queryDatabase3args('Members', 'membershipID', '2270762309'))
 
-    input()
+    input("press enter to continue")

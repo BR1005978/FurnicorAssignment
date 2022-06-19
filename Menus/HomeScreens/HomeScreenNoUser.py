@@ -21,6 +21,16 @@ def homeScreenNoUser():
 
     2. Display program info
 
+    7. [DEV] Quick login as Advisor (advisorAccount1)
+
+    8. [DEV] Quick login as SysAdmin (sysadmin123)
+
+    9. [DEV] Quick login as Super Admin(superadmin, Admin321!)
+
+    a. [DEV] run SQLite.py
+
+    b. [DEV] create dummy data
+
     0. Shut down program
             """)
 

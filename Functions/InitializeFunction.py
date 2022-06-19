@@ -17,7 +17,7 @@ def initializeLogfile():
         file.write(encrypt("Nr,Username,Date,Time,Description of Activity,Additional information,Suspicious\n"))
 
 def initializeSusfile():
-    if os.path.exists('susfile.txt'):
+    if os.path.exists('suslogs.txt'):
         print("[DEV] susfile exists")
     else:
         print("[DEV] susfile does not yet exist. making susfile")
